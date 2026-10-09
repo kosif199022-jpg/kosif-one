@@ -1,0 +1,9 @@
+__pycache__/
+*.pyc
+.state/
+node_modules/
+*.sqlite
+.env
+
+# wrangler local build/dev output
+.wrangler/

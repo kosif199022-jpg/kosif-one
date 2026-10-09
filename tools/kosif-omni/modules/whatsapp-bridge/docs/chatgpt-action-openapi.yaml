@@ -1,0 +1,213 @@
+openapi: 3.1.0
+info:
+  title: JEV WhatsApp Bridge
+  version: 0.1.0
+  description: |
+    API للإرسال اليدوي فقط عبر جلسة WhatsApp Web مملوكة لصاحب الحساب.
+    يجب أن يحدد المستخدم المستلمين والرسالة صراحة قبل استدعاء عملية الإرسال.
+servers:
+  - url: https://bridge.example.invalid
+    description: Replace this fictional URL with the deployed HTTPS base URL.
+security: []
+paths:
+  /healthz:
+    get:
+      operationId: healthCheck
+      summary: Public liveness check
+      responses:
+        '200':
+          description: Service is responding.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HealthResponse'
+  /v1/whatsapp/status:
+    get:
+      operationId: getWhatsAppStatus
+      summary: Read the WhatsApp session status
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Redacted session status.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StatusResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '500':
+          $ref: '#/components/responses/InternalError'
+  /v1/whatsapp/send:
+    post:
+      operationId: sendWhatsAppMessage
+      summary: Send one explicit message to explicit recipients
+      description: |
+        Call only after the user has provided the exact recipients and message
+        and has confirmed the send. This operation does not search contacts,
+        read conversations, answer automatically, or send to groups.
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SendRequest'
+            example:
+              recipients:
+                - '0551234567'
+              message: 'رسالة اختبار بعد موافقة المستلم'
+              requestId: 'req-demo-1234'
+      responses:
+        '200':
+          description: Request was processed; inspect each recipient result.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SendResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '409':
+          description: WhatsApp is not ready or requestId conflicts with another body.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+              examples:
+                notReady:
+                  value:
+                    error:
+                      code: WHATSAPP_NOT_READY
+                idempotencyConflict:
+                  value:
+                    error:
+                      code: IDEMPOTENCY_CONFLICT
+        '413':
+          description: Request body is too large.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '429':
+          description: Reserved for the HTTPS proxy or rate limiter if enabled in deployment.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          $ref: '#/components/responses/InternalError'
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: opaque
+  responses:
+    BadRequest:
+      description: Safe validation error.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    Unauthorized:
+      description: Missing or invalid bearer token.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    InternalError:
+      description: Unexpected server error without provider details.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+  schemas:
+    HealthResponse:
+      type: object
+      required: [ok]
+      properties:
+        ok:
+          type: boolean
+          const: true
+    StatusResponse:
+      type: object
+      required: [ok, status]
+      properties:
+        ok:
+          type: boolean
+          const: true
+        status:
+          type: object
+          required: [state, authenticated, ready]
+          properties:
+            state:
+              type: string
+              enum: [starting, qr_required, authenticated, ready, auth_failure, disconnected, error]
+            authenticated:
+              type: boolean
+            ready:
+              type: boolean
+            lastErrorAt:
+              type: [string, 'null']
+              format: date-time
+    SendRequest:
+      type: object
+      additionalProperties: false
+      required: [recipients, message, requestId]
+      properties:
+        recipients:
+          type: array
+          minItems: 1
+          maxItems: 20
+          items:
+            type: string
+            minLength: 9
+            maxLength: 20
+          description: Explicit Saudi mobile numbers in local or international form.
+        message:
+          type: string
+          minLength: 1
+          maxLength: 4000
+        requestId:
+          type: string
+          minLength: 8
+          maxLength: 128
+          pattern: '^[A-Za-z0-9_-]{8,128}$'
+          description: Stable client-generated id used to prevent duplicate sends.
+    SendResponse:
+      type: object
+      required: [requestId, accepted, results]
+      properties:
+        requestId:
+          type: string
+        accepted:
+          type: boolean
+        replayed:
+          type: boolean
+        results:
+          type: array
+          items:
+            type: object
+            required: [recipient, status]
+            properties:
+              recipient:
+                type: string
+                description: Redacted number ending in the last four digits.
+              status:
+                type: string
+                enum: [sent, failed]
+              errorCode:
+                type: string
+    ErrorResponse:
+      type: object
+      required: [error]
+      properties:
+        error:
+          type: object
+          required: [code]
+          properties:
+            code:
+              type: string

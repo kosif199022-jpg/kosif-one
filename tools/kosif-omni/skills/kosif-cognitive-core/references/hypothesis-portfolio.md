@@ -1,0 +1,2 @@
+# Hypothesis Portfolio
+Use for diagnosis, debugging and causal ambiguity. Keep only genuinely plausible hypotheses. Each hypothesis stores: claim; supporting observations; disconfirming observations; unique prediction; discriminating test; cost if wrong; and current status (`live`, `weakened`, `rejected`). Evidence that is equally compatible with all hypotheses should not increase preference among them.

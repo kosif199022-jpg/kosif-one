@@ -1,0 +1,478 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>KOSIF Omni Console</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #070B18; --bg2: #0C1328; --panel: #111A35; --panel2: #16213F; --line: #24315A; --ink: #EAF0FF; --mute: #93A2C8;
+    --gold: #F3C46B; --gold2: #E2953A; --cyan: #5FE3FF; --green: #57D18B; --red: #FF6B7A; --violet: #A98BFF;
+    --radius: 16px; --shadow: 0 18px 50px rgba(0,0,0,.35);
+  }
+  :root[data-theme="light"] {
+    --bg: #F5F7FC; --bg2: #EBEFF8; --panel: #FFFFFF; --panel2: #F3F6FD; --line: #D8DFEE; --ink: #0E1630; --mute: #5D6B8E;
+    --gold: #B9771A; --gold2: #A75F12; --cyan: #0A86A8; --green: #198754; --red: #C62D3E; --violet: #6A4BD8; --shadow: 0 10px 30px rgba(20,30,70,.08);
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; }
+  body { background: radial-gradient(1200px 600px at 85% -10%, rgba(243,196,107,.10), transparent 60%), radial-gradient(900px 500px at 0% 110%, rgba(95,227,255,.08), transparent 60%), var(--bg);
+    color: var(--ink); font: 15px/1.6 "Cairo", Tahoma, sans-serif; }
+  code, pre, .mono { font-family: "JetBrains Mono", Consolas, monospace; direction: ltr; unicode-bidi: plaintext; }
+  a { color: var(--cyan); }
+  .app { display: grid; grid-template-columns: 250px 1fr; min-height: 100vh; }
+  aside { background: linear-gradient(180deg, var(--bg2), var(--bg)); border-left: 1px solid var(--line); padding: 18px 14px; position: sticky; top: 0; height: 100vh; overflow: auto; }
+  .brand { display: flex; align-items: center; gap: 10px; padding: 4px 8px 16px; }
+  .logo { width: 40px; height: 40px; border-radius: 12px; display: grid; place-items: center; font-weight: 800; color: #1A1206;
+    background: linear-gradient(135deg, var(--gold), var(--gold2)); box-shadow: 0 6px 22px rgba(243,196,107,.35); }
+  .brand b { font-size: 18px; } .brand small { color: var(--mute); display: block; font-size: 12px; }
+  nav button { width: 100%; display: flex; align-items: center; gap: 10px; padding: 10px 12px; margin: 3px 0; border: 1px solid transparent; border-radius: 12px;
+    background: transparent; color: var(--ink); font: inherit; font-weight: 700; cursor: pointer; text-align: right; }
+  nav button:hover { background: var(--panel); }
+  nav button.on { background: var(--panel2); border-color: var(--line); box-shadow: inset 3px 0 0 var(--gold); }
+  nav .ic { width: 26px; text-align: center; }
+  .side-foot { margin-top: 18px; padding: 12px; border: 1px solid var(--line); border-radius: 12px; font-size: 12.5px; color: var(--mute); }
+  main { padding: 22px 26px 60px; min-width: 0; }
+  header.top { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 18px; }
+  header.top h1 { font-size: 22px; margin: 0; flex: 1; }
+  .chip { display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; border-radius: 999px; border: 1px solid var(--line); background: var(--panel); font-size: 12.5px; font-weight: 700; white-space: nowrap; }
+  .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--mute); } .dot.ok { background: var(--green); box-shadow: 0 0 10px var(--green); } .dot.bad { background: var(--red); }
+  .btn { display: inline-flex; align-items: center; gap: 8px; padding: 9px 16px; border-radius: 12px; border: 1px solid var(--line); background: var(--panel2); color: var(--ink); font: inherit; font-weight: 700; cursor: pointer; }
+  .btn:hover { border-color: var(--gold); } .btn.pri { background: linear-gradient(135deg, var(--gold), var(--gold2)); color: #1A1206; border: 0; }
+  .btn.sm { padding: 5px 10px; font-size: 13px; border-radius: 10px; } .btn:disabled { opacity: .55; cursor: progress; }
+  .card { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: 18px; box-shadow: var(--shadow); }
+  .card h2 { margin: 0 0 4px; font-size: 18px; } .card h3 { margin: 0 0 8px; font-size: 15.5px; }
+  .sub { color: var(--mute); font-size: 13.5px; margin: 0 0 14px; }
+  .grid { display: grid; gap: 16px; } .g2 { grid-template-columns: repeat(2, minmax(0, 1fr)); } .g3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .row { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+  label.f { display: block; margin: 10px 0 4px; font-weight: 700; font-size: 13.5px; } label.f small { color: var(--mute); font-weight: 400; margin-inline-start: 6px; }
+  input[type=text], input[type=number], input[type=password], select, textarea { width: 100%; padding: 10px 12px; border-radius: 12px; border: 1px solid var(--line);
+    background: var(--bg2); color: var(--ink); font: inherit; outline: none; }
+  textarea { min-height: 84px; resize: vertical; } input:focus, select:focus, textarea:focus { border-color: var(--gold); box-shadow: 0 0 0 3px rgba(243,196,107,.15); }
+  .big-input { display: flex; gap: 10px; } .big-input textarea { min-height: 64px; font-size: 16px; }
+  .tag { display: inline-block; padding: 2px 9px; border-radius: 999px; font-size: 12px; font-weight: 700; background: var(--panel2); border: 1px solid var(--line); margin: 2px; }
+  .tag.gold { color: var(--gold); border-color: rgba(243,196,107,.4); } .tag.cyan { color: var(--cyan); border-color: rgba(95,227,255,.35); }
+  .tag.green { color: var(--green); border-color: rgba(87,209,139,.4); } .tag.red { color: var(--red); border-color: rgba(255,107,122,.4); } .tag.violet { color: var(--violet); }
+  .bar { height: 10px; border-radius: 6px; background: var(--bg2); overflow: hidden; border: 1px solid var(--line); }
+  .bar > i { display: block; height: 100%; background: linear-gradient(90deg, var(--cyan), var(--gold)); }
+  .prob { display: grid; grid-template-columns: 170px 1fr 52px; gap: 10px; align-items: center; margin: 6px 0; font-size: 13.5px; }
+  .prob .lbl { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-weight: 700; }
+  .list { display: grid; gap: 10px; }
+  .item { border: 1px solid var(--line); border-radius: 14px; padding: 12px 14px; background: var(--panel2); }
+  .item.click { cursor: pointer; } .item.click:hover { border-color: var(--gold); }
+  .item .t { font-weight: 800; } .item .d { color: var(--mute); font-size: 13px; margin-top: 3px; }
+  .md { line-height: 1.75; overflow-wrap: anywhere; } .md h1, .md h2, .md h3 { margin: 14px 0 6px; } .md pre { background: var(--bg2); padding: 12px; border-radius: 12px; overflow: auto; border: 1px solid var(--line); text-align: left; }
+  .md code { background: var(--bg2); padding: 1px 6px; border-radius: 6px; } .md table { border-collapse: collapse; width: 100%; } .md td, .md th { border: 1px solid var(--line); padding: 6px 8px; }
+  .md :is(p, ul, ol) { margin: 6px 0; } .md blockquote { border-inline-start: 3px solid var(--gold); margin: 8px 0; padding: 2px 12px; color: var(--mute); }
+  .json { font: 12.5px/1.55 "JetBrains Mono", Consolas, monospace; direction: ltr; text-align: left; background: var(--bg2); border: 1px solid var(--line); border-radius: 12px; padding: 12px; overflow: auto; max-height: 560px; }
+  .json details { margin-inline-start: 14px; } .json summary { cursor: pointer; color: var(--mute); } .json .k { color: var(--violet); } .json .s { color: var(--green); white-space: pre-wrap; }
+  .json .n { color: var(--gold); } .json .b { color: var(--cyan); } .json .z { color: var(--red); }
+  .tools-layout { display: grid; grid-template-columns: 320px 1fr; gap: 16px; }
+  .tool-list { max-height: calc(100vh - 210px); overflow: auto; padding-inline-end: 4px; }
+  .tool-list .fam { margin: 14px 4px 6px; color: var(--gold); font-weight: 800; font-size: 13px; }
+  .tool-list button { width: 100%; text-align: right; display: block; padding: 8px 10px; margin: 3px 0; border-radius: 10px; border: 1px solid transparent; background: transparent; color: var(--ink); font: inherit; cursor: pointer; }
+  .tool-list button:hover { background: var(--panel2); } .tool-list button.on { background: var(--panel2); border-color: var(--gold); }
+  .tool-list .nm { font: 600 12.5px "JetBrains Mono", Consolas, monospace; direction: ltr; display: block; text-align: right; }
+  .tool-list .ds { color: var(--mute); font-size: 12px; display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .meta { display: flex; gap: 14px; color: var(--mute); font-size: 12.5px; margin: 8px 0; flex-wrap: wrap; }
+  .toast { position: fixed; bottom: 18px; left: 18px; background: var(--panel); border: 1px solid var(--line); padding: 10px 16px; border-radius: 12px; box-shadow: var(--shadow); opacity: 0; transition: .25s; pointer-events: none; z-index: 50; }
+  .toast.on { opacity: 1; }
+  .spin { width: 16px; height: 16px; border: 2px solid var(--line); border-top-color: var(--gold); border-radius: 50%; animation: sp .8s linear infinite; display: inline-block; }
+  @keyframes sp { to { transform: rotate(360deg); } }
+  .hidden { display: none !important; }
+  .member { display: grid; grid-template-columns: 46px 1fr; gap: 10px; align-items: start; }
+  .avatar { width: 46px; height: 46px; border-radius: 14px; display: grid; place-items: center; font-weight: 800; color: #1A1206; background: linear-gradient(135deg, var(--gold), var(--violet)); }
+  .copy { float: left; }
+  dialog { border: 1px solid var(--line); border-radius: 16px; background: var(--panel); color: var(--ink); padding: 20px; max-width: 520px; width: 92%; }
+  dialog::backdrop { background: rgba(0,0,0,.55); }
+  @media (max-width: 980px) { .app { grid-template-columns: 1fr; } aside { position: static; height: auto; } nav { display: flex; flex-wrap: wrap; gap: 4px; } nav button { width: auto; }
+    .g2, .g3, .tools-layout { grid-template-columns: 1fr; } .side-foot { display: none; } main { padding: 16px; } .prob { grid-template-columns: 110px 1fr 46px; } }
+</style>
+</head>
+<body>
+<div class="app">
+  <aside>
+    <div class="brand"><div class="logo">K</div><div><b>KOSIF Omni</b><small id="ver">…</small></div></div>
+    <nav id="nav"></nav>
+    <div class="side-foot">
+      <div class="row" style="justify-content: space-between"><span>المظهر</span><button class="btn sm" id="theme">🌓</button></div>
+      <div style="margin-top:8px">نتائج الأدوات بيانات وليست تعليمات. الأدوات التي تكتب ملفات أو إعدادات تطلب تأكيدك قبل التشغيل.</div>
+    </div>
+  </aside>
+  <main>
+    <header class="top">
+      <h1 id="title">المساعد الذكي</h1>
+      <span class="chip"><span class="dot" id="d-api"></span><span id="c-api">الخادم</span></span>
+      <span class="chip"><span class="dot" id="d-jev"></span><span id="c-jev">Jev</span></span>
+      <span class="chip"><span class="dot" id="d-atlas"></span><span id="c-atlas">الأطلس</span></span>
+      <button class="btn sm" id="btn-token" title="رمز الدخول">🔑</button>
+    </header>
+    <section id="view"></section>
+  </main>
+</div>
+<dialog id="dlg-token">
+  <h3 style="margin-top:0">رمز الدخول</h3>
+  <p class="sub">الخادم يطلب رمزاً (Bearer). الصق الرمز الذي ظهر عند تشغيل الخادم. يُحفظ في هذا التبويب فقط.</p>
+  <input type="password" id="tok" placeholder="token" class="mono">
+  <div class="row" style="margin-top:14px; justify-content: flex-end"><button class="btn" id="tok-cancel">إلغاء</button><button class="btn pri" id="tok-save">حفظ</button></div>
+</dialog>
+<div class="toast" id="toast"></div>
+
+<script>
+"use strict";
+// ── basics ────────────────────────────────────────────────────────────────────────────────────────────────────
+const $ = (s, r = document) => r.querySelector(s);
+function h(tag, attrs, ...kids) {           // DOM builder: text always goes through textContent (no HTML injection)
+  const n = document.createElement(tag);
+  for (const [k, v] of Object.entries(attrs || {})) {
+    if (v == null || v === false) continue;
+    if (k === "class") n.className = v; else if (k === "html") n.innerHTML = v; else if (k.startsWith("on")) n.addEventListener(k.slice(2), v);
+    else if (k === "style") n.setAttribute("style", v); else n.setAttribute(k, v === true ? "" : v);
+  }
+  for (const c of kids.flat()) if (c != null && c !== false) n.append(c instanceof Node ? c : document.createTextNode(String(c)));
+  return n;
+}
+const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+function toast(msg) { const t = $("#toast"); t.textContent = msg; t.classList.add("on"); clearTimeout(t._h); t._h = setTimeout(() => t.classList.remove("on"), 2200); }
+function copy(text) { navigator.clipboard.writeText(text).then(() => toast("نُسخ")); }
+const store = { get(k, d) { try { const v = localStorage.getItem("kosif." + k); return v == null ? d : JSON.parse(v); } catch { return d; } },
+                set(k, v) { try { localStorage.setItem("kosif." + k, JSON.stringify(v)); } catch {} } };
+
+// token: arrives in the URL fragment (never sent to the server), kept for this tab only
+(function () { const m = location.hash.match(/token=([^&]+)/); if (m) { try { sessionStorage.setItem("kosif.token", decodeURIComponent(m[1])); } catch {} history.replaceState(null, "", location.pathname); } })();
+const token = () => { try { return sessionStorage.getItem("kosif.token") || ""; } catch { return ""; } };
+
+async function api(name, args) {
+  const t0 = performance.now();
+  const r = await fetch("/v1/tools/" + encodeURIComponent(name), { method: "POST", headers: { "Content-Type": "application/json", ...(token() ? { Authorization: "Bearer " + token() } : {}) }, body: JSON.stringify(args || {}) });
+  if (r.status === 401) { askToken(); throw new Error("unauthorized: أدخل رمز الدخول"); }
+  const j = await r.json().catch(() => ({ ok: false, error: "invalid JSON" }));
+  const ms = Math.round(performance.now() - t0);
+  const hist = store.get("history", []); hist.unshift({ name, args, ok: !!j.ok, ms, at: Date.now() }); store.set("history", hist.slice(0, 40));
+  if (!j.ok) throw Object.assign(new Error(j.error || "failed"), { ms });
+  return { result: j.result, ms, truncated: j.truncated };
+}
+async function getCatalog() {
+  const r = await fetch("/v1/catalog", { headers: token() ? { Authorization: "Bearer " + token() } : {} });
+  if (r.status === 401) { askToken(); throw new Error("unauthorized"); }
+  return r.json();
+}
+function askToken() { const d = $("#dlg-token"); if (!d.open) d.showModal(); }
+$("#btn-token").onclick = askToken; $("#tok-cancel").onclick = () => $("#dlg-token").close();
+$("#tok-save").onclick = () => { try { sessionStorage.setItem("kosif.token", $("#tok").value.trim()); } catch {} $("#dlg-token").close(); boot(); };
+$("#theme").onclick = () => { const t = document.documentElement.dataset.theme === "light" ? "dark" : "light"; document.documentElement.dataset.theme = t; store.set("theme", t); };
+document.documentElement.dataset.theme = store.get("theme", "dark");
+
+// ── safe markdown (escape first, then a few constructs; links http(s) only) ──────────────────────────────────
+function md(src) {
+  const lines = esc(String(src || "").replace(/\r/g, "")).split("\n"); const out = []; let inCode = false, list = null, table = [];
+  const inline = (s) => s.replace(/`([^`]+)`/g, "<code>$1</code>").replace(/\*\*([^*]+)\*\*/g, "<b>$1</b>").replace(/(^|[^*])\*([^*\n]+)\*/g, "$1<i>$2</i>")
+    .replace(/\[([^\]]+)\]\((https?:\/\/[^)\s]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>');
+  const flushList = () => { if (list) { out.push(`</${list}>`); list = null; } };
+  const flushTable = () => { if (table.length) { const rows = table.filter((r) => !/^\|?\s*:?-{2,}/.test(r));
+      out.push("<table>" + rows.map((r, i) => "<tr>" + r.replace(/^\||\|$/g, "").split("|").map((c) => (i ? "<td>" : "<th>") + inline(c.trim()) + (i ? "</td>" : "</th>")).join("") + "</tr>").join("") + "</table>"); table = []; } };
+  for (const l of lines) {
+    if (/^```/.test(l)) { flushList(); flushTable(); out.push(inCode ? "</code></pre>" : "<pre><code>"); inCode = !inCode; continue; }
+    if (inCode) { out.push(l + "\n"); continue; }
+    if (/^\|.*\|\s*$/.test(l)) { flushList(); table.push(l); continue; } else flushTable();
+    let m;
+    if ((m = l.match(/^(#{1,4})\s+(.*)/))) { flushList(); out.push(`<h${m[1].length + 1}>${inline(m[2])}</h${m[1].length + 1}>`); }
+    else if ((m = l.match(/^\s*[-*]\s+(.*)/))) { if (list !== "ul") { flushList(); out.push("<ul>"); list = "ul"; } out.push(`<li>${inline(m[1])}</li>`); }
+    else if ((m = l.match(/^\s*\d+[.)]\s+(.*)/))) { if (list !== "ol") { flushList(); out.push("<ol>"); list = "ol"; } out.push(`<li>${inline(m[1])}</li>`); }
+    else if ((m = l.match(/^&gt;\s?(.*)/))) { flushList(); out.push(`<blockquote>${inline(m[1])}</blockquote>`); }
+    else if (!l.trim()) { flushList(); }
+    else { flushList(); out.push(`<p>${inline(l)}</p>`); }
+  }
+  flushList(); flushTable(); if (inCode) out.push("</code></pre>");
+  return h("div", { class: "md", dir: "auto", html: out.join("") });
+}
+
+// ── JSON viewer ───────────────────────────────────────────────────────────────────────────────────────────────
+function jsonView(v, depth = 0) {
+  if (v === null) return h("span", { class: "z" }, "null");
+  if (typeof v === "string") return h("span", { class: "s" }, JSON.stringify(v).length > 400 ? '"' + v + '"' : JSON.stringify(v));
+  if (typeof v === "number") return h("span", { class: "n" }, String(v));
+  if (typeof v === "boolean") return h("span", { class: "b" }, String(v));
+  const isArr = Array.isArray(v), keys = isArr ? v.map((_, i) => i) : Object.keys(v);
+  const d = h("details", depth < 2 ? { open: true } : {}, h("summary", {}, isArr ? `[${keys.length}]` : `{${keys.length}}`));
+  for (const k of keys) d.append(h("div", {}, h("span", { class: "k" }, isArr ? "" : JSON.stringify(k) + ": "), jsonView(v[k], depth + 1)));
+  return d;
+}
+function resultBox(res) {
+  const raw = JSON.stringify(res.result, null, 2);
+  return h("div", {}, h("div", { class: "meta" }, h("span", {}, `⏱ ${res.ms} ms`), res.truncated && h("span", { class: "tag red" }, "مقتطع"),
+      h("button", { class: "btn sm", onclick: () => copy(raw) }, "نسخ JSON")),
+    h("div", { class: "json" }, jsonView(res.result)));
+}
+const errBox = (e) => h("div", { class: "item", style: "border-color: var(--red)" }, h("div", { class: "t", style: "color: var(--red)" }, "خطأ"), h("div", { class: "d mono" }, e.message || String(e)));
+const busy = (btn, on) => { btn.disabled = on; if (on) { btn._t = btn.textContent; btn.textContent = ""; btn.append(h("span", { class: "spin" })); } else btn.textContent = btn._t; };
+
+// ── auto form from JSON schema ────────────────────────────────────────────────────────────────────────────────
+const LONG = /^(task|question|prompt|subject|text|content|html|evidence|intent|description|action|environment|story|script|notes?|code|query)$/i;
+function formFor(schema, prefill = {}) {
+  const props = schema.properties || {}, req = new Set(schema.required || []), fields = [];
+  const box = h("div");
+  for (const [k, p] of Object.entries(props)) {
+    const type = p.type || (p.enum ? "string" : "json"); let el;
+    const lab = h("label", { class: "f" }, k + (req.has(k) ? " *" : ""), p.description ? h("small", {}, p.description.slice(0, 160)) : null);
+    if (p.enum) { el = h("select", {}, h("option", { value: "" }, "—"), ...p.enum.map((x) => h("option", { value: x }, x))); }
+    else if (type === "boolean") { el = h("select", {}, h("option", { value: "" }, "— (الافتراضي)"), h("option", { value: "true" }, "true"), h("option", { value: "false" }, "false")); }
+    else if (type === "integer" || type === "number") { el = h("input", { type: "number", step: type === "integer" ? 1 : "any", min: p.minimum, max: p.maximum }); }
+    else if (type === "string") { el = LONG.test(k) ? h("textarea", {}) : h("input", { type: "text" }); }
+    else if (type === "array" && p.items && p.items.type === "string") { el = h("textarea", { placeholder: "عنصر في كل سطر" }); el.dataset.kind = "lines"; }
+    else { el = h("textarea", { class: "mono", placeholder: type === "array" ? "[ ... ] JSON" : "{ ... } JSON" }); el.dataset.kind = "json"; }
+    el.dataset.key = k; el.dataset.type = type;
+    if (prefill[k] !== undefined) el.value = typeof prefill[k] === "object" ? (el.dataset.kind === "lines" ? prefill[k].join("\n") : JSON.stringify(prefill[k], null, 1)) : String(prefill[k]);
+    fields.push(el); box.append(lab, el);
+  }
+  if (!fields.length) box.append(h("p", { class: "sub" }, "هذه الأداة لا تحتاج مدخلات."));
+  box.collect = () => { const a = {};
+    for (const el of fields) { const v = el.value.trim(); if (!v) continue; const k = el.dataset.key, t = el.dataset.type;
+      if (el.dataset.kind === "json") a[k] = JSON.parse(v);
+      else if (el.dataset.kind === "lines") a[k] = v.split("\n").map((x) => x.trim()).filter(Boolean);
+      else if (t === "boolean") a[k] = v === "true"; else if (t === "integer") a[k] = parseInt(v, 10); else if (t === "number") a[k] = parseFloat(v); else a[k] = v; }
+    return a; };
+  return box;
+}
+
+// ── state ─────────────────────────────────────────────────────────────────────────────────────────────────────
+let CAT = null;
+const VIEWS = [
+  ["assist", "✨", "المساعد الذكي"], ["jev", "⚖️", "مختبر Jev"], ["atlas", "📚", "الأطلس"], ["council", "🏛️", "مجلس العباقرة"],
+  ["studio", "🎬", "الاستوديو الإبداعي"], ["tools", "🧰", "كل الأدوات"], ["status", "🩺", "الحالة"], ["history", "🕘", "السجل"]];
+function nav(id) { store.set("view", id); for (const b of document.querySelectorAll("#nav button")) b.classList.toggle("on", b.dataset.id === id);
+  const v = VIEWS.find((x) => x[0] === id); $("#title").textContent = v[2]; const view = $("#view"); view.replaceChildren(); RENDER[id](view); }
+$("#nav").append(...VIEWS.map(([id, ic, name]) => h("button", { "data-id": id, onclick: () => nav(id) }, h("span", { class: "ic" }, ic), name)));
+
+// ── views ─────────────────────────────────────────────────────────────────────────────────────────────────────
+const RENDER = {};
+
+RENDER.assist = (root) => {
+  const ta = h("textarea", { placeholder: "اكتب مهمتك بالعربية أو الإنجليزية… مثال: اريد تحويل فواتير PDF الى جدول اكسل" });
+  const go = h("button", { class: "btn pri" }, "حلّل واختر المهارة");
+  const out = h("div", { class: "grid", style: "margin-top:16px" });
+  root.append(h("div", { class: "card" }, h("h2", {}, "ماذا تريد أن تنجز؟"),
+    h("p", { class: "sub" }, "يوجّه KOSIF مهمتك إلى العائلة والأدوات المناسبة، ثم يختار Jev أفضل مهارة من المهارات المدمجة الـ 46 ومن مكتبة الأطلس، ويعرض لك طريقة العمل جاهزة."),
+    h("div", { class: "big-input" }, ta, go)), out);
+  ta.addEventListener("keydown", (e) => { if (e.key === "Enter" && (e.ctrlKey || e.metaKey)) go.click(); });
+  go.onclick = async () => { const task = ta.value.trim(); if (!task) return; busy(go, true); out.replaceChildren(h("div", { class: "row" }, h("span", { class: "spin" }), "يفكر…"));
+    try {
+      const [route, auto] = await Promise.all([api("kosif_route", { intent: task }), api("kosif_skill_auto", { task })]);
+      out.replaceChildren(renderRoute(route), renderAuto(auto));
+    } catch (e) { out.replaceChildren(errBox(e)); } finally { busy(go, false); } };
+  const last = store.get("lastTask", ""); if (last) ta.value = last; ta.addEventListener("input", () => store.set("lastTask", ta.value));
+};
+function renderRoute({ result: r, ms }) {
+  return h("div", { class: "card" }, h("h3", {}, "التوجيه"), h("div", { class: "meta" }, h("span", {}, `⏱ ${ms} ms`), h("span", { class: "tag gold" }, "الوضع: " + r.mode_hint)),
+    h("div", { class: "list" }, ...r.families.map((f) => h("div", { class: "item" }, h("div", { class: "t" }, f.title, " ", h("span", { class: "tag" }, "درجة " + f.score)),
+      h("div", { class: "d" }, "مهارات: ", ...f.skills.map((s) => h("span", { class: "tag cyan" }, s))),
+      f.tools.length ? h("div", { class: "d" }, "أدوات: ", ...f.tools.map((t) => h("button", { class: "btn sm", style: "margin:2px", onclick: () => openTool(t) }, t))) : null))),
+    r.reasoning_modules.length ? h("div", { class: "meta" }, "وحدات التفكير: ", ...r.reasoning_modules.map((m) => h("span", { class: "tag violet" }, m))) : null,
+    h("div", { class: "sub", style: "margin-top:10px" }, "الخطوات التالية:"), h("ol", {}, ...r.next_steps.map((s) => h("li", {}, s))));
+}
+function renderAuto({ result: r, ms }) {
+  const card = h("div", { class: "card" }, h("h3", {}, "المهارة المختارة"));
+  card.append(h("div", { class: "meta" }, h("span", {}, `⏱ ${ms} ms`), h("span", {}, "الفهم: " + (r.understanding?.method || "")),
+    h("span", { class: "mono" }, r.understanding?.query || "")));
+  if (!r.selected) { card.append(h("p", {}, r.next || "لا توجد مهارة مناسبة")); return card; }
+  const s = r.selected, j = r.jev || {};
+  card.append(h("div", { class: "item" }, h("div", { class: "t" }, s.name, " ", h("span", { class: "tag " + (s.source === "builtin" ? "green" : "cyan") }, s.source === "builtin" ? "مدمجة" : "مكتبة"),
+      s.license ? h("span", { class: "tag" }, s.license) : null, ...(s.risk_flags || []).map((f) => h("span", { class: "tag red" }, f)),
+      h("span", { class: "tag gold" }, r.decided_by)), h("div", { class: "d" }, s.description || ""),
+    j.called ? h("div", { style: "margin-top:10px" }, h("div", { class: "prob" }, h("span", { class: "lbl" }, "ثقة Jev"), h("div", { class: "bar" }, h("i", { style: `width:${Math.round((j.confidence || 0) * 100)}%` })),
+      h("span", {}, Math.round((j.confidence || 0) * 100) + "%")), h("div", { class: "d" }, `النموذج ${j.model || ""} · ثابت: ${j.stable ? "نعم ✓" : "لا"}`)) : h("div", { class: "d" }, j.error ? "Jev غير متاح: " + j.error : ""),
+    s.online_url ? h("div", { class: "d" }, h("a", { href: s.online_url, target: "_blank", rel: "noopener noreferrer" }, "فتح المهارة على GitHub ↗")) : null));
+  if (r.also_consider?.length) card.append(h("div", { class: "sub", style: "margin-top:12px" }, "بدائل:"), h("div", {}, ...r.also_consider.map((a) => h("span", { class: "tag" }, a.name + (a.jev_p != null ? ` · ${Math.round(a.jev_p * 100)}%` : "")))));
+  if (s.content) { const det = h("details", { open: true }, h("summary", { style: "cursor:pointer; font-weight:800; margin-top:14px" }, "طريقة العمل (Playbook)"), md(s.content));
+    card.append(det, s.trust ? h("p", { class: "sub" }, "⚠ " + s.trust) : null); }
+  return card;
+}
+
+RENDER.jev = (root) => {
+  const mode = h("select", {}, h("option", { value: "choice" }, "choice: اختيار من خيارات"), h("option", { value: "noul" }, "noul: نعم/لا باحتمال"), h("option", { value: "score" }, "score: درجة على سلّم"));
+  const q = h("textarea", { placeholder: "السؤال المغلق كاملاً، وينتهي بعلامة ؟" }); q.value = "أي خطة إطلاق أنسب لمنتج تعليمي جديد بميزانية محدودة؟";
+  const ev = h("textarea", { placeholder: "الأدلة: نص حر أو JSON" }); ev.value = "الميزانية 5000 دولار، والجمهور طلاب جامعات، والمدة 6 أسابيع، والفريق شخصان.";
+  const opts = h("div", { class: "list" }); const tf = h("input", { type: "text", placeholder: "ما يجعل الإجابة نعم" }), ff = h("input", { type: "text", placeholder: "ما يجعل الإجابة لا" });
+  const addOpt = (k = "", v = "") => { const a = h("input", { type: "text", value: k, placeholder: "الاسم المختصر", class: "mono" }), b = h("input", { type: "text", value: v, placeholder: "الوصف" });
+    const row = h("div", { class: "row" }, h("div", { style: "flex:0 0 160px" }, a), h("div", { style: "flex:1" }, b), h("button", { class: "btn sm", onclick: () => row.remove() }, "✕")); row._kv = [a, b]; opts.append(row); };
+  [["ambassadors", "برنامج سفراء طلابيين في الجامعات"], ["paid_social", "إعلانات ممولة على وسائل التواصل"], ["partnerships", "شراكات مع أندية ومراكز طلابية"]].forEach((x) => addOpt(...x));
+  const stab = h("input", { type: "checkbox", checked: true }); const go = h("button", { class: "btn pri" }, "اسأل Jev"); const out = h("div", { style: "margin-top:16px" });
+  const noulBox = h("div", { class: "grid g2 hidden" }, h("div", {}, h("label", { class: "f" }, "معيار نعم"), tf), h("div", {}, h("label", { class: "f" }, "معيار لا"), ff));
+  const optBox = h("div", {}, h("label", { class: "f" }, "الخيارات", h("small", {}, "للـ score: رتّبها من الأدنى إلى الأعلى")), opts, h("button", { class: "btn sm", style: "margin-top:8px", onclick: () => addOpt() }, "+ خيار"));
+  mode.onchange = () => { noulBox.classList.toggle("hidden", mode.value !== "noul"); optBox.classList.toggle("hidden", mode.value === "noul"); };
+  root.append(h("div", { class: "card" }, h("h2", {}, "مختبر Jev"), h("p", { class: "sub" }, "حكم مغلق من خدمة Jev الحية. السؤال يُفحص أولاً: تُرفض أسئلة الموافقة على أفعال خطرة، ويُحجب أي سر. ويُسأل مرتين بترتيب معكوس لقياس الثبات."),
+    h("div", { class: "grid g2" }, h("div", {}, h("label", { class: "f" }, "النوع"), mode), h("label", { class: "f row", style: "margin-top:34px" }, stab, " اختبار الثبات (سؤالان بالتوازي)")),
+    h("label", { class: "f" }, "السؤال"), q, h("label", { class: "f" }, "الأدلة"), ev, noulBox, optBox, h("div", { class: "row", style: "margin-top:14px" }, go)), out);
+  go.onclick = async () => { busy(go, true); out.replaceChildren();
+    try { let evidence; try { evidence = JSON.parse(ev.value); } catch { evidence = { notes: ev.value }; }
+      const args = { mode: mode.value, question: q.value, evidence, stability: stab.checked };
+      if (mode.value === "choice") args.options = Object.fromEntries([...opts.children].map((r) => r._kv.map((x) => x.value.trim())).filter(([k]) => k));
+      if (mode.value === "score") args.options = [...opts.children].map((r) => r._kv[1].value.trim() || r._kv[0].value.trim()).filter(Boolean);
+      if (mode.value === "noul") { if (tf.value) args.true_criteria = tf.value; if (ff.value) args.false_criteria = ff.value; }
+      const res = await api("kosif_jev_decide", args); out.replaceChildren(renderJev(res));
+    } catch (e) { out.replaceChildren(errBox(e)); } finally { busy(go, false); } };
+};
+function renderJev(res) {
+  const r = res.result, d = r.decision || {}; const card = h("div", { class: "card" });
+  if (r.verdict === "BLOCK") return h("div", { class: "card" }, h("h3", { style: "color:var(--red)" }, "رُفض قبل الإرسال"), h("ul", {}, ...r.issues.map((x) => h("li", {}, x))));
+  card.append(h("div", { class: "row" }, h("h3", { style: "margin:0" }, "الحكم"), h("span", { class: "tag gold" }, d.type === "choice" ? d.choice : d.type === "noul" ? `${d.answer} (${Math.round(d.p_yes * 100)}%)` : `المستوى ${d.argmax_level}`),
+    r.stable != null ? h("span", { class: "tag " + (r.stable ? "green" : "red") }, r.stable ? "ثابت ✓" : "غير ثابت") : null, d.class ? h("span", { class: "tag" }, d.class) : null,
+    h("span", { class: "sub", style: "margin:0" }, `⏱ ${res.ms} ms`)));
+  const ranking = r.mean_ranking || d.ranking;
+  if (ranking) card.append(h("div", { style: "margin-top:10px" }, ...ranking.map(([k, p]) => h("div", { class: "prob" }, h("span", { class: "lbl mono" }, k), h("div", { class: "bar" }, h("i", { style: `width:${Math.round(p * 100)}%` })), h("span", {}, Math.round(p * 100) + "%")))));
+  if (r.stable) card.append(h("p", { class: "sub" }, "ثابت في الترتيبين: يصلح كحكم، مع التحقق بالأدوات الحتمية متى وُجدت. الحكم ليس موافقة على تنفيذ."));
+  else if (r.stable === false) card.append(h("p", { class: "sub", style: "color:var(--red)" }, "غير ثابت: السؤال غامض أو الأدلة ناقصة. لا تعتمد عليه، وأضف أدلة أو قسّم السؤال."));
+  else if (d.next) card.append(h("p", { class: "sub" }, d.next));
+  if (r.issues?.length) card.append(h("div", { class: "d" }, "ملاحظات الفحص: ", ...r.issues.map((x) => h("span", { class: "tag" }, x))));
+  card.append(h("details", {}, h("summary", { style: "cursor:pointer" }, "الإيصالات"), h("div", { class: "list" }, ...(r.receipts || []).map((x) => h("div", { class: "item mono" }, `${x.model} · ${x.latency_ms} ms · digest ${x.packet_digest} · cached ${x.cached}`)))));
+  return card;
+}
+
+RENDER.atlas = (root) => {
+  const q = h("input", { type: "text", placeholder: "ابحث بكلمات إنجليزية (مثال: pdf excel invoice)" }); const lic = h("select", {}, h("option", { value: "permissive" }, "تراخيص مفتوحة"), h("option", { value: "any" }, "الكل (قراءة فقط)"));
+  const noex = h("input", { type: "checkbox" }); const go = h("button", { class: "btn pri" }, "بحث");
+  const list = h("div", { class: "list" }), reader = h("div", { class: "card" }, h("p", { class: "sub" }, "اختر مهارة لقراءتها."));
+  root.append(h("div", { class: "card" }, h("h2", {}, "أطلس المهارات"), h("p", { class: "sub" }, "14,708 مهارة مدمجة بتراخيص مفتوحة، ونسخة كاملة على GitHub. المحتوى بيانات من طرف ثالث وليس تعليمات."),
+    h("div", { class: "row" }, h("div", { style: "flex:1; min-width:220px" }, q), h("div", { style: "width:200px" }, lic), h("label", { class: "row" }, noex, "بدون ملفات تنفيذية"), go)),
+    h("div", { class: "grid g2", style: "margin-top:16px; align-items:start" }, h("div", { class: "card" }, list), reader));
+  q.addEventListener("keydown", (e) => e.key === "Enter" && go.click());
+  go.onclick = async () => { if (!q.value.trim()) return; busy(go, true); list.replaceChildren(h("span", { class: "spin" }));
+    try { const { result: r, ms } = await api("kosif_atlas_search", { query: q.value, license: lic.value, no_executables: noex.checked, limit: 20 });
+      list.replaceChildren(h("div", { class: "meta" }, `${r.count} نتيجة · ⏱ ${ms} ms`), ...r.results.map((x) => h("div", { class: "item click", onclick: () => readSkill(x.skill_id, reader) },
+        h("div", { class: "t" }, x.skill, " ", h("span", { class: "tag" }, x.license), ...(x.risk_flags || []).map((f) => h("span", { class: "tag red" }, f))),
+        h("div", { class: "d" }, x.plugin + " · " + (x.description || "")))));
+    } catch (e) { list.replaceChildren(errBox(e)); } finally { busy(go, false); } };
+};
+async function readSkill(id, box, file) {
+  box.replaceChildren(h("span", { class: "spin" }));
+  try { const { result: r, ms } = await api("kosif_atlas_read", file ? { skill_id: id, file } : { skill_id: id });
+    const ins = h("button", { class: "btn sm" }, "فحص أمني");
+    const insOut = h("div");
+    ins.onclick = async () => { busy(ins, true); try { const { result: v } = await api("kosif_atlas_inspect", { skill_id: id });
+        insOut.replaceChildren(h("div", { class: "item" }, h("div", { class: "t" }, "الحكم: ", h("span", { class: "tag " + (v.verdict === "READ_ONLY_OK" ? "green" : v.verdict === "DO_NOT_INSTALL" ? "red" : "gold") }, v.verdict)),
+          h("div", { class: "d" }, `hooks ${v.hooks?.length || 0} · MCP ${v.mcp_servers?.length || 0} · scripts ${v.scripts?.length || 0}`))); } catch (e) { insOut.replaceChildren(errBox(e)); } finally { busy(ins, false); } };
+    box.replaceChildren(h("div", { class: "row" }, h("h3", { style: "margin:0; flex:1" }, r.skill || r.name || "مهارة"), ins, r.online_url ? h("a", { class: "btn sm", href: r.online_url, target: "_blank", rel: "noopener noreferrer" }, "GitHub ↗") : null),
+      h("div", { class: "meta" }, h("span", { class: "mono" }, r.path), h("span", {}, `⏱ ${ms} ms`), r.injection_flags?.length ? h("span", { class: "tag red" }, "تنبيه حقن: " + r.injection_flags.join(", ")) : null),
+      insOut, r.files?.length > 1 ? h("div", { class: "row", style: "margin:6px 0" }, ...r.files.slice(0, 30).map((f) => h("button", { class: "btn sm", onclick: () => readSkill(id, box, f) }, f))) : null,
+      ...(() => { const m = String(r.content || "").match(/^\uFEFF?---\r?\n([\s\S]*?)\r?\n---\r?\n?/);
+        return m ? [h("pre", { class: "json", style: "max-height:160px; white-space:pre-wrap" }, m[1]), md(r.content.slice(m[0].length))] : [md(r.content)]; })());
+  } catch (e) { box.replaceChildren(errBox(e)); }
+}
+
+RENDER.council = (root) => {
+  const q = h("textarea", {}); q.value = "كيف نصمم مدينة ذكية مستدامة في مصر عام 2050؟";
+  const ne = h("input", { type: "number", value: 4, min: 0, max: 12 }), ns = h("input", { type: "number", value: 6, min: 0, max: 24 }); const go = h("button", { class: "btn pri" }, "اجمع المجلس");
+  const out = h("div", { style: "margin-top:16px" }), detail = h("div");
+  root.append(h("div", { class: "card" }, h("h2", {}, "مجلس العباقرة"), h("p", { class: "sub" }, "1,040 عضواً من 40 من النخبة و1,000 باحث، في 51 مجالاً. لكل عضو منهج وحالة نفسية بنقطة قوة ونقطة عمى وتعويض. اختيار اللجنة حتمي."),
+    h("label", { class: "f" }, "السؤال أو القرار"), q, h("div", { class: "grid g2" }, h("div", {}, h("label", { class: "f" }, "النخبة"), ne), h("div", {}, h("label", { class: "f" }, "الباحثون"), ns)),
+    h("div", { class: "row", style: "margin-top:14px" }, go)), out, detail);
+  go.onclick = async () => { busy(go, true); out.replaceChildren();
+    try { const { result: r, ms } = await api("kosif_council_panel", { question: q.value, n_elite: +ne.value, n_scholars: +ns.value });
+      const mem = (m, role) => h("div", { class: "item click member", onclick: () => expert(m.id, detail) }, h("div", { class: "avatar" }, (m.name || "?").replace(/^(ال)/, "").slice(0, 1)),
+        h("div", {}, h("div", { class: "t" }, m.name, " ", h("span", { class: "tag gold" }, m.laqab || m.id), role ? h("span", { class: "tag violet" }, role) : null),
+          h("div", { class: "d" }, m.title), h("div", { class: "d" }, "الحالة: " + (m.psych_state?.name || "—") + " · مؤشر العبقرية " + (m.genius_index ?? "—")),
+          m.motto ? h("div", { class: "d" }, "« " + m.motto + " »") : null));
+      const gov = r.governing || {};
+      out.replaceChildren(h("div", { class: "card" }, h("div", { class: "meta" }, `⏱ ${ms} ms · المجالات: `, ...(r.domains || []).map((d) => h("span", { class: "tag cyan" }, d.name))),
+        h("h3", {}, "الهيئة الحاكمة"), h("div", { class: "grid g2" }, ...Object.entries(gov).map(([k, m]) => mem(m, { chair: "الرئيس", red_team: "الفريق الأحمر", verifier: "المدقق", synthesizer: "المُركِّب" }[k] || k))),
+        h("h3", { style: "margin-top:16px" }, "النخبة"), h("div", { class: "grid g2" }, ...(r.elite || []).map((m) => mem(m))),
+        h("h3", { style: "margin-top:16px" }, "الباحثون"), h("div", { class: "grid g2" }, ...(r.scholars || []).map((m) => mem(m))),
+        r.how_to_run ? h("details", { style: "margin-top:12px" }, h("summary", { style: "cursor:pointer" }, "طريقة إدارة الجلسة"), md(Array.isArray(r.how_to_run) ? r.how_to_run.map((x) => "- " + x).join("\n") : String(r.how_to_run))) : null));
+    } catch (e) { out.replaceChildren(errBox(e)); } finally { busy(go, false); } };
+};
+async function expert(id, box) {
+  box.replaceChildren(h("div", { class: "card", style: "margin-top:16px" }, h("span", { class: "spin" })));
+  try { const { result: m } = await api("kosif_council_expert", { id, with_prompt: false }); const x = m.member || m;
+    box.replaceChildren(h("div", { class: "card", style: "margin-top:16px" }, h("h3", {}, x.name || id, " ", h("span", { class: "tag gold" }, x.laqab || id)),
+      x.traits ? h("div", {}, ...Object.entries(x.traits).map(([k, v]) => h("div", { class: "prob" }, h("span", { class: "lbl" }, k), h("div", { class: "bar" }, h("i", { style: `width:${v * 10}%` })), h("span", {}, v)))) : null,
+      h("div", { class: "md", style: "white-space:pre-wrap; margin-top:10px" }, x.description || JSON.stringify(m, null, 1))));
+    box.scrollIntoView({ behavior: "smooth", block: "start" });
+  } catch (e) { box.replaceChildren(errBox(e)); }
+}
+
+RENDER.studio = (root) => {
+  const tool = CAT?.tools.find((t) => t.name === "kosif_prompt_forge");
+  const form = tool ? formFor(tool.schema, { mode: "image", subject: "مدينة شمسية مستقبلية قرب الأهرامات عند الشروق", aspect: "9:16", platforms: ["midjourney", "flux", "chatgpt", "ideogram"] }) : h("p", {}, "الأداة غير متاحة");
+  const go = h("button", { class: "btn pri" }, "صُغ البرومبتات"); const out = h("div", { style: "margin-top:16px" });
+  const lint = h("textarea", { placeholder: "الصق برومبت صورة لفحصه" }); const goL = h("button", { class: "btn" }, "افحص البرومبت"); const outL = h("div", { style: "margin-top:10px" });
+  root.append(h("div", { class: "grid g2", style: "align-items:start" },
+    h("div", { class: "card" }, h("h2", {}, "صانع البرومبتات"), h("p", { class: "sub" }, "برومبت واحد مضبوط يتحول إلى صيغة كل منصة: Midjourney وFlux وSDXL وChatGPT وIdeogram، وللفيديو Veo وSora وKling وRunway."),
+      h("details", { open: true }, h("summary", { style: "cursor:pointer; font-weight:700" }, "الحقول"), form), h("div", { class: "row", style: "margin-top:14px" }, go)),
+    h("div", {}, out, h("div", { class: "card", style: "margin-top:16px" }, h("h3", {}, "فحص برومبت صورة"), lint, h("div", { class: "row", style: "margin-top:10px" }, goL), outL))));
+  go.onclick = async () => { busy(go, true); out.replaceChildren();
+    try { const res = await api("kosif_prompt_forge", form.collect()); const r = res.result?.result || res.result; const prompts = r?.prompts || {};
+      out.replaceChildren(h("div", { class: "card" }, h("h3", {}, "البرومبتات"), h("div", { class: "meta" }, `⏱ ${res.ms} ms`),
+        ...Object.entries(prompts).map(([p, v]) => { const text = v.prompt || (typeof v === "string" ? v : JSON.stringify(v));
+          return h("div", { class: "item", style: "margin-top:10px" }, h("div", { class: "row" }, h("span", { class: "t", style: "flex:1" }, p), h("button", { class: "btn sm", onclick: () => copy(text) }, "نسخ")),
+            h("div", { class: "d mono", style: "white-space:pre-wrap" }, text), v.negative_prompt ? h("div", { class: "d" }, "سلبي: " + v.negative_prompt) : null, v.notes ? h("div", { class: "d" }, "💡 " + v.notes) : null); }),
+        Object.keys(prompts).length ? null : resultBox(res)));
+    } catch (e) { out.replaceChildren(errBox(e)); } finally { busy(go, false); } };
+  goL.onclick = async () => { if (!lint.value.trim()) return; busy(goL, true);
+    try { outL.replaceChildren(resultBox(await api("kosif_image_prompt_lint", { prompt: lint.value }))); } catch (e) { outL.replaceChildren(errBox(e)); } finally { busy(goL, false); } };
+};
+
+let currentTool = null;
+function openTool(name, prefill) { currentTool = { name, prefill }; nav("tools"); }
+RENDER.tools = (root) => {
+  if (!CAT) return root.append(h("p", {}, "…"));
+  const search = h("input", { type: "text", placeholder: `ابحث في ${CAT.tools.length} أداة…` }); const listEl = h("div", { class: "tool-list" }); const pane = h("div", { class: "card" }, h("p", { class: "sub" }, "اختر أداة من القائمة."));
+  const famOf = {}; for (const f of CAT.families) for (const t of f.tools) famOf[t] = famOf[t] || f.title;
+  const draw = () => { const q = search.value.trim().toLowerCase(); listEl.replaceChildren(); const groups = {};
+    for (const f of CAT.families) groups[f.title] = [];
+    for (const t of CAT.tools) { if (q && !(t.name + " " + t.description).toLowerCase().includes(q)) continue; (groups[famOf[t.name] || "أدوات أخرى"] ||= []).push(t); }
+    for (const k of Object.keys(groups)) if (!groups[k].length) delete groups[k];
+    for (const [g, ts] of Object.entries(groups)) { listEl.append(h("div", { class: "fam" }, g + " · " + ts.length));
+      for (const t of ts) listEl.append(h("button", { class: currentTool?.name === t.name ? "on" : "", onclick: () => { currentTool = { name: t.name }; draw(); show(t); } },
+        h("span", { class: "nm" }, t.name, t.read_only ? "" : " ✎"), h("span", { class: "ds" }, t.description))); } };
+  const show = (t, prefill) => { const form = formFor(t.schema, prefill || {}); const go = h("button", { class: "btn pri" }, "تشغيل"); const out = h("div", { style: "margin-top:14px" });
+    pane.replaceChildren(h("h2", { class: "mono", style: "direction:ltr; text-align:right" }, t.name), h("div", { class: "row", style: "margin:6px 0" },
+        h("span", { class: "tag " + (t.read_only ? "green" : "red") }, t.read_only ? "قراءة فقط" : "يكتب: يحتاج تأكيداً"), t.open_world ? h("span", { class: "tag cyan" }, "يتصل بالشبكة") : null, t.title ? h("span", { class: "tag" }, t.title) : null),
+      h("p", { class: "sub" }, t.description), form, h("div", { class: "row", style: "margin-top:14px" }, go, h("button", { class: "btn", onclick: () => copy(JSON.stringify(form.collect(), null, 1)) }, "نسخ المدخلات")), out);
+    go.onclick = async () => { let args; try { args = form.collect(); } catch (e) { return out.replaceChildren(errBox(new Error("JSON غير صالح: " + e.message))); }
+      if (!t.read_only && !confirm(`الأداة ${t.name} تكتب ملفات أو إعدادات. هل تريد التشغيل بهذه المدخلات؟\n\n${JSON.stringify(args, null, 1).slice(0, 600)}`)) return;
+      busy(go, true); out.replaceChildren(); try { out.replaceChildren(resultBox(await api(t.name, args))); } catch (e) { out.replaceChildren(errBox(e)); } finally { busy(go, false); } }; };
+  search.oninput = draw;
+  root.append(h("div", { class: "tools-layout" }, h("div", { class: "card" }, search, listEl), pane));
+  draw(); if (currentTool) { const t = CAT.tools.find((x) => x.name === currentTool.name); if (t) show(t, currentTool.prefill); }
+};
+
+RENDER.status = (root) => {
+  const go = h("button", { class: "btn pri" }, "فحص الآن"); const remote = h("input", { type: "checkbox" }); const out = h("div", { class: "grid g2", style: "margin-top:16px" });
+  root.append(h("div", { class: "card" }, h("h2", {}, "حالة النظام"), h("p", { class: "sub" }, "فحص البيئة والخدمات: Python والمكتبات والمهارات والمجلس والمجلدات المسموحة، وخدمة Jev، والأطلس المدمج."),
+    h("div", { class: "row" }, go, h("label", { class: "row" }, remote, "فحص خادم KOSIF Think البعيد أيضاً"))), out);
+  go.onclick = async () => { busy(go, true); out.replaceChildren(h("span", { class: "spin" }));
+    try { const [doc, jev, atl] = await Promise.allSettled([api("kosif_doctor", { remote: remote.checked }), api("kosif_jev_status", {}), api("kosif_atlas_status", {})]);
+      const cards = [];
+      if (doc.status === "fulfilled") { const d = doc.value.result; cards.push(h("div", { class: "card" }, h("h3", {}, "البيئة · " + d.version), h("div", { class: "list" }, ...d.checks.map((c) => h("div", { class: "row" }, h("span", { class: "dot " + (c.ok ? "ok" : "bad") }), h("b", {}, c.check), h("span", { class: "d", style: "color:var(--mute)" }, String(c.detail || "").slice(0, 90))))))); }
+      if (jev.status === "fulfilled") { const j = jev.value.result; cards.push(h("div", { class: "card" }, h("h3", {}, "Jev"), h("div", { class: "row" }, h("span", { class: "dot " + (j.reachable ? "ok" : "bad") }), j.reachable ? `متصل · ${j.model} · ${j.latency_ms} ms` : (j.error || "غير متاح")), h("div", { class: "d mono" }, j.service || ""))); }
+      if (atl.status === "fulfilled") { const a = atl.value.result, p = a.pack || {}; cards.push(h("div", { class: "card" }, h("h3", {}, "الأطلس · " + a.source), h("div", { class: "grid g3" },
+        ...[["إضافات", p.plugins], ["مهارات", p.skills], ["ملفات", p.unique_files]].map(([k, v]) => h("div", { class: "item" }, h("div", { class: "d" }, k), h("div", { class: "t", style: "font-size:22px" }, v || "—")))))); }
+      cards.push(h("div", { class: "card" }, h("h3", {}, "الكتالوج"), h("div", { class: "grid g3" }, ...[["أدوات", CAT?.tools.length], ["مهارات مدمجة", CAT?.skills.length], ["عائلات", CAT?.families.length]].map(([k, v]) => h("div", { class: "item" }, h("div", { class: "d" }, k), h("div", { class: "t", style: "font-size:22px" }, v ?? "—"))))));
+      out.replaceChildren(...cards);
+    } catch (e) { out.replaceChildren(errBox(e)); } finally { busy(go, false); } };
+  go.click();
+};
+
+RENDER.history = (root) => {
+  const hist = store.get("history", []);
+  root.append(h("div", { class: "card" }, h("div", { class: "row" }, h("h2", { style: "flex:1; margin:0" }, "آخر التشغيلات"), h("button", { class: "btn sm", onclick: () => { store.set("history", []); nav("history"); } }, "مسح")),
+    h("p", { class: "sub" }, "محفوظة في هذا المتصفح فقط. انقر لفتح الأداة بنفس المدخلات."),
+    hist.length ? h("div", { class: "list" }, ...hist.map((x) => h("div", { class: "item click", onclick: () => openTool(x.name, x.args) },
+      h("div", { class: "row" }, h("span", { class: "dot " + (x.ok ? "ok" : "bad") }), h("b", { class: "mono" }, x.name), h("span", { class: "d", style: "color:var(--mute)" }, `${x.ms} ms · ${new Date(x.at).toLocaleString("ar-EG")}`)),
+      h("div", { class: "d mono" }, JSON.stringify(x.args).slice(0, 180))))) : h("p", {}, "لا توجد تشغيلات بعد.")));
+};
+
+// ── boot ──────────────────────────────────────────────────────────────────────────────────────────────────────
+async function boot() {
+  try { CAT = await getCatalog(); $("#ver").textContent = `v${CAT.version} · ${CAT.tools.length} أداة · ${CAT.skills.length} مهارة`; $("#d-api").className = "dot ok"; $("#c-api").textContent = "الخادم متصل"; }
+  catch (e) { $("#d-api").className = "dot bad"; $("#c-api").textContent = "غير متصل"; }
+  nav(store.get("view", "assist"));
+  if (CAT) { api("kosif_jev_status", {}).then(({ result: j }) => { $("#d-jev").className = "dot " + (j.reachable ? "ok" : "bad"); $("#c-jev").textContent = j.reachable ? "Jev متصل" : "Jev غير متاح"; }).catch(() => { $("#d-jev").className = "dot bad"; });
+    api("kosif_atlas_status", {}).then(({ result: a }) => { $("#d-atlas").className = "dot ok"; $("#c-atlas").textContent = `الأطلس · ${a.pack?.skills || ""} مهارة`; }).catch(() => { $("#d-atlas").className = "dot bad"; }); }
+}
+boot();
+</script>
+</body>
+</html>

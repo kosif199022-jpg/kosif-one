@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{TITLE}} — 3D Ultra Cinema</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #030712;
+    color: #f9fafb;
+    font-family: system-ui, -apple-system, sans-serif;
+    overflow: hidden;
+    width: {{WIDTH}}px;
+    height: {{HEIGHT}}px;
+  }
+  #canvas-container {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    z-index: 1;
+  }
+  #overlay {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    z-index: 2;
+    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 80px 60px;
+  }
+  .header-badge {
+    align-self: flex-start;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 12px 28px;
+    border-radius: 9999px;
+    font-size: 24px;
+    font-weight: 600;
+    color: #38bdf8;
+    letter-spacing: 1px;
+    box-shadow: 0 8px 32px rgba(56, 189, 248, 0.2);
+  }
+  .title-block {
+    margin-top: auto;
+    margin-bottom: 80px;
+  }
+  .main-title {
+    font-size: 72px;
+    font-weight: 900;
+    line-height: 1.15;
+    background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 50%, #38bdf8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 4px 20px rgba(0,0,0,0.8));
+  }
+  .subtitle {
+    font-size: 32px;
+    color: #94a3b8;
+    margin-top: 18px;
+    font-weight: 500;
+    line-height: 1.4;
+  }
+  /* Vignette & Grain */
+  .vignette {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    z-index: 3;
+    pointer-events: none;
+    box-shadow: inset 0 0 160px rgba(0, 0, 0, 0.85);
+  }
+</style>
+<script src="assets/three.min.js"></script>
+<script>
+if (typeof THREE === 'undefined') {
+  document.write('<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"><\\/script>');
+}
+</script>
+</head>
+<body>
+<div id="canvas-container"></div>
+<div id="overlay">
+  <div class="header-badge" id="badge">KOSIF ULTRA CINEMA</div>
+  <div class="title-block">
+    <h1 class="main-title" id="title-text">{{TITLE}}</h1>
+    <p class="subtitle" id="subtitle-text">أنيميشن سينمائي فائق الجرافيك ثلاثي الأبعاد</p>
+  </div>
+</div>
+<div class="vignette"></div>
+
+<script>
+// --- DETERMINISTIC 3D ENGINE ---
+const W = {{WIDTH}};
+const H = {{HEIGHT}};
+const DURATION = {{DURATION}};
+
+const container = document.getElementById('canvas-container');
+const scene = new THREE.Scene();
+scene.fog = new THREE.FogExp2(0x030712, 0.035);
+
+const camera = new THREE.PerspectiveCamera(45, W / H, 0.1, 1000);
+const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, powerPreference: "high-performance" });
+renderer.setSize(W, H);
+renderer.setPixelRatio(1);
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure = 1.25;
+container.appendChild(renderer.domElement);
+
+// Lighting Rig
+const ambientLight = new THREE.AmbientLight(0x0f172a, 1.5);
+scene.add(ambientLight);
+
+const mainLight = new THREE.DirectionalLight(0x38bdf8, 3.5);
+mainLight.position.set(5, 8, 5);
+scene.add(mainLight);
+
+const rimLight = new THREE.PointLight(0xf43f5e, 5.0, 50);
+rimLight.position.set(-6, -2, -4);
+scene.add(rimLight);
+
+const goldLight = new THREE.PointLight(0xfbbf24, 4.0, 40);
+goldLight.position.set(4, -4, 3);
+scene.add(goldLight);
+
+// Core Hero 3D Object: Futuristic Crystalline Geode
+const geoGroup = new THREE.Group();
+
+const icosaGeo = new THREE.IcosahedronGeometry(2.2, 2);
+const icosaMat = new THREE.MeshStandardMaterial({
+  color: 0x0f172a,
+  metalness: 0.85,
+  roughness: 0.15,
+  wireframe: false
+});
+const heroMesh = new THREE.Mesh(icosaGeo, icosaMat);
+geoGroup.add(heroMesh);
+
+// Glowing Inner Crystal
+const innerGeo = new THREE.OctahedronGeometry(1.4, 0);
+const innerMat = new THREE.MeshStandardMaterial({
+  color: 0x38bdf8,
+  emissive: 0x0284c7,
+  emissiveIntensity: 0.8,
+  metalness: 0.2,
+  roughness: 0.1
+});
+const innerMesh = new THREE.Mesh(innerGeo, innerMat);
+geoGroup.add(innerMesh);
+
+// Orbiting Rings
+const ringGeo = new THREE.TorusGeometry(3.6, 0.04, 16, 100);
+const ringMat = new THREE.MeshBasicMaterial({ color: 0x38bdf8, transparent: true, opacity: 0.6 });
+const ring1 = new THREE.Mesh(ringGeo, ringMat);
+const ring2 = new THREE.Mesh(ringGeo, ringMat);
+ring1.rotation.x = Math.PI / 3;
+ring2.rotation.y = Math.PI / 4;
+geoGroup.add(ring1);
+geoGroup.add(ring2);
+
+scene.add(geoGroup);
+
+// Ambient Floating Particles
+const partCount = 400;
+const partGeo = new THREE.BufferGeometry();
+const partPos = new Float32Array(partCount * 3);
+for(let i = 0; i < partCount * 3; i += 3) {
+  partPos[i] = (Math.random() - 0.5) * 20;
+  partPos[i+1] = (Math.random() - 0.5) * 25;
+  partPos[i+2] = (Math.random() - 0.5) * 20;
+}
+partGeo.setAttribute('position', new THREE.BufferAttribute(partPos, 3));
+const partMat = new THREE.PointsMaterial({
+  color: 0x38bdf8,
+  size: 0.08,
+  transparent: true,
+  opacity: 0.75,
+  blending: THREE.AdditiveBlending
+});
+const particles = new THREE.Points(partGeo, partMat);
+scene.add(particles);
+
+// DETERMINISTIC RENDER FUNCTION
+window.render = function(t) {
+  const normTime = t / DURATION;
+
+  // Cinematic Camera Rig: Slow dolly-in + arc
+  const camAngle = normTime * Math.PI * 0.5 + 0.3;
+  const camDist = 9.5 - (normTime * 2.2);
+  camera.position.x = Math.sin(camAngle) * camDist;
+  camera.position.y = Math.sin(normTime * Math.PI) * 1.5 + 0.5;
+  camera.position.z = Math.cos(camAngle) * camDist;
+  camera.lookAt(0, 0, 0);
+
+  // Object rotation with spring inertia
+  heroMesh.rotation.x = t * 0.45;
+  heroMesh.rotation.y = t * 0.6;
+  innerMesh.rotation.x = -t * 0.8;
+  innerMesh.rotation.z = t * 0.9;
+  
+  ring1.rotation.z = t * 0.3;
+  ring2.rotation.x = t * 0.4;
+
+  // Light pulsation
+  goldLight.intensity = 3.5 + Math.sin(t * 3) * 1.2;
+  rimLight.intensity = 4.0 + Math.cos(t * 2.5) * 1.5;
+
+  // Particle drift
+  particles.rotation.y = t * 0.08;
+
+  // DOM Kinetic Text Animations
+  const titleEl = document.getElementById('title-text');
+  const badgeEl = document.getElementById('badge');
+  if (t < 1.5) {
+    const p = t / 1.5;
+    titleEl.style.opacity = p;
+    titleEl.style.transform = `translateY(${(1 - p) * 40}px)`;
+    badgeEl.style.opacity = p;
+  } else {
+    titleEl.style.opacity = '1';
+    titleEl.style.transform = 'translateY(0)';
+    badgeEl.style.opacity = '1';
+  }
+
+  renderer.render(scene, camera);
+};
+
+// Signal ready
+window.__ready = true;
+// Initial frame
+window.render(0);
+</script>
+</body>
+</html>

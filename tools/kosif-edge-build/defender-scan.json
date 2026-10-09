@@ -1,0 +1,62 @@
+[
+  {
+    "plugin": "x1249-carta-cap-table",
+    "files": 1,
+    "exit": 0,
+    "result": "Scan finished. | Scanning C:\\Users\\????? ??????\\Desktop\\??????\\kosif-atlas-private\\skills\\x1249-carta-cap-table\\_package found no threats."
+  },
+  {
+    "plugin": "x1250-carta-crm",
+    "files": 1,
+    "exit": 0,
+    "result": "Scan finished. | Scanning C:\\Users\\????? ??????\\Desktop\\??????\\kosif-atlas-private\\skills\\x1250-carta-crm\\_package found no threats."
+  },
+  {
+    "plugin": "x1251-carta-investors",
+    "files": 1,
+    "exit": 0,
+    "result": "Scan finished. | Scanning C:\\Users\\????? ??????\\Desktop\\??????\\kosif-atlas-private\\skills\\x1251-carta-investors\\_package found no threats."
+  },
+  {
+    "plugin": "x1659-codspeed",
+    "files": 8,
+    "exit": 0,
+    "result": "Scan finished. | Scanning C:\\Users\\????? ??????\\Desktop\\??????\\kosif-atlas-private\\skills\\x1659-codspeed\\_package found no threats."
+  },
+  {
+    "plugin": "x2229-hyperframes",
+    "files": 21,
+    "exit": 0,
+    "result": "Scan finished. | Scanning C:\\Users\\????? ??????\\Desktop\\??????\\kosif-atlas-private\\skills\\x2229-hyperframes\\_package found no threats."
+  },
+  {
+    "plugin": "x3171-mapbox",
+    "files": 1,
+    "exit": 0,
+    "result": "Scan finished. | Scanning C:\\Users\\????? ??????\\Desktop\\??????\\kosif-atlas-private\\skills\\x3171-mapbox\\_package found no threats."
+  },
+  {
+    "plugin": "x3689-autodesk-fusion",
+    "files": 2,
+    "exit": 0,
+    "result": "Scan finished. | Scanning C:\\Users\\????? ??????\\Desktop\\??????\\kosif-atlas-private\\skills\\x3689-autodesk-fusion\\_package found no threats."
+  },
+  {
+    "plugin": "x3690-grafana-observability",
+    "files": 1,
+    "exit": 0,
+    "result": "Scan finished. | Scanning C:\\Users\\????? ??????\\Desktop\\??????\\kosif-atlas-private\\skills\\x3690-grafana-observability\\_package found no threats."
+  },
+  {
+    "plugin": "x4375-semgrep",
+    "files": 2,
+    "exit": 0,
+    "result": "Scan finished. | Scanning C:\\Users\\????? ??????\\Desktop\\??????\\kosif-atlas-private\\skills\\x4375-semgrep\\_package found no threats."
+  },
+  {
+    "plugin": "x533-atlassian-twg-cli",
+    "files": 1,
+    "exit": 0,
+    "result": "Scan finished. | Scanning C:\\Users\\????? ??????\\Desktop\\??????\\kosif-atlas-private\\skills\\x533-atlassian-twg-cli\\_package found no threats."
+  }
+]

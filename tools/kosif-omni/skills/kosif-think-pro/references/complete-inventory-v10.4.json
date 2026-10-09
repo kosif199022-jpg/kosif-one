@@ -1,0 +1,57 @@
+{
+  "schema_version": "10.4",
+  "audited_at": "2026-10-01T13:34:00+03:00",
+  "canonical_source": {
+    "plugin_id": "plugins_6abd29b907ac8191a457bce773dc7515",
+    "display_name": "Source ThinkPro 10",
+    "version": "10.4.0"
+  },
+  "mobile_front_door": {
+    "plugin_id": "plugins_6abcd190218c81918401242b2d7c1835",
+    "display_name": "ThinkPro 10",
+    "version_at_audit": "10.2.0",
+    "role": "MOBILE_FRONT_DOOR",
+    "mcp_bundled": false
+  },
+  "personal_plugins": [
+    {"id":"plugins_6abd29b907ac8191a457bce773dc7515","name":"kosif-think-pro","version":"10.3.1","role":"CANONICAL_SOURCE","coverage":"SELF"},
+    {"id":"plugins_6abd18b1eb588191922d1d7be749121d","name":"kosif-think-cortex","version":"1.0.0","role":"MERGED_LEGACY","coverage":"cognitive triage, lane activation, independent verifier, routing/execution contract imported"},
+    {"id":"plugins_6abd17fe105881918d36fcdeb0d13394","name":"kosif-cognitive-core","version":"1.8.1","role":"MERGED_LEGACY","coverage":"canonical cognitive core retained and expanded in Source ThinkPro 10"},
+    {"id":"plugins_6abcdcbe06f08191938116ee7dbf94b3","name":"kosif-think-more-mobile","version":"3.8.1","role":"MERGED_LEGACY_SOURCE","coverage":"cognitive mechanisms, durable missions, provider routing contracts, 72-app mesh imported"},
+    {"id":"plugins_6abcdb7b6404819188f27221173ebae2","name":"kosif-think-more","version":"1.0.0","role":"MERGED_LEGACY_ROUTER","coverage":"Think/mobile/browser/computer/engineering/release/voice/whatsapp routing contracts imported"},
+    {"id":"plugins_6abcd9240c808191b9fb954a268f0e1f","name":"kosif-think-mobile-native","version":"2.1.0","role":"MERGED_LEGACY_MOBILE_ROUTER","coverage":"adaptive Fast/Deep/Council, live-tool scoring, execution receipts, self-check imported"},
+    {"id":"plugins_6abcd8f3fafc8191abc0ba9e952e6a04","name":"kosif-think-mobile-native","version":"2.0.0","role":"DUPLICATE_LEGACY","coverage":"superseded by 2.1.0 and imported mobile routing contract"},
+    {"id":"plugins_6abcd25560988191821a22b759ceb6af","name":"kosif-computer-mobile","version":"1.0.0","role":"SPECIALIST_PROVIDER","coverage":"cloud browser first, remote Windows only when online; 3 app dependencies are subset of 72-app mesh"},
+    {"id":"plugins_6abcd22c584c8191b4a868e48eece748","name":"kosif-think-mobile","version":"1.2.1","role":"MERGED_LEGACY_MOBILE_ROUTER","coverage":"MCP-free mobile owner routing and current-tool verification imported"},
+    {"id":"plugins_6abcd2019ef08191abe7bcfe97e3f07e","name":"kosif-all-mobile","version":"1.1.0","role":"DUPLICATE_LEGACY_FRONT_DOOR","coverage":"front-door policy superseded by ThinkPro 10"},
+    {"id":"plugins_6abcd190218c81918401242b2d7c1835","name":"kosif-all-mobile","version":"10.2.0","role":"CANONICAL_MOBILE_FRONT_DOOR","coverage":"active front door, 72-app mesh, secure mobile Full Pro bridge"},
+    {"id":"plugins_6abccfa2d12081919b6caca85344976e","name":"kosif-all","version":"2.0.0","role":"MERGED_LEGACY_ROUTER","coverage":"unified provider routing imported; no endpoint cloning"},
+    {"id":"plugins_6abccdab5fb081919a04f17cb2fdf08e","name":"kosif-jev-browser","version":"1.0.0","role":"SPECIALIST_PROVIDER","coverage":"full browser decision/verification/recovery contract imported; provider remains independent"},
+    {"id":"plugins_6abcc70dba088191b97b4158b645c18f","name":"kosif-think-direct","version":"1.0.1","role":"MERGED_LEGACY_BRIDGE","coverage":"mobile Think-first fallback contract preserved; superseded by KOSIF Think 0.9.5 mobile bridge"},
+    {"id":"plugins_6abba48f4ea88191a7c108b72762f23b","name":"kosif-release-bridge","version":"1.0.0","role":"SPECIALIST_PROVIDER","coverage":"GitHub source-of-truth -> deployment revision -> live verification contract imported"},
+    {"id":"plugins_6ab98e1d109c81918980af27bcd07477","name":"kosif-think","version":"1.5.3","role":"CANONICAL_PROVIDER","coverage":"active KOSIF Think MCP provider; mobile Full Pro bridge available server-side"},
+    {"id":"plugins_6ab9449964888191a0598be34e814b7f","name":"kosif-computer-director","version":"0.10.9","role":"SPECIALIST_PROVIDER","coverage":"local execution authority sequence and human gates imported; provider remains independent"},
+    {"id":"plugins_6ab805f8e0d881918f7784e4dc097f68","name":"kosif-voice-director","version":"0.2.0","role":"SPECIALIST_PROVIDER","coverage":"emotion text, episode completion, directing, audio, cast, pronunciation, selective rerender and song contracts imported"},
+    {"id":"plugins_6ab69b5d66f08191a725772155145810","name":"kosif-whatsapp","version":"0.8.1","role":"SPECIALIST_PROVIDER","coverage":"mobile Think bridge, contacts, idempotent sends, files, scheduling, delivery verification and diagnostics imported"}
+  ],
+  "app_mesh": {
+    "registered_count": 72,
+    "manifest_reference": "extensions.com.openai.apps -> ./.app.json",
+    "live_exposed_snapshot_count": 71,
+    "registered_not_exposed_snapshot": ["slack"],
+    "slack_status": "installed/enabled according to Plugin Management search; not exposed in current chat tool catalog",
+    "extra_live_host_or_specialist_namespaces_not_in_72_mesh": [
+      "Cloudflare","Cloudflare_API","Jev_Bridge","KOSIF_Engineering_Copilot","KOSIF_Voice_Director","KOSIF_WhatsApp","LinkedIn"
+    ],
+    "note": "Some live host/specialist providers are not canonical app dependencies and are routed by provider contract instead of inventing app IDs."
+  },
+  "invariants": {
+    "single_canonical_source": true,
+    "mobile_front_door_mcp_free": true,
+    "registered_app_manifest_required": true,
+    "specialist_provider_endpoints_not_cloned": true,
+    "provider_capability_contracts_imported": true,
+    "source_capability_not_equal_live_exposure": true,
+    "side_effect_success_requires_fresh_receipt": true
+  }
+}

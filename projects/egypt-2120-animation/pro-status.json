@@ -1,0 +1,261 @@
+{
+ "ok": true,
+ "version": "0.34.2",
+ "mode": "full_pro_gateway",
+ "contract_version": "council500_v1",
+ "visual_intelligence_version": "attachment-cinema-v1",
+ "cognitive_governance_version": "attachments-governance-v1",
+ "einstein_protocol_version": "einstein-attachments-v2",
+ "source_taint_policy_version": "source-taint-v1",
+ "execution_contract_version": "execution-binding-v1",
+ "decision_sensitivity_version": "decision-sensitivity-v1",
+ "cognitive_cards_version": "attachment-cognitive-cards-v7",
+ "cognitive_source_digest": "sha256:b8550fd0b2e14db4c370451424b75c429b897175550ab78a084a88b21a8d116d",
+ "cognitive_diversity": null,
+ "missing_voice_governance": null,
+ "budgets": {
+  "experts": 500,
+  "semantic_cluster_groups": 20,
+  "max_stability_revisions": 7,
+  "artifact_retry_default": 4,
+  "artifact_retry_human_hand": 8
+ },
+ "capability_truth": {
+  "registry_version": "capability-truth-v1",
+  "allowed_states": [
+   "verified",
+   "measured",
+   "implemented",
+   "host-dependent",
+   "prompt-only",
+   "simulated",
+   "historical",
+   "unavailable"
+  ],
+  "council500": {
+   "state": "measured",
+   "evidence": {
+    "experts_completed": 53,
+    "experts_required": 500
+   }
+  },
+  "jev": {
+   "state": "implemented",
+   "evidence": {
+    "calls_observed": 0
+   }
+  },
+  "einstein_method": {
+   "state": "implemented",
+   "evidence": {
+    "stages_observed": 0,
+    "protocol_version": "einstein-attachments-v2"
+   }
+  },
+  "secure_executor": {
+   "state": "verified",
+   "evidence": {
+    "status": "INITIALIZED"
+   }
+  },
+  "artifact_qa": {
+   "state": "implemented",
+   "evidence": null
+  },
+  "execution_contract": {
+   "state": "implemented",
+   "evidence": {
+    "contract_digest": null,
+    "candidate_digest": null
+   }
+  },
+  "host_tool_exposure": {
+   "state": "host-dependent",
+   "evidence": "server capability does not prove the current ChatGPT host exposed the tool"
+  }
+ },
+ "execution_contract_digest": null,
+ "request_id": "fullpro-egypt-2120-anim-2026-10-03-a",
+ "status": "running",
+ "archive_url": "https://kosif-think-mcp.kosif199022.workers.dev/requests/fullpro-egypt-2120-anim-2026-10-03-a/2cb16d7c6cbdf176ec21f5197b72e57d/",
+ "stability_diagnostics": {
+  "receipts": [],
+  "blocked": false,
+  "frozen_candidate": null
+ },
+ "council500_mode": true,
+ "capability_atlas_version": "attachment-capability-atlas-v11",
+ "capability_packs": [
+  "reasoning_core",
+  "agent_orchestration_eval",
+  "scenario_forecasting",
+  "creative_ideation",
+  "office_spreadsheet",
+  "visual_prompt_motion",
+  "image_operations",
+  "reference_recreation",
+  "audio_voice"
+ ],
+ "completion_reconciliation": {
+  "version": "c500-completion-reconcile-v1",
+  "secure_executor_count": 53,
+  "kv_completion_count": 53,
+  "audit_validated_count": null,
+  "reconciled_count": 53,
+  "source": "kv_completion_keys",
+  "mismatch": false,
+  "kv_observed": true,
+  "kv_error": null
+ },
+ "experts_completed": 53,
+ "experts_required": 500,
+ "experts_pending": 447,
+ "proposals_observed": 159,
+ "semantic_cluster_groups": 0,
+ "jev_calls_observed": 0,
+ "finalists_count": 0,
+ "cross_expert_complete": false,
+ "einstein_stages": 0,
+ "final_stable": false,
+ "gates_pass": false,
+ "candidate_frozen": false,
+ "candidate_digest": null,
+ "requires_shared_visual": false,
+ "shared_visual_verified": false,
+ "source_asset_hash": null,
+ "text_result": null,
+ "final_answer": "",
+ "last_error": null,
+ "started_at": "2026-10-03T12:51:47.195Z",
+ "updated_at": "2026-10-03T12:51:49.751Z",
+ "host_image_ready": false,
+ "host_directive": "FULL_PRO_IN_PROGRESS_NO_HOST_NATIVE_FALLBACK",
+ "image_prompt": null,
+ "image_aspect_ratio": null,
+ "image_negative_constraints": [],
+ "prompt_digest": null,
+ "canonical_prompt_digest": null,
+ "prompt_creator_receipt": null,
+ "prompt_fidelity_receipt": null,
+ "host_visual_qa": null,
+ "host_render_attempt": 0,
+ "host_render_packet": null,
+ "progress": {
+  "stage": "council500",
+  "label_ar": "Council-500",
+  "doing_ar": "تشغيل الخبراء المتبقين",
+  "next_ar": "إكمال 500/500 ثم تدقيق المجلس",
+  "experts": {
+   "completed": 53,
+   "required": 500,
+   "pending": 447
+  },
+  "clusters": {
+   "completed": 0,
+   "required": 20
+  },
+  "candidates": 0,
+  "jev_a": {
+   "completed": 0,
+   "required": 10
+  },
+  "finalists": 0,
+  "jev_b": {
+   "completed": 0,
+   "required": null
+  },
+  "einstein": {
+   "completed": 0,
+   "required": 7
+  },
+  "stability": {
+   "completed": 0,
+   "required": 2
+  },
+  "gates": {
+   "completed": 0,
+   "required": 4
+  },
+  "status": "running",
+  "text_ar": "الطلب fullpro-egypt-2120-anim-2026-10-03-a — المرحلة: Council-500. المنجز: الخبراء 53/500، المجموعات 0/20، Jev A 0/10، Einstein 0/7، Stability 0/2، Gates 0/4. الجاري الآن: تشغيل الخبراء المتبقين. التالي: إكمال 500/500 ثم تدقيق المجلس."
+ },
+ "progress_text_ar": "الطلب fullpro-egypt-2120-anim-2026-10-03-a — المرحلة: Council-500. المنجز: الخبراء 53/500، المجموعات 0/20، Jev A 0/10، Einstein 0/7، Stability 0/2، Gates 0/4. الجاري الآن: تشغيل الخبراء المتبقين. التالي: إكمال 500/500 ثم تدقيق المجلس.",
+ "resume_policy": {
+  "continue_same_request": true,
+  "new_request_only_on_explicit_restart": true,
+  "bypass_forbidden": true,
+  "image_execution_provider": "chatgpt-image-generation",
+  "post_generation_qa_required": true
+ },
+ "secure_executor": {
+  "ok": true,
+  "request": {
+   "request_id": "fullpro-egypt-2120-anim-2026-10-03-a",
+   "status": "INITIALIZED",
+   "executor": "image",
+   "candidate_digest": null,
+   "state_digest": null,
+   "execution_lock": null,
+   "created_at": 1791031906717,
+   "updated_at": 1791031906717,
+   "bypass_reason": null,
+   "result_digest": null,
+   "provider_result_id": null,
+   "scene_spec_json": null,
+   "execution_contract_digest": null
+  },
+  "tickets": 0,
+  "tickets_consumed": 0,
+  "artifact_qa": null,
+  "expert_completions": 53,
+  "expert_receipts_observed": 53,
+  "finalizer_claimed": false,
+  "finalizer_claimed_at": null
+ },
+ "provenance": {
+  "scene_spec_model": null,
+  "scene_spec_attempts": null,
+  "scene_from_template": null,
+  "prompt_creator": null,
+  "prompt_serialized_from_scene": false,
+  "expert_grounded": false
+ },
+ "gateway": "kosif_full_pro_execute",
+ "executor_policy": "KOSIF_SECURE_EXECUTOR_ONLY",
+ "next_action": {
+  "tool": "kosif_full_pro_execute",
+  "request_id": "fullpro-egypt-2120-anim-2026-10-03-a",
+  "subject": "صمّم معالجة إبداعية كاملة لانميشن عمودي بمقاس 9:16 مدته 18 ثانية عن الحياة اليومية في مصر عام 2120م بجرافيك فائق الجودة. المطلوب: (1) فكرة محورية وخط سردي في 6 لقطات بتوقيتات دقيقة، مع افتتاح جاذب في أول ثانيتين وختام بعبارة قصيرة. (2) لكل لقطة: المكان (الجيزة أو القاهرة أو النيل أو الإسكندرية أو الصحراء)، والتقنيات المستقبلية المعقولة علمياً (طاقة شمسية، زراعة عمودية، تحلية مياه، نقل كهربائي طائر، قطار مغناطيسي، مدن خضراء) مع احترام التراث (الأهرامات والنيل بلا تشويه)، وحركة الكاميرا، والإضاءة واللون، والعناصر المتحركة، والنص العربي القصير على الشاشة (6 كلمات أو أقل). (3) لوحة ألوان وأسلوب بصري موحد. (4) تصميم صوتي وموسيقى. (5) قيود: بلا أشخاص حقيقيين ولا شعارات تجارية ولا رموز سياسية. أجب بالعربية في جدول لقطات واضح.",
+  "executor": "text",
+  "visual": false,
+  "requires_shared_visual": false,
+  "source_asset_hash": null,
+  "source_asset_ref": null,
+  "shared_visual_verified": false,
+  "live_tools": [],
+  "available_tools": [],
+  "approved_tools": [],
+  "excluded_tools": [],
+  "budget_mode": "default",
+  "write_intent": false,
+  "confirmed_full_pro": true
+ },
+ "receipt": {
+  "receiptId": "02906830-576b-4f44-a8d8-009062d7bef1",
+  "engineVersion": "0.34.2",
+  "tool": "kosif_full_pro_execute",
+  "mode": "full_pro_gateway",
+  "durationMs": 1294,
+  "degraded": false,
+  "fallbacks": [],
+  "missingAgents": [],
+  "failures": [],
+  "generatedAt": "2026-10-03T13:22:44.410Z",
+  "integrity": {
+   "signed": false,
+   "type": "trace-correlation-digest",
+   "digest": "eabf77e3",
+   "note": "Not a cryptographic signature; use only for correlation and change detection."
+  }
+ }
+}

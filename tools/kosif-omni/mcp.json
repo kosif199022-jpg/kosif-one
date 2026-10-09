@@ -1,0 +1,9 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/mcp.schema.json",
+  "mcpServers": {
+    "kosif-think": {
+      "type": "streamable-http",
+      "url": "https://kosif-think-mcp.kosif199022.workers.dev/mcp/v0.22.3"
+    }
+  }
+}

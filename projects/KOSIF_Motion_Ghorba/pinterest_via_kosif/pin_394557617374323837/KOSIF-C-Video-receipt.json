@@ -1,0 +1,12 @@
+{
+  "status": "verified",
+  "output": "KOSIF-C-Video.mp4",
+  "source_domain": "uk.pinterest.com",
+  "duration": 7.766667,
+  "bytes": 305223,
+  "sha256": "6c65742be41a38b3d6b338994e0470145d443944ed1a0c06052e8dda5bcea4d3",
+  "video_codec": "h264",
+  "audio_codec": "aac",
+  "iPhone_compatible": true,
+  "note": "Only publicly downloadable material. No cookies, logins or DRM bypass."
+}

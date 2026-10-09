@@ -1,0 +1,21 @@
+--- a/worker.js
++++ b/worker.js
+@@ -418,7 +418,8 @@
+ }
+ __name(loadAuth0Jwks, "loadAuth0Jwks");
+ function audienceMatches(aud) {
+-  return Array.isArray(aud) ? aud.includes(AUTH0_AUDIENCE) : aud === AUTH0_AUDIENCE;
++  const ok = (a) => String(a || "").replace(/\/+$/, "") === AUTH0_AUDIENCE;
++  return Array.isArray(aud) ? aud.some(ok) : ok(aud);
+ }
+ __name(audienceMatches, "audienceMatches");
+ async function verifyAuth0AccessToken(token) {
+@@ -7575,7 +7576,7 @@
+       return json({
+         resource: AUTH0_AUDIENCE,
+         authorization_servers: [AUTH0_ISSUER],
+-        scopes_supported: ["openid", "profile", "email"],
++        scopes_supported: ["openid", "profile", "email", "offline_access"],
+         resource_name: "kosif Do MCP",
+         bearer_methods_supported: ["header"]
+       });

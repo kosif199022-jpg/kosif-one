@@ -1,0 +1,2 @@
+# Reversal Thresholds and Robust Decisions
+Identify the smallest plausible change in an assumption, price, probability, constraint or observed fact that changes the preferred action. If the reversal threshold lies inside the plausible uncertainty range, the decision is fragile. Seek high-value evidence, choose a reversible/robust action, or escalate. If the same action wins across the plausible range, stop researching sooner.

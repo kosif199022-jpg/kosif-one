@@ -1,0 +1,55 @@
+# Mirrors the LIVE kosif-think-mcp settings read from the Cloudflare API on 2026-10-03
+# (live/settings.json, live/queue-consumers.json). Only src/worker.js differs from live 0.25.2.
+# The secret KOSIF_THINK_TOKEN is not declared here; Cloudflare keeps existing secrets across deploys.
+name = "kosif-think-mcp"
+main = "src/worker.js"
+compatibility_date = "2026-09-27"
+workers_dev = true
+preview_urls = true
+
+[ai]
+binding = "AI"
+
+[[kv_namespaces]]
+binding = "FULL_PRO_STATE"
+id = "73018fa44d384876a74210051a7df291"
+
+[[queues.producers]]
+binding = "FULL_PRO_QUEUE"
+queue = "kosif-full-pro-jobs"
+
+[[queues.consumers]]
+queue = "kosif-full-pro-jobs"
+max_batch_size = 1
+max_batch_timeout = 1
+max_retries = 6
+retry_delay = 5
+
+[[services]]
+binding = "KOSIF_JEV"
+service = "kosif-jev"
+environment = "production"
+
+[[services]]
+binding = "SECURE_EXECUTOR"
+service = "kosif-full-pro-secure-executor"
+environment = "production"
+
+[[ratelimits]]
+name = "THINK_RATE_LIMITER"
+namespace_id = "7301"
+simple = { limit = 30, period = 60 }
+
+[[ratelimits]]
+name = "THINK_MODEL_LIMITER"
+namespace_id = "7302"
+simple = { limit = 10, period = 60 }
+
+[vars]
+THINK_ALLOWED_ORIGINS = ""
+THINK_ALLOW_PATH_TOKEN = "false"
+THINK_AUTH_FAILS_PER_MIN = "20"
+THINK_FRONTIER_ENABLED = "true"
+THINK_MAX_BODY_BYTES = "131072"
+THINK_MODEL_RPM = "10"
+THINK_RPM = "30"

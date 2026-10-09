@@ -1,0 +1,34 @@
+# build output
+dist/
+
+# generated types
+.astro/
+
+# dependencies
+node_modules/
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# environment variables
+.env
+.env.production
+
+# macOS-specific files
+.DS_Store
+
+# jetbrains setting folder
+.idea/
+
+# wrangler
+.wrangler/
+
+# media de trabajo: vídeos, keyframes y respuestas de Higgsfield (pesan mucho o llevan URLs de la cuenta)
+media/**/*.mp4
+media/**/*.webm
+media/**/*.jpg
+media/**/*.log
+media/scroll-world/pruebas/*.json

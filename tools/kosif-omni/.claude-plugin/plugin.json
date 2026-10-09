@@ -1,0 +1,22 @@
+{
+  "name": "kosif-omni",
+  "version": "11.11.0",
+  "description": "KOSIF Omni — one plugin for Claude and ChatGPT: unified front door, 49 skills, a 1,040-member Genius Council, 65 deterministic MCP tools (audit/IFRS, code & web audits, prompt/cinema engineering, lighting, audio/image measurement, gated browser/GitHub/release), Arabic-aware search over your own files, and guarded WhatsApp.",
+  "author": {
+    "name": "Kosif"
+  },
+  "keywords": [
+    "kosif",
+    "omni",
+    "council",
+    "genius-council",
+    "jev",
+    "audit",
+    "ifrs",
+    "cinema",
+    "prompt-engineering",
+    "mcp",
+    "arabic",
+    "full-pro"
+  ]
+}

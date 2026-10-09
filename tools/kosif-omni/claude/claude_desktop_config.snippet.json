@@ -1,0 +1,14 @@
+{
+  "mcpServers": {
+    "kosif-omni": {
+      "command": "python",
+      "args": [
+        "C:\\PATH\\TO\\kosif-omni\\mcp-server\\run.py"
+      ],
+      "env": {
+        "KOSIF_ALLOWED_DIRS": "C:\\PATH\\TO\\a\\folder\\you\\allow",
+        "KOSIF_CORPUS_DIR": "C:\\PATH\\TO\\your\\text\\files"
+      }
+    }
+  }
+}

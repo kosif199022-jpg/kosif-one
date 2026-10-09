@@ -1,0 +1,93 @@
+{
+ "W": 1080,
+ "H": 1920,
+ "fps": 30,
+ "duration": 5.0,
+ "mood": "dawn",
+ "accent": "#E7B65A",
+ "title": "النجاح رحلة",
+ "sub": null,
+ "credit": null,
+ "images": [],
+ "timing": "aligned",
+ "lines": [
+  {
+   "t": 0.0,
+   "end": 1.66,
+   "size": 124,
+   "payoff": false,
+   "section": 0,
+   "words": [
+    {
+     "t": 0.0,
+     "text": "النجاح",
+     "key": true
+    },
+    {
+     "t": 0.94,
+     "text": "رحلة",
+     "key": false
+    }
+   ],
+   "motif": {
+    "kind": "trophy",
+    "t": 0.0,
+    "end": 1.07
+   }
+  },
+  {
+   "t": 1.72,
+   "end": 4.94,
+   "size": 151.28,
+   "payoff": true,
+   "section": 0,
+   "words": [
+    {
+     "t": 1.72,
+     "text": "3",
+     "key": false
+    },
+    {
+     "t": 2.48,
+     "text": "خطوات",
+     "key": false
+    },
+    {
+     "t": 3.2,
+     "text": "كل",
+     "key": false
+    },
+    {
+     "t": 3.54,
+     "text": "يوم",
+     "key": true
+    }
+   ],
+   "motif": {
+    "kind": "count",
+    "t": 1.47,
+    "end": 4.94,
+    "value": "3"
+   }
+  }
+ ],
+ "sections": [
+  {
+   "t": 0.0,
+   "end": 5.0,
+   "i": 0
+  }
+ ],
+ "interludes": [],
+ "cards": {
+  "title": null,
+  "header": {
+   "t": 0.15,
+   "end": 1.75
+  },
+  "end": null
+ },
+ "payoff": 1,
+ "refrain": null,
+ "end": 4.6
+}

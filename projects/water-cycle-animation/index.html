@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>دورة الماء</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@700;800&display=swap" rel="stylesheet">
+<style>
+  html, body { margin: 0; height: 100%; background: #0B2545; }
+  body { display: flex; align-items: center; justify-content: center; }
+  svg { width: 100vw; height: 56.25vw; max-height: 100vh; max-width: 177.78vh; display: block; }
+  text { font-family: "Cairo", Tahoma, sans-serif; }
+  body.capture { background: #EAF7FF; }
+  body.capture svg { width: 1920px; height: 1080px; max-width: none; max-height: none; }
+</style>
+</head>
+<body>
+<!-- One deterministic timeline: render(t) sets every attribute for time t (0..10 s), so the browser preview and the
+     frame-by-frame capture show exactly the same picture. Layout = the hero frame; motion is computed from t. -->
+<svg id="stage" viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#BFE6FF"/><stop offset="1" stop-color="#EAF7FF"/>
+    </linearGradient>
+    <linearGradient id="seaGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2B86E0"/><stop offset="1" stop-color="#1559A8"/>
+    </linearGradient>
+    <radialGradient id="glow"><stop offset="0" stop-color="#FFD86B" stop-opacity=".7"/><stop offset="1" stop-color="#FFD86B" stop-opacity="0"/></radialGradient>
+    <marker id="head" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 Z" fill="#FF7A00"/>
+    </marker>
+  </defs>
+
+  <rect width="1920" height="1080" fill="url(#sky)"/>
+  <path d="M -20 800 Q 300 700 620 790 T 1300 770 T 1960 760 L 1960 900 L -20 900 Z" fill="#D7EEDB" opacity=".55"/>
+
+  <!-- sun -->
+  <g id="sun">
+    <circle r="190" fill="url(#glow)"/>
+    <g id="rays" stroke="#FFC233" stroke-width="10" stroke-linecap="round"></g>
+    <circle r="86" fill="#FFC233"/>
+  </g>
+
+  <!-- heat arrows sun → sea -->
+  <g id="heat" fill="none" stroke="#FF9E2C" stroke-width="7" stroke-linecap="round" stroke-dasharray="20 18">
+    <path d="M 320 330 L 430 740"/><path d="M 360 320 L 610 745"/><path d="M 380 300 L 800 750"/>
+  </g>
+
+  <!-- sea -->
+  <path id="sea" fill="url(#seaGrad)"/>
+  <path id="foam" fill="none" stroke="#CFE9FF" stroke-width="5" opacity=".8"/>
+
+  <!-- land + mountains -->
+  <path d="M 990 1080 L 990 800 Q 1060 790 1150 812 L 1920 800 L 1920 1080 Z" fill="#8BC56A"/>
+  <path d="M 990 1080 L 990 800 Q 1012 797 1036 802 L 1036 1080 Z" fill="#E9D8A6"/>
+  <path d="M 1180 812 L 1430 470 L 1680 812 Z" fill="#4E9A5C"/>
+  <path d="M 1430 470 L 1680 812 L 1530 812 Z" fill="#3E7F4B"/>
+  <path d="M 1380 538 L 1430 470 L 1478 536 L 1452 528 L 1430 548 L 1408 528 Z" fill="#F4F8FC"/>
+  <path d="M 1520 812 L 1735 545 L 1950 812 Z" fill="#5FAE6B"/>
+  <path d="M 1735 545 L 1950 812 L 1820 812 Z" fill="#4C9159"/>
+
+  <!-- river: dry bed always, water revealed, then flowing highlights -->
+  <path id="riverbed" d="M 1440 520 C 1400 640, 1300 700, 1250 760 S 1100 845, 995 852" fill="none" stroke="#CDE7F7" stroke-width="20" stroke-linecap="round"/>
+  <path id="river" pathLength="1" d="M 1440 520 C 1400 640, 1300 700, 1250 760 S 1100 845, 995 852" fill="none" stroke="#2B8CE6" stroke-width="20" stroke-linecap="round" stroke-dasharray="1 1"/>
+  <path id="flow" pathLength="1" d="M 1440 520 C 1400 640, 1300 700, 1250 760 S 1100 845, 995 852" fill="none" stroke="#A9DBFF" stroke-width="6" stroke-linecap="round" stroke-dasharray="0.04 0.07"/>
+
+  <!-- vapour + rain (filled by script) -->
+  <g id="vapour" fill="none" stroke="#7FBFFF" stroke-width="8" stroke-linecap="round"></g>
+  <g id="rain" stroke="#3D8BFF" stroke-width="6" stroke-linecap="round"></g>
+
+  <!-- clouds -->
+  <g id="clouds"></g>
+
+  <!-- recap loop -->
+  <path id="loop" pathLength="1" d="M 600 700 C 470 470, 760 250, 1150 300 C 1560 350, 1690 620, 1380 770 C 1150 880, 780 880, 640 740" fill="none" stroke="#FF7A00" stroke-width="9" stroke-linecap="round" stroke-dasharray="1 1"/>
+
+  <!-- title card -->
+  <g id="title">
+    <rect x="450" y="60" width="1100" height="200" rx="36" fill="#FFFFFF" opacity=".93"/>
+    <text x="1000" y="160" text-anchor="middle" font-size="84" font-weight="800" fill="#0B2545">كيف يدور الماء في الطبيعة؟</text>
+    <text x="1000" y="225" text-anchor="middle" font-size="40" font-weight="700" fill="#1559A8">دورة الماء في ١٠ ثوانٍ</text>
+  </g>
+
+  <!-- stage captions -->
+  <g id="captions"></g>
+
+  <!-- stage tracker -->
+  <g id="tracker"></g>
+</svg>
+
+<script>
+const NS = "http://www.w3.org/2000/svg", DUR = 10;
+const $ = (id) => document.getElementById(id);
+const el = (tag, attrs, parent) => { const n = document.createElementNS(NS, tag); for (const k in attrs) n.setAttribute(k, attrs[k]); parent && parent.appendChild(n); return n; };
+const clamp = (x, a = 0, b = 1) => Math.max(a, Math.min(b, x));
+const seg = (t, a, b) => clamp((t - a) / (b - a));
+const ease = (p) => p < .5 ? 4 * p * p * p : 1 - Math.pow(-2 * p + 2, 3) / 2;
+const lerp = (a, b, p) => a + (b - a) * p;
+const fadeWin = (t, a, b, f = .25) => Math.min(seg(t, a, a + f), 1 - seg(t, b - f, b));
+const mix = (c1, c2, p) => { const h = (c) => [1, 3, 5].map((i) => parseInt(c.slice(i, i + 2), 16));
+  const [a, b] = [h(c1), h(c2)]; return "#" + a.map((v, i) => Math.round(lerp(v, b[i], p)).toString(16).padStart(2, "0")).join(""); };
+
+// ── static build ──────────────────────────────────────────────────────────
+for (let i = 0; i < 12; i++) { const a = i * Math.PI / 6; el("line", { x1: 108 * Math.cos(a), y1: 108 * Math.sin(a), x2: 150 * Math.cos(a), y2: 150 * Math.sin(a) }, $("rays")); }
+
+const WISPS = [220, 340, 460, 580, 700, 820, 930].flatMap((x, i) => [0, 1].map((k) => ({ x, start: 1.6 + i * .17 + k * 1.05, dur: 1.7, n: el("path", {}, $("vapour")) })));
+
+function cloud(parent) {
+  const g = el("g", {}, parent), parts = [];
+  for (const [cx, cy, r] of [[0, 0, 62], [-75, 18, 46], [78, 18, 50], [-32, -34, 52], [38, -40, 58]]) parts.push(el("circle", { cx, cy, r }, g));
+  parts.push(el("rect", { x: -122, y: 10, width: 248, height: 58, rx: 29 }, g));
+  return { g, parts };
+}
+const CLOUDS = [cloud($("clouds")), cloud($("clouds"))];
+
+let seed = 7; const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
+const DROPS = Array.from({ length: 38 }, () => ({ x: 1240 + rnd() * 420, off: rnd() * 470, n: el("line", {}, $("rain")) }));
+
+const CAPS = [
+  [1.5, 4.0, "١. التبخّر: الشمس تُسخّن البحر فيصعد البخار"],
+  [4.0, 6.1, "٢. التكاثف: يبرد البخار فتتكوّن الغيوم"],
+  [6.1, 8.0, "٣. الهطول: ينزل الماء مطراً على الأرض"],
+  [8.0, 8.9, "٤. الجريان: تعود المياه إلى البحر"],
+  [8.9, 10.2, "وهكذا تتكرر دورة الماء من جديد"],
+].map(([a, b, s]) => { const g = el("g", {}, $("captions"));
+  el("rect", { x: 440, y: 56, width: 1300, height: 118, rx: 30, fill: "#FFFFFF", opacity: ".93" }, g);
+  const tx = el("text", { x: 1090, y: 133, "text-anchor": "middle", "font-size": 54, "font-weight": 700, fill: "#0B2545" }, g); tx.textContent = s;
+  return { a, b, g }; });
+
+const STAGES = ["١ التبخّر", "٢ التكاثف", "٣ الهطول", "٤ الجريان"], STAGE_T = [[1.5, 4.0], [4.0, 6.1], [6.1, 8.0], [8.0, 8.9]];
+const PILLS = STAGES.map((s, i) => { const x = 960 + 435 - i * 290;  // stage 1 on the right (RTL)
+  const g = el("g", {}, $("tracker"));
+  const r = el("rect", { x: x - 130, y: 968, width: 260, height: 70, rx: 35, stroke: "#0B2545", "stroke-width": 2 }, g);
+  const tx = el("text", { x, y: 1015, "text-anchor": "middle", "font-size": 40, "font-weight": 700 }, g); tx.textContent = s;
+  return { g, r, tx }; });
+
+// ── render(t): the whole frame as a function of time ───────────────────────
+function render(t) {
+  // sun rises, rays turn, rays pulse while heating
+  const rise = ease(seg(t, 0, 1.2)), pulse = 1 + .06 * Math.sin(t * 4 * Math.PI) * fadeWin(t, 1.5, 4.2, .3);
+  $("sun").setAttribute("transform", `translate(240 ${lerp(360, 230, rise)})`);
+  $("rays").setAttribute("transform", `rotate(${t * 18}) scale(${pulse})`);
+  $("heat").setAttribute("opacity", fadeWin(t, 1.6, 4.1, .35));
+  $("heat").setAttribute("stroke-dashoffset", -t * 140);
+
+  // sea waves
+  let d = "M -20 1100 L -20 790", f = "M -20 790";
+  for (let x = -20; x <= 1000; x += 20) { const y = 790 + 9 * Math.sin(x / 180 * 2 * Math.PI + t * 2.2); d += ` L ${x} ${y.toFixed(1)}`; f += ` L ${x} ${y.toFixed(1)}`; }
+  $("sea").setAttribute("d", d + " L 1000 1100 Z"); $("foam").setAttribute("d", f);
+
+  // evaporation: wisps rise and sway
+  for (const w of WISPS) { const p = (t - w.start) / w.dur;
+    if (p < 0 || p > 1) { w.n.setAttribute("opacity", 0); continue; }
+    const y0 = 770 - p * 420; let pd = "";
+    for (let k = 0; k <= 8; k++) { const yy = y0 - k * 12, xx = w.x + 14 * Math.sin((yy / 60) + t * 5 + w.x); pd += (k ? " L " : "M ") + xx.toFixed(1) + " " + yy.toFixed(1); }
+    w.n.setAttribute("d", pd); w.n.setAttribute("opacity", (Math.sin(Math.PI * p) * .9).toFixed(3)); }
+
+  // condensation: clouds grow over the sea, drift over the mountain; darken for rain, lighten after
+  const grow = ease(seg(t, 3.8, 5.0)), drift = ease(seg(t, 4.9, 6.2));
+  const dark = seg(t, 6.0, 6.5) * (1 - seg(t, 8.3, 9.0)), fill = mix("#FFFFFF", "#A6B9CC", dark), shade = mix("#DCE8F2", "#8FA3B8", dark);
+  CLOUDS.forEach((c, i) => {
+    const cx = lerp(600 + i * 200, 1380 + i * 160, drift) + 6 * Math.sin(t * 1.3 + i), cy = lerp(300 + i * 40, 260 + i * 40, drift);
+    const sc = (i ? .78 : 1) * (.2 + .8 * grow);
+    c.g.setAttribute("transform", `translate(${cx.toFixed(1)} ${cy.toFixed(1)}) scale(${sc.toFixed(3)})`);
+    c.g.setAttribute("opacity", grow.toFixed(3));
+    c.parts.forEach((p, k) => p.setAttribute("fill", k === c.parts.length - 1 ? shade : fill));
+  });
+
+  // precipitation: drops fall from the cloud base to the mountain
+  const rainOn = fadeWin(t, 6.3, 8.3, .3);
+  for (const r of DROPS) { const y = 340 + ((t * 950 + r.off) % 470);
+    r.n.setAttribute("x1", r.x); r.n.setAttribute("x2", r.x - 6); r.n.setAttribute("y1", y); r.n.setAttribute("y2", y + 28);
+    r.n.setAttribute("opacity", rainOn.toFixed(3)); }
+
+  // collection: the river fills from the mountain to the sea, then flows
+  $("river").setAttribute("stroke-dashoffset", (1 - ease(seg(t, 7.3, 8.7))).toFixed(4));
+  $("flow").setAttribute("stroke-dashoffset", (-t * .35).toFixed(4));
+  $("flow").setAttribute("opacity", seg(t, 8.4, 8.8).toFixed(3));
+
+  // recap loop arrow
+  const lp = ease(seg(t, 8.9, 9.8));
+  $("loop").setAttribute("stroke-dashoffset", (1 - lp).toFixed(4));
+  $("loop").setAttribute("opacity", seg(t, 8.85, 9.0).toFixed(3));
+  if (lp > .98) $("loop").setAttribute("marker-end", "url(#head)"); else $("loop").removeAttribute("marker-end");
+
+  // title card → captions
+  const tIn = ease(seg(t, .15, .6)), tOut = seg(t, 1.25, 1.55);
+  $("title").setAttribute("opacity", (tIn * (1 - tOut)).toFixed(3));
+  $("title").setAttribute("transform", `translate(0 ${((1 - tIn) * 30).toFixed(1)})`);
+  for (const c of CAPS) c.g.setAttribute("opacity", fadeWin(t, c.a, c.b, .25).toFixed(3));
+
+  // stage tracker: appears with stage 1, highlights the current stage, all lit in the recap
+  $("tracker").setAttribute("opacity", seg(t, 1.4, 1.8).toFixed(3));
+  PILLS.forEach((p, i) => { const [a, b] = STAGE_T[i];
+    const on = Math.max(fadeWin(t, a, b, .2), seg(t, 8.9, 9.3) * .85);
+    p.r.setAttribute("fill", mix("#FFFFFF", "#FF7A00", on)); p.r.setAttribute("fill-opacity", (.88 + .12 * on).toFixed(3));
+    p.tx.setAttribute("fill", mix("#0B2545", "#FFFFFF", on)); });
+}
+window.render = render;
+
+// preview: loop forever; click to pause. capture mode (?capture): the recorder calls render(t) itself.
+const capture = new URLSearchParams(location.search).has("capture");
+if (capture) document.body.classList.add("capture");
+render(0);
+document.fonts.ready.then(() => { window.__ready = true; });
+if (!capture) {
+  let paused = false, t0 = performance.now(), held = 0;
+  document.addEventListener("click", () => { paused = !paused; if (!paused) t0 = performance.now() - held * 1000; });
+  (function loop(now) { if (!paused) { held = ((now - t0) / 1000) % DUR; render(held); } requestAnimationFrame(loop); })(performance.now());
+}
+</script>
+</body>
+</html>

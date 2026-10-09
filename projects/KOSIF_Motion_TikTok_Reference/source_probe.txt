@@ -1,0 +1,15 @@
+﻿TIKTOK
+yt-dlp : WARNING: [TikTok] The extractor is attempting impersonation, but no impersonate target is available. If you 
+encounter errors, then see  https://github.com/yt-dlp/yt-dlp#impersonation  for information on installing the required 
+dependencies
+At line:1 char:314
++ ... oding utf8; yt-dlp --no-playlist --skip-download --socket-timeout 12  ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (WARNING: [TikTo...ed dependencies:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+ERROR: [TikTok] 7224848231598017819: Unexpected response from webpage request; please report this issue on  
+https://github.com/yt-dlp/yt-dlp/issues?q= , filling out the appropriate issue template. Confirm you are on the latest 
+version using  yt-dlp -U
+PINTEREST
+title=A smooth & clean marketing related reel for the client  | id=935904366328038869 | duration=25.567 | url=https://www.pinterest.com/pin/935904366328038869/

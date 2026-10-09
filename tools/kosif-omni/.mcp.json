@@ -1,0 +1,14 @@
+{
+  "mcpServers": {
+    "kosif-omni": {
+      "command": "python",
+      "args": [
+        "${CLAUDE_PLUGIN_ROOT}/mcp-server/run.py"
+      ]
+    },
+    "kosif-think": {
+      "type": "http",
+      "url": "https://kosif-think-mcp.kosif199022.workers.dev/mcp/v0.22.3"
+    }
+  }
+}

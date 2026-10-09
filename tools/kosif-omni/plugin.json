@@ -1,0 +1,45 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "kosif-omni",
+  "version": "11.11.0",
+  "description": "KOSIF Omni — one plugin for Claude and ChatGPT: unified front door, 49 skills, a 1,040-member Genius Council, 65 deterministic MCP tools (audit/IFRS, code & web audits, prompt/cinema engineering, lighting, audio/image measurement, gated browser/GitHub/release), Arabic-aware search over your own files, and guarded WhatsApp.",
+  "author": {
+    "name": "Kosif"
+  },
+  "keywords": [
+    "kosif",
+    "omni",
+    "council",
+    "genius-council",
+    "jev",
+    "audit",
+    "ifrs",
+    "cinema",
+    "prompt-engineering",
+    "mcp",
+    "arabic",
+    "full-pro"
+  ],
+  "extensions": {
+    "com.openai": {
+      "apps": "./.app.json",
+      "interface": {
+        "displayName": "KOSIF Omni",
+        "shortDescription": "Unified KOSIF · Council · Atlas · 52 tools · cinema · audit",
+        "longDescription": "KOSIF Omni is the single KOSIF entry point for ChatGPT and Claude. It routes any task to the right skill and deterministic tool, offers Standard / Council / Full Pro modes with honest receipts, a 1,040-member Genius Council, audit/IFRS controls, code and web audits, image/video/cinema prompt engineering, lighting/audio/image measurement, gated browser/GitHub/release workflows, Arabic-aware search over your own files and a guarded WhatsApp bridge.",
+        "developerName": "Kosif",
+        "category": "Productivity",
+        "capabilities": [
+          "Interactive"
+        ],
+        "defaultPrompt": [
+          "kosif: وجّه مهمتي للقدرة المناسبة ونفّذها وتحقق من النتيجة",
+          "اجمع مجلس العباقرة لهذا القرار وأعطني الحكم مع الاعتراضات",
+          "اكتب حزمة سينمائية كاملة (7 طبقات + إضاءة + برومبتات المنصات)",
+          "راجع هذه القيود المحاسبية وفق IFRS مع ضوابط حتمية"
+        ]
+      }
+    }
+  },
+  "skills": "./skills/"
+}

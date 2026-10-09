@@ -1,0 +1,61 @@
+{
+  "schema_version": "10.3",
+  "canonical_source": {
+    "plugin_id": "plugins_6abd29b907ac8191a457bce773dc7515",
+    "display_name": "Source ThinkPro 10",
+    "version": "10.3.0",
+    "owns": [
+      "cognitive_core",
+      "source_router",
+      "full_pro_runtime",
+      "execution_engine",
+      "einstein",
+      "knowledge_atlas",
+      "visual_orchestration",
+      "secure_executor_policy",
+      "capability_inventory",
+      "app_mesh"
+    ]
+  },
+  "imports": [
+    {
+      "plugin_id": "plugins_6abcdcbe06f08191938116ee7dbf94b3",
+      "display_name": "Source KOSIF Think Pro",
+      "version": "3.8.1",
+      "status": "MERGED_LEGACY_SOURCE",
+      "imported": [
+        "cognitive_mechanisms",
+        "durable_missions",
+        "provider_routing_contracts",
+        "72_app_mesh"
+      ],
+      "not_imported": [
+        "legacy_mcp_endpoints",
+        "legacy_runtime_implementations",
+        "legacy_credentials"
+      ]
+    }
+  ],
+  "app_mesh": {
+    "source_plugin_id": "plugins_6abcdcbe06f08191938116ee7dbf94b3",
+    "app_count": 72,
+    "all_optional": true,
+    "live_exposure_required": true
+  },
+  "mobile_front_door": {
+    "plugin_id": "plugins_6abcd190218c81918401242b2d7c1835",
+    "display_name": "ThinkPro 10",
+    "mcp_bundled": false
+  },
+  "canonical_provider": {
+    "plugin_id": "plugins_6ab98e1d109c81918980af27bcd07477",
+    "display_name": "KOSIF Think"
+  },
+  "invariants": {
+    "single_canonical_source": true,
+    "mobile_front_door_must_be_mcp_free": true,
+    "specialist_provider_endpoints_must_not_be_cloned": true,
+    "source_capability_is_not_host_exposure": true,
+    "app_registration_is_not_live_connection": true
+  }
+}

@@ -1,0 +1,1129 @@
+{
+  "version": "1.0",
+  "module_count": 28,
+  "source_count_unique": 18,
+  "modules": [
+    {
+      "id": "M01",
+      "name": "semantic_stabilization",
+      "purpose": "Stabilize material terms before assent.",
+      "sources": [
+        "Aristotle—Organon",
+        "Avicenna—al-Shifa Logic",
+        "Smart Thinking"
+      ],
+      "activate_when": [
+        "definition/classification",
+        "ambiguous key term",
+        "high-impact claim"
+      ],
+      "inputs": [
+        "terms",
+        "scope",
+        "units",
+        "time horizon"
+      ],
+      "outputs": [
+        "normalized definitions",
+        "ambiguities",
+        "necessary/sufficient conditions"
+      ],
+      "next": [
+        "M02",
+        "M03",
+        "M07"
+      ]
+    },
+    {
+      "id": "M02",
+      "name": "formal_validity_counterexample",
+      "purpose": "Separate valid inference from truth of premises and seek countermodels.",
+      "sources": [
+        "Aristotle—Organon"
+      ],
+      "activate_when": [
+        "argument",
+        "proof",
+        "policy rationale",
+        "deductive claim"
+      ],
+      "inputs": [
+        "premises",
+        "conclusion"
+      ],
+      "outputs": [
+        "validity status",
+        "hidden premises",
+        "counterexample"
+      ],
+      "next": [
+        "M03",
+        "M21"
+      ]
+    },
+    {
+      "id": "M03",
+      "name": "demonstration_mechanism",
+      "purpose": "Require explanatory middle-term/mechanism for strong explanatory or causal assent.",
+      "sources": [
+        "Aristotle—Organon",
+        "Avicenna—al-Shifa Logic"
+      ],
+      "activate_when": [
+        "why question",
+        "causal claim",
+        "scientific explanation"
+      ],
+      "inputs": [
+        "claim",
+        "premises",
+        "candidate mechanism"
+      ],
+      "outputs": [
+        "mechanism graph",
+        "missing link",
+        "certainty limits"
+      ],
+      "next": [
+        "M04",
+        "M05",
+        "M24"
+      ]
+    },
+    {
+      "id": "M04",
+      "name": "bayesian_plausibility",
+      "purpose": "Reason under incomplete information and update plausibility from evidence.",
+      "sources": [
+        "Jaynes—Probability Theory",
+        "Deep Learning"
+      ],
+      "activate_when": [
+        "uncertainty",
+        "forecast",
+        "diagnosis",
+        "evidence conflict"
+      ],
+      "inputs": [
+        "hypotheses",
+        "background information",
+        "evidence"
+      ],
+      "outputs": [
+        "relative support",
+        "uncertainty drivers",
+        "decision thresholds"
+      ],
+      "next": [
+        "M05",
+        "M24",
+        "M26"
+      ]
+    },
+    {
+      "id": "M05",
+      "name": "hypothesis_portfolio",
+      "purpose": "Keep multiple genuinely plausible explanations alive until a discriminating observation separates them.",
+      "sources": [
+        "Jaynes—Probability Theory",
+        "Judgment in Managerial Decision Making"
+      ],
+      "activate_when": [
+        "debugging",
+        "diagnosis",
+        "causal ambiguity"
+      ],
+      "inputs": [
+        "observations",
+        "candidate explanations"
+      ],
+      "outputs": [
+        "live hypotheses",
+        "unique predictions",
+        "discriminating tests"
+      ],
+      "next": [
+        "M24",
+        "M20"
+      ]
+    },
+    {
+      "id": "M06",
+      "name": "bias_defense",
+      "purpose": "Detect predictable judgment distortions before commitment.",
+      "sources": [
+        "Judgment in Managerial Decision Making"
+      ],
+      "activate_when": [
+        "estimate",
+        "choice",
+        "negotiation",
+        "investment",
+        "high uncertainty"
+      ],
+      "inputs": [
+        "initial frame",
+        "anchors",
+        "evidence"
+      ],
+      "outputs": [
+        "bias flags",
+        "independent baseline request",
+        "reframed alternatives"
+      ],
+      "next": [
+        "M08",
+        "M10",
+        "M24"
+      ]
+    },
+    {
+      "id": "M07",
+      "name": "conceptual_synthesis",
+      "purpose": "Interpret the question, build and synthesize concepts before researching blindly.",
+      "sources": [
+        "Smart Thinking"
+      ],
+      "activate_when": [
+        "complex open question",
+        "research",
+        "strategy",
+        "design"
+      ],
+      "inputs": [
+        "question",
+        "concepts"
+      ],
+      "outputs": [
+        "concept map",
+        "subproblems",
+        "relevance criteria"
+      ],
+      "next": [
+        "M08",
+        "M24"
+      ]
+    },
+    {
+      "id": "M08",
+      "name": "lateral_generation",
+      "purpose": "Break fixation and generate structurally different alternatives without inventing facts.",
+      "sources": [
+        "Lateral Thinking Course",
+        "Smart Thinking"
+      ],
+      "activate_when": [
+        "fixation",
+        "creative design",
+        "binary framing",
+        "stalled plan"
+      ],
+      "inputs": [
+        "current frame",
+        "constraints"
+      ],
+      "outputs": [
+        "baseline",
+        "reversible alternative",
+        "non-obvious alternative"
+      ],
+      "next": [
+        "M09",
+        "M20"
+      ]
+    },
+    {
+      "id": "M09",
+      "name": "robust_optimization",
+      "purpose": "Define objective, feasible set and trade-offs; reject infeasible options before ranking.",
+      "sources": [
+        "Convex Optimization"
+      ],
+      "activate_when": [
+        "optimization",
+        "allocation",
+        "planning",
+        "ranking"
+      ],
+      "inputs": [
+        "objective",
+        "hard constraints",
+        "soft preferences",
+        "options"
+      ],
+      "outputs": [
+        "feasible set",
+        "dominated options",
+        "trade-off frontier"
+      ],
+      "next": [
+        "M10",
+        "M25"
+      ]
+    },
+    {
+      "id": "M10",
+      "name": "sensitivity_reversal",
+      "purpose": "Find the smallest plausible change that flips the preferred action.",
+      "sources": [
+        "Convex Optimization",
+        "Judgment in Managerial Decision Making"
+      ],
+      "activate_when": [
+        "decision under uncertain inputs",
+        "cost/benefit",
+        "ranking"
+      ],
+      "inputs": [
+        "preferred option",
+        "uncertain parameters"
+      ],
+      "outputs": [
+        "reversal thresholds",
+        "fragility label",
+        "low-regret option"
+      ],
+      "next": [
+        "M24",
+        "M25"
+      ]
+    },
+    {
+      "id": "M11",
+      "name": "generalization_validation",
+      "purpose": "Detect overfit to one prompt/example/source and require held-out or edge checks.",
+      "sources": [
+        "Deep Learning"
+      ],
+      "activate_when": [
+        "model choice",
+        "pattern inference",
+        "rule creation",
+        "automation"
+      ],
+      "inputs": [
+        "candidate rule",
+        "examples"
+      ],
+      "outputs": [
+        "holdout check",
+        "edge cases",
+        "overfit risk"
+      ],
+      "next": [
+        "M12",
+        "M27"
+      ]
+    },
+    {
+      "id": "M12",
+      "name": "ensemble_diversity",
+      "purpose": "Treat diversity and independence as conditions for meaningful ensemble/council evidence.",
+      "sources": [
+        "Deep Learning",
+        "modern multi-agent research"
+      ],
+      "activate_when": [
+        "Council",
+        "high common-mode risk"
+      ],
+      "inputs": [
+        "agent proposals",
+        "source lineages",
+        "assumptions"
+      ],
+      "outputs": [
+        "reasoning families",
+        "independence map",
+        "synthesis weights"
+      ],
+      "next": [
+        "M28"
+      ]
+    },
+    {
+      "id": "M13",
+      "name": "abstraction_representation",
+      "purpose": "Choose representations and abstraction boundaries that simplify the real problem.",
+      "sources": [
+        "SICP"
+      ],
+      "activate_when": [
+        "software design",
+        "data modeling",
+        "complex system"
+      ],
+      "inputs": [
+        "problem structure",
+        "data",
+        "operations"
+      ],
+      "outputs": [
+        "abstraction boundaries",
+        "representation choice",
+        "invariants"
+      ],
+      "next": [
+        "M14",
+        "M15"
+      ]
+    },
+    {
+      "id": "M14",
+      "name": "state_process_reasoning",
+      "purpose": "Distinguish procedure description from process behavior and make state transitions explicit.",
+      "sources": [
+        "SICP",
+        "Designing Bots"
+      ],
+      "activate_when": [
+        "workflow",
+        "agent loop",
+        "browser/computer state",
+        "long-running task"
+      ],
+      "inputs": [
+        "current state",
+        "events",
+        "transitions"
+      ],
+      "outputs": [
+        "state machine",
+        "transition invariants",
+        "reconciliation points"
+      ],
+      "next": [
+        "M18",
+        "M27"
+      ]
+    },
+    {
+      "id": "M15",
+      "name": "contracts_assertions_verification",
+      "purpose": "Turn assumptions into contracts/assertions and verify them continuously.",
+      "sources": [
+        "The Pragmatic Programmer",
+        "Code Complete"
+      ],
+      "activate_when": [
+        "coding",
+        "integration",
+        "tool contract",
+        "data pipeline"
+      ],
+      "inputs": [
+        "preconditions",
+        "postconditions",
+        "invariants"
+      ],
+      "outputs": [
+        "contracts",
+        "assertions",
+        "failure responses"
+      ],
+      "next": [
+        "M17",
+        "M27"
+      ]
+    },
+    {
+      "id": "M16",
+      "name": "reversibility_tracer_prototype",
+      "purpose": "Use reversible prototypes/tracer paths to reduce uncertainty before full commitment.",
+      "sources": [
+        "The Pragmatic Programmer"
+      ],
+      "activate_when": [
+        "new integration",
+        "irreversible plan",
+        "unknown architecture"
+      ],
+      "inputs": [
+        "uncertainty",
+        "candidate architecture"
+      ],
+      "outputs": [
+        "smallest end-to-end test",
+        "rollback path",
+        "learning target"
+      ],
+      "next": [
+        "M15",
+        "M27"
+      ]
+    },
+    {
+      "id": "M17",
+      "name": "complexity_defensive_construction",
+      "purpose": "Minimize accidental complexity and build defensive checks into construction.",
+      "sources": [
+        "Code Complete",
+        "The Pragmatic Programmer"
+      ],
+      "activate_when": [
+        "implementation",
+        "refactor",
+        "production engineering"
+      ],
+      "inputs": [
+        "design",
+        "failure modes"
+      ],
+      "outputs": [
+        "complexity hotspots",
+        "defensive checks",
+        "review/test plan"
+      ],
+      "next": [
+        "M11",
+        "M27"
+      ]
+    },
+    {
+      "id": "M18",
+      "name": "conversation_context_recovery",
+      "purpose": "Maintain intent/context, handle ambiguity, confirm consequential actions and recover from errors.",
+      "sources": [
+        "Designing Bots"
+      ],
+      "activate_when": [
+        "conversation flow",
+        "multi-turn task",
+        "ambiguous intent",
+        "tool failure"
+      ],
+      "inputs": [
+        "user goal",
+        "context",
+        "current state"
+      ],
+      "outputs": [
+        "intent state",
+        "clarification policy",
+        "fallback/recovery"
+      ],
+      "next": [
+        "M24",
+        "M27"
+      ]
+    },
+    {
+      "id": "M19",
+      "name": "situational_perspective",
+      "purpose": "Use multiple communication/perspective lenses while avoiding hidden-trait diagnosis.",
+      "sources": [
+        "Cambridge Handbook of Personality Psychology"
+      ],
+      "activate_when": [
+        "stakeholder communication",
+        "team conflict",
+        "user-facing design"
+      ],
+      "inputs": [
+        "situation",
+        "explicit preferences",
+        "stakeholders"
+      ],
+      "outputs": [
+        "perspective variants",
+        "communication adaptation",
+        "uncertainty about people"
+      ],
+      "next": [
+        "M20"
+      ]
+    },
+    {
+      "id": "M20",
+      "name": "stakes_conflict_premortem",
+      "purpose": "Model goals, obstacles, competing motivations, resource loss and second-order consequences.",
+      "sources": [
+        "The Conflict Thesaurus",
+        "Judgment in Managerial Decision Making"
+      ],
+      "activate_when": [
+        "strategy",
+        "adversarial setting",
+        "high downside",
+        "stakeholder conflict"
+      ],
+      "inputs": [
+        "goal",
+        "stakeholders",
+        "resources",
+        "plan"
+      ],
+      "outputs": [
+        "conflicts",
+        "failure scenarios",
+        "stakes escalation",
+        "mitigations"
+      ],
+      "next": [
+        "M25",
+        "M28"
+      ]
+    },
+    {
+      "id": "M21",
+      "name": "audit_evidence_materiality",
+      "purpose": "Require sufficient appropriate evidence, materiality/risk response and traceable judgment.",
+      "sources": [
+        "Global Financial and Audit Research Bundle"
+      ],
+      "activate_when": [
+        "audit",
+        "assurance",
+        "financial reporting",
+        "compliance"
+      ],
+      "inputs": [
+        "claim",
+        "risk",
+        "evidence",
+        "materiality"
+      ],
+      "outputs": [
+        "evidence assessment",
+        "risk response",
+        "sign-off need"
+      ],
+      "next": [
+        "M22",
+        "M23",
+        "M27"
+      ]
+    },
+    {
+      "id": "M22",
+      "name": "accounting_lineage_controls",
+      "purpose": "Separate model proposal from posting and preserve deterministic arithmetic, idempotency and lineage.",
+      "sources": [
+        "AI-Powered Accounting Skill IFRS/ISA Report"
+      ],
+      "activate_when": [
+        "journal entry",
+        "reconciliation",
+        "accounting automation"
+      ],
+      "inputs": [
+        "documents",
+        "rules",
+        "ledger state"
+      ],
+      "outputs": [
+        "draft entry",
+        "lineage",
+        "exceptions",
+        "approval gate"
+      ],
+      "next": [
+        "M23",
+        "M27"
+      ]
+    },
+    {
+      "id": "M23",
+      "name": "ifrs_issue_pipeline",
+      "purpose": "Structure accounting issues as classification→recognition→measurement→presentation→disclosure with current-authority checks.",
+      "sources": [
+        "Dip IFRS Kit 2025",
+        "IFRS Arabic 2018 (historical terminology/context only)"
+      ],
+      "activate_when": [
+        "IFRS treatment",
+        "financial statement issue"
+      ],
+      "inputs": [
+        "transaction facts",
+        "framework",
+        "effective date"
+      ],
+      "outputs": [
+        "issue tree",
+        "calculation vs judgment split",
+        "authority freshness requirement"
+      ],
+      "next": [
+        "M21",
+        "M22"
+      ]
+    },
+    {
+      "id": "M24",
+      "name": "active_information_voi",
+      "purpose": "Choose the next question/search/test by decision value rather than information volume.",
+      "sources": [
+        "Jaynes—Probability Theory",
+        "Smart Thinking",
+        "modern VoI research"
+      ],
+      "activate_when": [
+        "missing information",
+        "research",
+        "diagnosis",
+        "clarification"
+      ],
+      "inputs": [
+        "uncertainty",
+        "candidate observations",
+        "decision"
+      ],
+      "outputs": [
+        "next best observation",
+        "stop/research decision",
+        "interruption cost"
+      ],
+      "next": [
+        "M04",
+        "M05",
+        "M10"
+      ]
+    },
+    {
+      "id": "M25",
+      "name": "objective_integrity_goodhart",
+      "purpose": "Protect the true goal from proxy gaming, externalities and second-order effects.",
+      "sources": [
+        "Convex Optimization",
+        "Conflict Thesaurus",
+        "managerial decision science",
+        "modern objective-integrity research"
+      ],
+      "activate_when": [
+        "metric optimization",
+        "KPI",
+        "ranking",
+        "automation policy"
+      ],
+      "inputs": [
+        "true objective",
+        "proxy",
+        "incentives"
+      ],
+      "outputs": [
+        "proxy-divergence scenarios",
+        "guardrails",
+        "externalities"
+      ],
+      "next": [
+        "M20",
+        "M28"
+      ]
+    },
+    {
+      "id": "M26",
+      "name": "outcome_calibration",
+      "purpose": "Learn calibration from resolved outcomes rather than verbal confidence.",
+      "sources": [
+        "Deep Learning",
+        "Jaynes—Probability Theory",
+        "modern calibration research"
+      ],
+      "activate_when": [
+        "forecast resolved",
+        "decision outcome observed"
+      ],
+      "inputs": [
+        "forecast",
+        "evidence basis",
+        "outcome"
+      ],
+      "outputs": [
+        "error class",
+        "calibration record",
+        "future adjustment signal"
+      ],
+      "next": []
+    },
+    {
+      "id": "M27",
+      "name": "execution_proof_recovery",
+      "purpose": "Define observable postconditions, idempotency/retry and reconciliation before side effects.",
+      "sources": [
+        "The Pragmatic Programmer",
+        "Code Complete",
+        "AI-Powered Accounting Skill"
+      ],
+      "activate_when": [
+        "consequential tool action",
+        "write",
+        "deployment",
+        "browser/computer mutation"
+      ],
+      "inputs": [
+        "executor",
+        "action",
+        "authorization",
+        "current state"
+      ],
+      "outputs": [
+        "execution contract",
+        "postcondition",
+        "receipt/reconciliation/rollback"
+      ],
+      "next": [
+        "M26"
+      ]
+    },
+    {
+      "id": "M28",
+      "name": "independent_verifier_council",
+      "purpose": "Preserve proposal independence, challenge weakest premises and synthesize by evidence quality rather than votes.",
+      "sources": [
+        "Deep Learning ensemble intuition",
+        "audit independence discipline",
+        "modern multi-agent research"
+      ],
+      "activate_when": [
+        "high impact",
+        "persistent competing plans",
+        "common-mode risk"
+      ],
+      "inputs": [
+        "frozen independent proposals",
+        "evidence lineages"
+      ],
+      "outputs": [
+        "verifier verdict",
+        "reasoning-family clusters",
+        "closed option set for Jev if needed"
+      ],
+      "next": [
+        "M27"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "M01",
+      "to": "M02",
+      "type": "feeds"
+    },
+    {
+      "from": "M01",
+      "to": "M03",
+      "type": "feeds"
+    },
+    {
+      "from": "M01",
+      "to": "M07",
+      "type": "feeds"
+    },
+    {
+      "from": "M02",
+      "to": "M03",
+      "type": "feeds"
+    },
+    {
+      "from": "M02",
+      "to": "M21",
+      "type": "feeds"
+    },
+    {
+      "from": "M03",
+      "to": "M04",
+      "type": "feeds"
+    },
+    {
+      "from": "M03",
+      "to": "M05",
+      "type": "feeds"
+    },
+    {
+      "from": "M03",
+      "to": "M24",
+      "type": "feeds"
+    },
+    {
+      "from": "M04",
+      "to": "M05",
+      "type": "feeds"
+    },
+    {
+      "from": "M04",
+      "to": "M24",
+      "type": "feeds"
+    },
+    {
+      "from": "M04",
+      "to": "M26",
+      "type": "feeds"
+    },
+    {
+      "from": "M05",
+      "to": "M24",
+      "type": "feeds"
+    },
+    {
+      "from": "M05",
+      "to": "M20",
+      "type": "feeds"
+    },
+    {
+      "from": "M06",
+      "to": "M08",
+      "type": "feeds"
+    },
+    {
+      "from": "M06",
+      "to": "M10",
+      "type": "feeds"
+    },
+    {
+      "from": "M06",
+      "to": "M24",
+      "type": "feeds"
+    },
+    {
+      "from": "M07",
+      "to": "M08",
+      "type": "feeds"
+    },
+    {
+      "from": "M07",
+      "to": "M24",
+      "type": "feeds"
+    },
+    {
+      "from": "M08",
+      "to": "M09",
+      "type": "feeds"
+    },
+    {
+      "from": "M08",
+      "to": "M20",
+      "type": "feeds"
+    },
+    {
+      "from": "M09",
+      "to": "M10",
+      "type": "feeds"
+    },
+    {
+      "from": "M09",
+      "to": "M25",
+      "type": "feeds"
+    },
+    {
+      "from": "M10",
+      "to": "M24",
+      "type": "feeds"
+    },
+    {
+      "from": "M10",
+      "to": "M25",
+      "type": "feeds"
+    },
+    {
+      "from": "M11",
+      "to": "M12",
+      "type": "feeds"
+    },
+    {
+      "from": "M11",
+      "to": "M27",
+      "type": "feeds"
+    },
+    {
+      "from": "M12",
+      "to": "M28",
+      "type": "feeds"
+    },
+    {
+      "from": "M13",
+      "to": "M14",
+      "type": "feeds"
+    },
+    {
+      "from": "M13",
+      "to": "M15",
+      "type": "feeds"
+    },
+    {
+      "from": "M14",
+      "to": "M18",
+      "type": "feeds"
+    },
+    {
+      "from": "M14",
+      "to": "M27",
+      "type": "feeds"
+    },
+    {
+      "from": "M15",
+      "to": "M17",
+      "type": "feeds"
+    },
+    {
+      "from": "M15",
+      "to": "M27",
+      "type": "feeds"
+    },
+    {
+      "from": "M16",
+      "to": "M15",
+      "type": "feeds"
+    },
+    {
+      "from": "M16",
+      "to": "M27",
+      "type": "feeds"
+    },
+    {
+      "from": "M17",
+      "to": "M11",
+      "type": "feeds"
+    },
+    {
+      "from": "M17",
+      "to": "M27",
+      "type": "feeds"
+    },
+    {
+      "from": "M18",
+      "to": "M24",
+      "type": "feeds"
+    },
+    {
+      "from": "M18",
+      "to": "M27",
+      "type": "feeds"
+    },
+    {
+      "from": "M19",
+      "to": "M20",
+      "type": "feeds"
+    },
+    {
+      "from": "M20",
+      "to": "M25",
+      "type": "feeds"
+    },
+    {
+      "from": "M20",
+      "to": "M28",
+      "type": "feeds"
+    },
+    {
+      "from": "M21",
+      "to": "M22",
+      "type": "feeds"
+    },
+    {
+      "from": "M21",
+      "to": "M23",
+      "type": "feeds"
+    },
+    {
+      "from": "M21",
+      "to": "M27",
+      "type": "feeds"
+    },
+    {
+      "from": "M22",
+      "to": "M23",
+      "type": "feeds"
+    },
+    {
+      "from": "M22",
+      "to": "M27",
+      "type": "feeds"
+    },
+    {
+      "from": "M23",
+      "to": "M21",
+      "type": "feeds"
+    },
+    {
+      "from": "M23",
+      "to": "M22",
+      "type": "feeds"
+    },
+    {
+      "from": "M24",
+      "to": "M04",
+      "type": "feeds"
+    },
+    {
+      "from": "M24",
+      "to": "M05",
+      "type": "feeds"
+    },
+    {
+      "from": "M24",
+      "to": "M10",
+      "type": "feeds"
+    },
+    {
+      "from": "M25",
+      "to": "M20",
+      "type": "feeds"
+    },
+    {
+      "from": "M25",
+      "to": "M28",
+      "type": "feeds"
+    },
+    {
+      "from": "M27",
+      "to": "M26",
+      "type": "feeds"
+    },
+    {
+      "from": "M28",
+      "to": "M27",
+      "type": "feeds"
+    },
+    {
+      "from": "M01",
+      "to": "M02",
+      "type": "prerequisite_for"
+    },
+    {
+      "from": "M01",
+      "to": "M03",
+      "type": "prerequisite_for"
+    },
+    {
+      "from": "M05",
+      "to": "M24",
+      "type": "requests_discriminating_evidence"
+    },
+    {
+      "from": "M06",
+      "to": "M08",
+      "type": "counteracts_fixation"
+    },
+    {
+      "from": "M09",
+      "to": "M25",
+      "type": "guarded_by"
+    },
+    {
+      "from": "M10",
+      "to": "M24",
+      "type": "triggers_when_fragile"
+    },
+    {
+      "from": "M12",
+      "to": "M28",
+      "type": "prerequisite_for"
+    },
+    {
+      "from": "M21",
+      "to": "M27",
+      "type": "requires_traceable_verification"
+    },
+    {
+      "from": "M22",
+      "to": "M27",
+      "type": "requires_idempotent_execution"
+    },
+    {
+      "from": "M28",
+      "to": "M27",
+      "type": "authorizes_route_after_pass"
+    }
+  ]
+}

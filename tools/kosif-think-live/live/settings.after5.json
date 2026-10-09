@@ -1,0 +1,104 @@
+{
+  "result": {
+    "placement": {},
+    "compatibility_date": "2026-09-27",
+    "compatibility_flags": [],
+    "usage_model": "standard",
+    "tags": [],
+    "tail_consumers": [],
+    "logpush": false,
+    "annotations": {
+      "workers/message": "0.29.3 + scene quality (fix 5): expert finalists in scene prompts, vague-field repair, stability revisions apply + record failures. Owner-approved.",
+      "workers/triggered_by": "version_upload"
+    },
+    "bindings": [
+      {
+        "name": "AI",
+        "project": "\u003ccatalog\u003e",
+        "type": "ai"
+      },
+      {
+        "name": "FULL_PRO_QUEUE",
+        "queue_name": "kosif-full-pro-jobs",
+        "type": "queue"
+      },
+      {
+        "name": "FULL_PRO_STATE",
+        "namespace_id": "73018fa44d384876a74210051a7df291",
+        "type": "kv_namespace"
+      },
+      {
+        "environment": "production",
+        "name": "KOSIF_JEV",
+        "service": "kosif-jev",
+        "type": "service"
+      },
+      {
+        "name": "KOSIF_THINK_TOKEN",
+        "type": "secret_text"
+      },
+      {
+        "environment": "production",
+        "name": "SECURE_EXECUTOR",
+        "service": "kosif-full-pro-secure-executor",
+        "type": "service"
+      },
+      {
+        "name": "THINK_ALLOWED_ORIGINS",
+        "text": "",
+        "type": "plain_text"
+      },
+      {
+        "name": "THINK_ALLOW_PATH_TOKEN",
+        "text": "false",
+        "type": "plain_text"
+      },
+      {
+        "name": "THINK_AUTH_FAILS_PER_MIN",
+        "text": "20",
+        "type": "plain_text"
+      },
+      {
+        "name": "THINK_FRONTIER_ENABLED",
+        "text": "true",
+        "type": "plain_text"
+      },
+      {
+        "name": "THINK_MAX_BODY_BYTES",
+        "text": "131072",
+        "type": "plain_text"
+      },
+      {
+        "name": "THINK_MODEL_LIMITER",
+        "namespace_id": "7302",
+        "simple": {
+          "limit": 10,
+          "period": 60
+        },
+        "type": "ratelimit"
+      },
+      {
+        "name": "THINK_MODEL_RPM",
+        "text": "10",
+        "type": "plain_text"
+      },
+      {
+        "name": "THINK_RATE_LIMITER",
+        "namespace_id": "7301",
+        "simple": {
+          "limit": 30,
+          "period": 60
+        },
+        "type": "ratelimit"
+      },
+      {
+        "name": "THINK_RPM",
+        "text": "30",
+        "type": "plain_text"
+      }
+    ]
+  },
+  "success": true,
+  "errors": [],
+  "messages": []
+}

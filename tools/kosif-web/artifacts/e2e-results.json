@@ -1,0 +1,218 @@
+{
+  "when": "2026-10-09T04:39:44.013Z",
+  "passed": 47,
+  "failed": 0,
+  "results": [
+    {
+      "name": "home opens with example data and KPIs",
+      "pass": true
+    },
+    {
+      "name": "12-month chart drawn",
+      "pass": true
+    },
+    {
+      "name": "Arabic RTL by default",
+      "pass": true
+    },
+    {
+      "name": "next invoice number continues the series",
+      "pass": true,
+      "extra": "INV-0013"
+    },
+    {
+      "name": "editor total = (200 + 50) × 1.15 = 287.50",
+      "pass": true,
+      "extra": "الإجمالي\n287.50 ر.س"
+    },
+    {
+      "name": "saved invoice renders on paper",
+      "pass": true
+    },
+    {
+      "name": "status draft before payment",
+      "pass": true
+    },
+    {
+      "name": "ZATCA QR drawn for a VAT-registered seller",
+      "pass": true
+    },
+    {
+      "name": "payment prefilled with balance",
+      "pass": true
+    },
+    {
+      "name": "paid after full payment",
+      "pass": true
+    },
+    {
+      "name": "paid stamp on the paper",
+      "pass": true
+    },
+    {
+      "name": "estimate converts to an invoice and is marked converted",
+      "pass": true,
+      "extra": "{\"est\":\"converted\",\"inv\":1}"
+    },
+    {
+      "name": "books balanced",
+      "pass": true
+    },
+    {
+      "name": "report r_tb renders",
+      "pass": true
+    },
+    {
+      "name": "report r_pl renders",
+      "pass": true
+    },
+    {
+      "name": "report r_bs renders",
+      "pass": true
+    },
+    {
+      "name": "report r_vat renders",
+      "pass": true
+    },
+    {
+      "name": "report r_aging renders",
+      "pass": true
+    },
+    {
+      "name": "report r_journal renders",
+      "pass": true
+    },
+    {
+      "name": "trial balance footer says balanced",
+      "pass": true
+    },
+    {
+      "name": "balance sheet balances",
+      "pass": true
+    },
+    {
+      "name": "CSV export downloads with BOM and Arabic headers",
+      "pass": true
+    },
+    {
+      "name": "Excel export downloads an .xlsx",
+      "pass": true,
+      "extra": "KOSIF-المركز-المالي-2026-10-09.xlsx"
+    },
+    {
+      "name": "audit page shows Benford and materiality",
+      "pass": true
+    },
+    {
+      "name": "MUS sample drawn",
+      "pass": true
+    },
+    {
+      "name": "PDF export produces a real PDF",
+      "pass": true,
+      "extra": "%PDF- 269944"
+    },
+    {
+      "name": "every capability check passes in the page (ai excepted outside claude.ai)",
+      "pass": true,
+      "extra": "✕ ai"
+    },
+    {
+      "name": "English switches to LTR",
+      "pass": true
+    },
+    {
+      "name": "dark theme paints a dark ground",
+      "pass": true,
+      "extra": "rgb(22, 19, 16)"
+    },
+    {
+      "name": "records survive a reload",
+      "pass": true
+    },
+    {
+      "name": "no page errors (desktop)",
+      "pass": true,
+      "extra": ""
+    },
+    {
+      "name": "phone 390: home has no sideways scroll",
+      "pass": true,
+      "extra": "390"
+    },
+    {
+      "name": "phone 390: docs has no sideways scroll",
+      "pass": true,
+      "extra": "390"
+    },
+    {
+      "name": "phone 390: doc.demomv0h7slw2tkaf9 has no sideways scroll",
+      "pass": true,
+      "extra": "390"
+    },
+    {
+      "name": "phone 390: new.invoice has no sideways scroll",
+      "pass": true,
+      "extra": "390"
+    },
+    {
+      "name": "phone 390: clients has no sideways scroll",
+      "pass": true,
+      "extra": "390"
+    },
+    {
+      "name": "phone 390: items has no sideways scroll",
+      "pass": true,
+      "extra": "390"
+    },
+    {
+      "name": "phone 390: expenses has no sideways scroll",
+      "pass": true,
+      "extra": "390"
+    },
+    {
+      "name": "phone 390: reports has no sideways scroll",
+      "pass": true,
+      "extra": "390"
+    },
+    {
+      "name": "phone 390: books has no sideways scroll",
+      "pass": true,
+      "extra": "390"
+    },
+    {
+      "name": "phone 390: audit has no sideways scroll",
+      "pass": true,
+      "extra": "390"
+    },
+    {
+      "name": "phone 390: ai has no sideways scroll",
+      "pass": true,
+      "extra": "390"
+    },
+    {
+      "name": "phone 390: settings has no sideways scroll",
+      "pass": true,
+      "extra": "390"
+    },
+    {
+      "name": "phone 390: caps has no sideways scroll",
+      "pass": true,
+      "extra": "390"
+    },
+    {
+      "name": "phone 390: design has no sideways scroll",
+      "pass": true,
+      "extra": "390"
+    },
+    {
+      "name": "tab bar visible on phone",
+      "pass": true
+    },
+    {
+      "name": "no page errors (phone)",
+      "pass": true,
+      "extra": ""
+    }
+  ]
+}

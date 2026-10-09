@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8" />
+<title>KOSIF Motion v3 — kit check</title>
+<script src="assets/gsap.min.js"></script>
+<script src="assets/motion-kit.js"></script>
+<style>
+  html, body { margin: 0; width: 1280px; height: 720px; overflow: hidden; background: #0e1112; }
+  #root { position: relative; width: 1280px; height: 720px; overflow: hidden; background: #0e1112; color: #eef0ec; font-family: "Segoe UI", Tahoma, sans-serif; }
+  #stage { position: absolute; inset: 0; }
+  .line { position: absolute; left: 0; right: 0; text-align: center; visibility: hidden; }
+  #hook { top: 250px; font-size: 92px; font-weight: 700; letter-spacing: -0.02em; direction: rtl; }
+  #box { position: absolute; left: 490px; top: 300px; width: 300px; height: 120px; border-radius: 60px; background: #e4342f; visibility: hidden; }
+  #prompt { position: absolute; left: 340px; top: 470px; width: 600px; font-size: 30px; color: #c9cec8; font-family: Consolas, monospace; visibility: hidden; }
+  #count { position: absolute; left: 0; right: 0; top: 130px; text-align: center; font-size: 120px; font-weight: 700; visibility: hidden; }
+  #code { position: absolute; left: 0; right: 0; top: 270px; text-align: center; font-size: 44px; font-family: Consolas, monospace; visibility: hidden; }
+  #flood { }
+  svg { position: absolute; inset: 0; }
+</style>
+</head>
+<body>
+<div id="root" data-composition-id="root" data-width="1280" data-height="720" data-start="0" data-duration="6" data-fps="60">
+  <div id="stage">
+    <div id="hook" class="line">الحركة لها وزن</div>
+    <div id="box"></div>
+    <div id="prompt"></div>
+    <div id="count"></div>
+    <div id="code"></div>
+    <svg width="1280" height="720"><path id="shape" d="M560 360 a80 80 0 1 0 160 0 a80 80 0 1 0 -160 0" fill="#eef0ec" opacity="0"/></svg>
+  </div>
+  <script>
+    const M = window.MOTION, $ = (s) => document.querySelector(s);
+    const tl = gsap.timeline({ paused: true });
+    const stage = $("#stage");
+    // 0.0 hook: words rise from a partial state, then leave by rising out (no fade)
+    M.riseWords(tl, $("#hook"), 0.05, { stagger: 0.09 });
+    M.maskRise(tl, $("#hook").querySelectorAll(".mk-wi"), 1.25, { dur: 0.01, out: 1.3, outDur: 0.27 });
+    // 1.5 a pill lands with a contact squash, a cursor arrives on a path and presses it
+    tl.set("#box", { visibility: "visible" }, 1.5);
+    tl.fromTo("#box", { y: -260 }, { y: 0, duration: 0.32, ease: M.E.contact, immediateRender: false }, 1.5);
+    M.squash(tl, $("#box"), 1.82, { edge: "bottom" });
+    const c = M.cursor(stage, { size: 30 });
+    M.moveCursor(tl, c, [{ t: 1.6, x: 1100, y: 640 }, { t: 2.05, x: 700, y: 380 }, { t: 2.3, x: 650, y: 365 }], { hold: [2.3] });
+    M.press(tl, c, 2.3, { target: $("#box") });
+    // 2.4 a typed prompt, then the box iris-floods the frame and a counter rolls
+    M.typeOn(tl, $("#prompt"), "make a koi pond at golden hour", 2.4, { cps: 46, hold: 0.6 });
+    M.flood(tl, stage, 3.35, { x: 640, y: 360, color: "#e4342f", dur: 0.3, out: 3.95, outDur: 0.18 });
+    M.counter(tl, $("#count"), 280, 300, 3.7, 0.9, { suffix: " fps" });
+    M.scramble(tl, $("#code"), "SEEK(T) = FRAME", 4.0, { dur: 0.8 });
+    // 4.9 the circle morphs into a square: one shape, never cut
+    tl.set("#shape", { opacity: 1 }, 4.9);
+    M.morphPath(tl, $("#shape"), "M560 360 a80 80 0 1 0 160 0 a80 80 0 1 0 -160 0", "M560 280 L720 280 L720 440 L560 440 Z", 4.95, { dur: 0.6 });
+    M.push(tl, stage, 4.9, 1, 1.18, 1.0);
+    window.__timelines = window.__timelines || {};
+    window.__timelines["root"] = tl;
+    M.shim("root", 6);
+  </script>
+</div>
+</body>
+</html>

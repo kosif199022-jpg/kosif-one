@@ -1,0 +1,29 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ScrollWorld from '../components/ScrollWorld.astro';
+import Tagline from '../components/Tagline.astro';
+import Dishes from '../components/Dishes.astro';
+import Press from '../components/Press.astro';
+import Experiences from '../components/Experiences.astro';
+import Faq from '../components/Faq.astro';
+import Gift from '../components/Gift.astro';
+import FinalCta from '../components/FinalCta.astro';
+import { seo } from '../data/arko';
+import { structuredData } from '../data/schema';
+
+const site = Astro.site;
+if (!site) throw new Error('Falta site en astro.config.mjs');
+const jsonLd = JSON.stringify(structuredData(site)).replaceAll('<', '\\u003c');
+---
+
+<Layout title={seo.title} description={seo.description}>
+  <script slot="head" type="application/ld+json" set:html={jsonLd} />
+  <ScrollWorld />
+  <Tagline />
+  <Dishes />
+  <Press />
+  <Experiences />
+  <Faq />
+  <Gift />
+  <FinalCta />
+</Layout>

@@ -1,0 +1,28 @@
+{
+  "result": [
+    {
+      "script": "kosif-think-mcp",
+      "settings": {
+        "batch_size": 1,
+        "max_retries": 6,
+        "max_wait_time_ms": 1000,
+        "retry_delay": 5
+      },
+      "type": "worker",
+      "queue_name": "kosif-full-pro-jobs",
+      "queue_id": "5f0be1bc7b054ec9b67053b87db18e21",
+      "consumer_id": "7f98213d37e349599916153c3549f1ea",
+      "created_on": "2026-10-01T13:32:01.206491Z"
+    }
+  ],
+  "success": true,
+  "errors": null,
+  "messages": null,
+  "result_info": {
+    "page": 1,
+    "per_page": 100,
+    "count": 1,
+    "total_count": 1,
+    "total_pages": 1
+  }
+}

@@ -1,0 +1,2 @@
+# Calibration Ledger
+When outcomes are observable, compare forecasts to reality. Record forecasted claim/range; evidence basis and timestamp; probability only if genuinely justified; realized outcome; error type (data/model/reasoning/execution/regime change); and whether the decision would change after learning the outcome. Use proper scoring only for real probability forecasts. Self-reported confidence without outcome data is not calibration.

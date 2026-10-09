@@ -1,0 +1,10 @@
+{
+ "template": "title-card",
+ "params": {
+  "title": "حركة لها معنى",
+  "sub": "KOSIF Motion Web v6"
+ },
+ "seconds": 5.0,
+ "fps": 30,
+ "size": "1080x1920"
+}

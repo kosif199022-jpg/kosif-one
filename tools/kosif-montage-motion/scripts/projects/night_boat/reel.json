@@ -1,0 +1,141 @@
+{
+ "id": "night-boat",
+ "title": "مركب في البحر ليلاً — KOSIF Motion 3D",
+ "version": 1,
+ "path": "C:\\Users\\اغنام الوادي\\Desktop\\الاداة\\kosif-montage-motion\\scripts\\projects\\night_boat",
+ "src": "review/night-boat-v1.mp4",
+ "w": 1920,
+ "h": 1080,
+ "fps": 30,
+ "duration": 5.0,
+ "scenes": [
+  {
+   "id": "S1",
+   "name": "الوصول — القمر والمركب",
+   "t": [
+    0,
+    1.7
+   ],
+   "els": []
+  },
+  {
+   "id": "S2",
+   "name": "العنوان — الصياد والسمكة",
+   "t": [
+    1.7,
+    5
+   ],
+   "els": [
+    {
+     "id": "title",
+     "label": "العنوان",
+     "t": [
+      1.7,
+      5
+     ],
+     "box": [
+      56,
+      66,
+      36,
+      12
+     ],
+     "props": {
+      "text": {
+       "type": "text",
+       "label": "Text",
+       "bind": "title",
+       "v": "سكونُ البحر"
+      }
+     },
+     "src": "index.html"
+    },
+    {
+     "id": "subtitle",
+     "label": "السطر الثاني",
+     "t": [
+      2.1,
+      5
+     ],
+     "box": [
+      60,
+      79,
+      32,
+      6
+     ],
+     "props": {
+      "text": {
+       "type": "text",
+       "label": "Text",
+       "bind": "subtitle",
+       "v": "ليلٌ، وقمرٌ، ومركبٌ وحيد"
+      }
+     },
+     "src": "index.html"
+    },
+    {
+     "id": "fish",
+     "label": "قفزة السمكة",
+     "t": [
+      2.8,
+      4.2
+     ],
+     "box": [
+      8,
+      76,
+      26,
+      14
+     ],
+     "props": {
+      "motion": {
+       "type": "motion",
+       "label": "Motion",
+       "v": "a small fish breaks the surface; two rings spread"
+      }
+     },
+     "src": "index.html"
+    }
+   ]
+  }
+ ],
+ "brand": {
+  "colors": [
+   {
+    "id": "lantern",
+    "name": "Lantern",
+    "v": "#ff9a3c"
+   },
+   {
+    "id": "title",
+    "name": "Title",
+    "v": "#f3ead8"
+   },
+   {
+    "id": "rule",
+    "name": "Rule",
+    "v": "#e0a35a"
+   }
+  ],
+  "fonts": [],
+  "logo": null
+ },
+ "kosif": {
+  "kind": "html",
+  "project": "C:\\Users\\اغنام الوادي\\Desktop\\الاداة\\kosif-montage-motion\\scripts\\projects\\night_boat"
+ },
+ "name": "night_boat",
+ "assets": [],
+ "audio": {
+  "music": null,
+  "bpm": null,
+  "drop": 0,
+  "musicVol": 0.6,
+  "sfxVol": 0.8
+ },
+ "lang": "ar",
+ "export": {
+  "engine": "kosif",
+  "cmd": "kmotion review export night_boat"
+ },
+ "notes": [],
+ "credit": "Review page: Motion OS player by Jason Lee (MIT). Engine: KOSIF Montage & Motion."
+}

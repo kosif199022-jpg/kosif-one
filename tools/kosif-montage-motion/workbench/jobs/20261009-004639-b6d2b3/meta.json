@@ -1,0 +1,18 @@
+{
+ "id": "20261009-004639-b6d2b3",
+ "recipe": "direct",
+ "cmd": "direct",
+ "args": [
+  "--name",
+  "directed"
+ ],
+ "note": "",
+ "status": "failed",
+ "rc": 2,
+ "created": 1791496000.3227038,
+ "started": 1791496000.3242745,
+ "ended": 1791496003.226418,
+ "lines": 7,
+ "outputs": [],
+ "command": "\"C:\\Users\\اغنام الوادي\\Desktop\\الاداة\\kosif-montage-motion\\scripts\\kmotion.py\" direct --name directed"
+}

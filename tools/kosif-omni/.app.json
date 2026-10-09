@@ -1,0 +1,292 @@
+{
+  "apps": {
+    "kosif-think": {
+      "id": "asdk_app_6ab99d2211808191b751af49dc5f7cf9",
+      "optional": true
+    },
+    "tinyfish": {
+      "id": "asdk_app_695325bae7348191b58ae9349a963d22",
+      "optional": true
+    },
+    "remote-desktop": {
+      "id": "asdk_app_6a057d268ebc81919918d37eec718425",
+      "optional": true
+    },
+    "github": {
+      "id": "connector_1p_1a69035c238881919c4190932b2df699",
+      "optional": true
+    },
+    "vercel": {
+      "id": "connector_690a90ec05c881918afb6a55dc9bbaa1",
+      "optional": true
+    },
+    "google-drive": {
+      "id": "connector_1p_ab21a553bfbc81919ea8fd1858e3ffa7",
+      "optional": true
+    },
+    "gmail": {
+      "id": "connector_1p_95d39881713c8191931482a62d6edff9",
+      "optional": true
+    },
+    "openai-developers": {
+      "id": "connector_1p_32dba5a7095c8191adca04ee30276304",
+      "optional": true
+    },
+    "supabase": {
+      "id": "asdk_app_69d3e5ee6a708191baa733f7b8931995",
+      "optional": true
+    },
+    "notion": {
+      "id": "asdk_app_69c18c28f1188191bf5b8445c4ab0a2e",
+      "optional": true
+    },
+    "figma": {
+      "id": "connector_68df038e0ba48191908c8434991bbac2",
+      "optional": true
+    },
+    "adobe": {
+      "id": "asdk_app_69312da8e4dc81919370cb86fd172b6c",
+      "optional": true
+    },
+    "canva": {
+      "id": "connector_68df33b1a2d081918778431a9cfca8ba",
+      "optional": true
+    },
+    "statsig": {
+      "id": "asdk_app_6967f065ac9481918969c660ff7686e9",
+      "optional": true
+    },
+    "lovable": {
+      "id": "asdk_app_693a0a79ffe48191901173077edcf914",
+      "optional": true
+    },
+    "railway": {
+      "id": "asdk_app_6a502589384081919c5decf93496c9d1",
+      "optional": true
+    },
+    "todoist": {
+      "id": "asdk_app_6943b73823548191a9f9216c6790c453",
+      "optional": true
+    },
+    "ticktick": {
+      "id": "asdk_app_69ddbaba3fb48191a825f22c21b0599d",
+      "optional": true
+    },
+    "tavily": {
+      "id": "asdk_app_69f271663a288191ac98f46bed7cb032",
+      "optional": true
+    },
+    "parallel-search": {
+      "id": "asdk_app_69fb9378663481919a68e8a2109644e5",
+      "optional": true
+    },
+    "context7": {
+      "id": "asdk_app_69ef18c674308191a2f952431f91ea61",
+      "optional": true
+    },
+    "gitbook": {
+      "id": "asdk_app_6a576f075ec481918985fee76373b0f9",
+      "optional": true
+    },
+    "wix": {
+      "id": "asdk_app_6947eaa4edd081919561e4ee3a2e5dcc",
+      "optional": true
+    },
+    "base44": {
+      "id": "asdk_app_6952514760dc8191ab148f77c5794d46",
+      "optional": true
+    },
+    "amplitude": {
+      "id": "connector_690e2dabf430819196f8b3701ec838ec",
+      "optional": true
+    },
+    "posthog": {
+      "id": "asdk_app_699caef2d680819188727b0ddbb349dd",
+      "optional": true
+    },
+    "miro": {
+      "id": "asdk_app_6a392799cb58819185f82dc01ac13dad",
+      "optional": true
+    },
+    "slack": {
+      "id": "asdk_app_69a1d78e929881919bba0dbda1f6436d",
+      "optional": true
+    },
+    "resend": {
+      "id": "asdk_app_6a3c407853888191beddc2151c2b6f8b",
+      "optional": true
+    },
+    "firecrawl": {
+      "id": "asdk_app_6a314a73f8ac819195b0d55e36b9c609",
+      "optional": true
+    },
+    "descript": {
+      "id": "asdk_app_69f0dc45f6048191876c14c1016fe778",
+      "optional": true
+    },
+    "hugging-face": {
+      "id": "asdk_app_6939e86417648191b7bda087d872685b",
+      "optional": true
+    },
+    "dropbox-dash": {
+      "id": "asdk_app_69ca45719b948191999f401a2108740b",
+      "optional": true
+    },
+    "coda": {
+      "id": "asdk_app_69bd90ac5acc8191ba9dcd990ef07b84",
+      "optional": true
+    },
+    "consensus": {
+      "id": "asdk_app_6943e6f4a928819195962de16fb9ffe4",
+      "optional": true
+    },
+    "scite": {
+      "id": "asdk_app_6952b3a3f1e881918951582d59483c78",
+      "optional": true
+    },
+    "readwise": {
+      "id": "asdk_app_69a0d0b83b5881919dd5f0e53b525d31",
+      "optional": true
+    },
+    "legal-data-hunter": {
+      "id": "asdk_app_6a09fca2104c8191b160df27196228dd",
+      "optional": true
+    },
+    "adobe-express": {
+      "id": "asdk_app_699d522f170c81919c824678c7c03732",
+      "optional": true
+    },
+    "wordpress": {
+      "id": "asdk_app_6a2b62fd753c8191bcff02ac79b54c6b",
+      "optional": true
+    },
+    "wolfram": {
+      "id": "asdk_app_69fe0bf66c8481919c513d799406436e",
+      "optional": true
+    },
+    "whimsical": {
+      "id": "asdk_app_69c6561277188191a1beac515a4b2ea4",
+      "optional": true
+    },
+    "monday": {
+      "id": "connector_690aabb71bf481918b8d5b614ed3fd4c",
+      "optional": true
+    },
+    "smartsheet": {
+      "id": "asdk_app_6a1ed9b99f888191aac2020e4cb301ff",
+      "optional": true
+    },
+    "zoho-crm": {
+      "id": "asdk_app_6a193ef5e804819197c25f88d92d6bf7",
+      "optional": true
+    },
+    "airtable": {
+      "id": "asdk_app_693ca6ce2db08191bb52d66743c65184",
+      "optional": true
+    },
+    "render": {
+      "id": "asdk_app_6a624c56bfe081918f7544f7d58f6faf",
+      "optional": true
+    },
+    "asana": {
+      "id": "asdk_app_69616780bd208191b4fb44ba44f72b61",
+      "optional": true
+    },
+    "clickup": {
+      "id": "asdk_app_69431e6d26b88191b4029488aeb42f5b",
+      "optional": true
+    },
+    "mindmap": {
+      "id": "asdk_app_69e1ea6c505c81918d6c8f0258a64906",
+      "optional": true
+    },
+    "gamma": {
+      "id": "asdk_app_698a098735908191989f5788d7ee317e",
+      "optional": true
+    },
+    "genspark-slides": {
+      "id": "asdk_app_694d313cc67c8191804aee33eeb7dfec",
+      "optional": true
+    },
+    "read-ai": {
+      "id": "asdk_app_69af36d580288191a1bfe1e39c4e2ef0",
+      "optional": true
+    },
+    "sharepoint": {
+      "id": "connector_1p_dca009ae2c848191ae14df3a47c5e7fd",
+      "optional": true
+    },
+    "goodnotes": {
+      "id": "asdk_app_6948e9c87b448191b3cb7d8c0851e0b7",
+      "optional": true
+    },
+    "neon": {
+      "id": "asdk_app_69e0086d87088191a3edc052fa50c29f",
+      "optional": true
+    },
+    "exa": {
+      "id": "asdk_app_69ea4ed2cf7c8191b742ef3622479ddd",
+      "optional": true
+    },
+    "floot": {
+      "id": "asdk_app_6a500d350f8c819194e30335a7b134af",
+      "optional": true
+    },
+    "agentmail": {
+      "id": "asdk_app_6a4ea51b44c48191b49f0b14c7c83897",
+      "optional": true
+    },
+    "windsor-ai": {
+      "id": "asdk_app_694a52cfaa3c819192bea84eaa254968",
+      "optional": true
+    },
+    "openart": {
+      "id": "asdk_app_6a42dbbe74c081918a592a0aad65ca26",
+      "optional": true
+    },
+    "runway": {
+      "id": "asdk_app_6a05e3b201788191be12b590b43e6ce3",
+      "optional": true
+    },
+    "supermetrics": {
+      "id": "asdk_app_69a1247fceb88191a0fde719fd50920d",
+      "optional": true
+    },
+    "opera-browser": {
+      "id": "asdk_app_69d669e1d5c88191b4925772c50df286",
+      "optional": true
+    },
+    "webflow": {
+      "id": "asdk_app_6a0783a98c4c8191841404d786d4a4b9",
+      "optional": true
+    },
+    "adobe-acrobat": {
+      "id": "asdk_app_6938a7d323f48191aeabaf579802bf45",
+      "optional": true
+    },
+    "replit": {
+      "id": "asdk_app_6934801c799081918131791660f02890",
+      "optional": true
+    },
+    "hubspot": {
+      "id": "asdk_app_697acb8e53d88191bf7a79e62012ae14",
+      "optional": true
+    },
+    "linear": {
+      "id": "asdk_app_69a089a326dc8191b32a3f2553f5be2c",
+      "optional": true
+    },
+    "granola": {
+      "id": "asdk_app_697761cab6f48191b5ed345919a3ce8b",
+      "optional": true
+    },
+    "vidiq": {
+      "id": "asdk_app_69dd11f3e50c8191b1ca48d03cf7e2ad",
+      "optional": true
+    },
+    "acumen": {
+      "id": "asdk_app_6a0bcefe6dbc8191acf88ce22e2eef3a",
+      "optional": true
+    }
+  }
+}

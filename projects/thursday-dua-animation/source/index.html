@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8" />
+<title>دعاء الخميس — KOSIF Motion</title>
+<script src="assets/gsap.min.js"></script>
+<script src="assets/motion-kit.js"></script>
+<style>
+  @font-face { font-family: "AmiriB"; src: url("assets/Amiri-Bold.ttf") format("truetype"); }
+  @font-face { font-family: "AmiriR"; src: url("assets/Amiri-Regular.ttf") format("truetype"); }
+  @font-face { font-family: "Dhabi"; src: url("assets/aldhabi.ttf") format("truetype"); }
+  html, body { margin: 0; padding: 0; width: 1080px; height: 1920px; overflow: hidden; background: #0b1033; }
+  #root { position: relative; width: 1080px; height: 1920px; overflow: hidden; background: #0b1033; font-family: "AmiriB", serif; color: #fff; }
+  #cam { position: absolute; inset: 0; transform-origin: 50% 52%; will-change: transform; }
+  #scene { position: absolute; inset: 0; width: 1080px; height: 1920px; }
+
+  .hdr { position: absolute; left: 0; right: 0; text-align: center; direction: rtl; unicode-bidi: isolate; visibility: hidden; }
+  #month { top: 296px; z-index: 5; line-height: 1.2; font-family: "AmiriB"; font-size: 54px; color: #f4cf6b; text-shadow: 0 0 18px rgba(255,190,80,.55), 0 4px 14px rgba(0,0,0,.6); }
+  #day   { top: 100px; z-index: 5; font-family: "Dhabi"; font-size: 170px; line-height: 1.15; color: #ffe7a8;
+           text-shadow: 0 0 30px rgba(255,200,90,.65), 0 6px 22px rgba(40,10,50,.8); }
+  #date  { top: 384px; z-index: 5; font-family: "AmiriB"; font-size: 50px; letter-spacing: 3px; color: #fff4dc; direction: ltr; text-shadow: 0 2px 4px rgba(20,10,40,.9), 0 3px 16px rgba(20,10,40,.8); }
+
+  .card { position: absolute; left: 150px; width: 780px; top: 930px; height: 420px; display: flex; flex-direction: column;
+          justify-content: center; align-items: center; gap: 14px; }
+  .line { direction: rtl; unicode-bidi: isolate; text-align: center; font-size: 84px; line-height: 1.45; color: #fff6e2; visibility: hidden;
+          text-shadow: 0 0 22px rgba(255,190,90,.55), 0 5px 18px rgba(30,8,40,.85); }
+  .line.big { font-size: 104px; color: #ffe39a; }
+  .line.gold { color: #ffd77a; }
+  #glass { position: absolute; left: 110px; top: 890px; width: 860px; height: 500px; border-radius: 50%;
+           background: radial-gradient(ellipse at center, rgba(25,8,40,.55) 0%, rgba(25,8,40,.32) 45%, rgba(25,8,40,0) 72%); }
+  #flash { position: absolute; inset: 0; background: radial-gradient(circle at 50% 55%, #fff1c8 0%, #ffbf6b 45%, rgba(255,150,60,0) 80%); opacity: 0; pointer-events: none; z-index: 60; mix-blend-mode: screen; }
+</style>
+</head>
+<body>
+<div id="root" data-composition-id="root" data-width="1080" data-height="1920" data-start="0" data-duration="24.7" data-fps="30">
+  <audio id="voice" src="assets/voice.wav" data-start="0" data-duration="24.7" data-volume="1"></audio>
+  <div id="cam">
+    <svg id="scene" viewBox="0 0 1080 1920" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+          <stop id="s0" offset="0" stop-color="#0b1033"/><stop id="s1" offset="0.55" stop-color="#3b1f5e"/><stop id="s2" offset="1" stop-color="#b9507a"/>
+        </linearGradient>
+        <radialGradient id="sunFill"><stop offset="0" stop-color="#fffbe8"/><stop offset="0.55" stop-color="#ffe08a"/><stop offset="1" stop-color="#ffaa45"/></radialGradient>
+        <radialGradient id="haloG"><stop offset="0" stop-color="#ffd58a" stop-opacity=".75"/><stop offset=".45" stop-color="#ff9e5a" stop-opacity=".28"/><stop offset="1" stop-color="#ff7a4a" stop-opacity="0"/></radialGradient>
+        <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff0b3"/><stop offset=".5" stop-color="#e8b04a"/><stop offset="1" stop-color="#fff0b3"/></linearGradient>
+        <radialGradient id="lampGlow"><stop offset="0" stop-color="#ffcf70" stop-opacity=".9"/><stop offset="1" stop-color="#ff9a3c" stop-opacity="0"/></radialGradient>
+      </defs>
+      <rect width="1080" height="1920" fill="url(#sky)"/>
+      <g id="stars"></g>
+
+      <!-- the sun: the carrier object of the film («لا تغرب شمس هذا اليوم») -->
+      <g id="sunMove"><g transform="translate(540,1700)">
+        <circle id="halo" r="560" fill="url(#haloG)"/>
+        <g id="rays" opacity=".55"></g>
+        <circle id="sun" r="150" fill="url(#sunFill)"/>
+      </g></g>
+
+      <!-- outside the arch is a little darker, so the eye stays inside -->
+      <path id="veil" fill="#12062a" fill-opacity=".38" fill-rule="evenodd"
+            d="M0,0H1080V1920H0Z M150,1760 L150,1010 C150,770 370,610 540,520 C710,610 930,770 930,1010 L930,1760 Z"/>
+
+      <!-- the mosque on the horizon -->
+      <g id="mosque" fill="#1d0f2c">
+        <path d="M330,1650 C330,1470 470,1420 540,1350 C610,1420 750,1470 750,1650 Z"/>
+        <rect x="537" y="1290" width="6" height="64"/><circle cx="540" cy="1286" r="9"/>
+        <path d="M205,1650 V1420 L230,1360 L255,1420 V1650 Z"/><rect x="196" y="1450" width="68" height="12"/><rect x="226" y="1320" width="8" height="42"/>
+        <path d="M825,1650 V1420 L850,1360 L875,1420 V1650 Z"/><rect x="816" y="1450" width="68" height="12"/><rect x="846" y="1320" width="8" height="42"/>
+        <rect x="0" y="1640" width="1080" height="280"/>
+        <path d="M0,1700 C200,1660 380,1690 540,1680 C720,1670 880,1650 1080,1690 V1920 H0 Z" fill="#140920"/>
+      </g>
+      <g id="windows" fill="#ffc768"></g>
+
+      <!-- the arch, drawn by a gold pen -->
+      <path id="arch" fill="none" stroke="url(#gold)" stroke-width="7" stroke-linecap="round"
+            d="M150,1760 L150,1010 C150,770 370,610 540,520 C710,610 930,770 930,1010 L930,1760"/>
+      <path id="arch2" fill="none" stroke="#f3c766" stroke-opacity=".55" stroke-width="3"
+            d="M182,1760 L182,1018 C182,800 385,650 540,566 C695,650 898,800 898,1018 L898,1760"/>
+      <g id="rosette" transform="translate(540,760)" fill="none" stroke="#f6d27a" stroke-width="3" stroke-linejoin="round"></g>
+      <g id="lamps"></g>
+      <g id="petals"></g>
+      <g id="dust"></g>
+    </svg>
+
+    <div id="glass"></div>
+    <div class="card" id="c1"><div class="line big" id="l1">اللهم في يوم الخميس</div></div>
+    <div class="card" id="c2"><div class="line" id="l2">اجعل هذا اليوم مفتاحاً لكل خير</div><div class="line gold" id="l3">ومغلاقاً لكل شر</div></div>
+    <div class="card" id="c3"><div class="line gold" id="l4">وبداية لأيام</div><div class="line" id="l5">تفيض بشائرها جبراً لقلوبنا</div></div>
+    <div class="card" id="c4"><div class="line big" id="l6">اللهم لا تغرب شمس هذا اليوم</div></div>
+    <div class="card" id="c5"><div class="line" id="l7">إلا وقد جبرت خواطرنا</div><div class="line gold" id="l8">وغفرت ذنوبنا</div></div>
+    <div class="card" id="c6"><div class="line big" id="l9">وقضيت حوائجنا</div></div>
+    <div class="card" id="c7"><div class="line big" id="l10">يا حي يا قيوم</div></div>
+    <div class="card" id="c8"><div class="line" id="l11">بك أستجير</div><div class="line gold" id="l12">وبفضلك أستعين</div></div>
+    <div class="card" id="c9"><div class="line big" id="l13" style="font-size:130px">اللهم آمين</div></div>
+  </div>
+    <div id="month" class="hdr">ربيع الثاني ٢٧</div>
+  <div id="day" class="hdr">الخميس</div>
+  <div id="date" class="hdr">08 . 10 . 2026</div>
+  <svg style="position:absolute;left:0;top:0;width:1080px;height:1920px;pointer-events:none;z-index:5" viewBox="0 0 1080 1920">
+    <path id="dateRule" d="M380,456 H700" stroke="#f4cf6b" stroke-width="3" fill="none" opacity="0"/>
+    <path id="dateRule2" d="M420,468 H660" stroke="#f4cf6b" stroke-width="2" fill="none" opacity="0"/>
+  </svg>
+  <div id="flash"></div>
+
+  <script>
+    const M = window.MOTION, $ = (s) => document.querySelector(s), svg = M.svgEl, T = 24.7;
+    const root = $("#root"), cam = $("#cam");
+    M.vignette(root, { strength: 0.45 });
+    M.grain(root, { opacity: 0.07, seed: 7 });
+    const tl = gsap.timeline({ paused: true, defaults: { ease: M.ease.drive } });
+    const DOWN = [1.429, 3.349, 5.237, 7.179, 9.077, 10.987, 12.907, 14.816, 16.725, 18.635, 20.544, 22.464, 24.373];
+
+    /* ── build: rays, rosette, lamps, windows (seeded) ── */
+    const r = M.rng(27);
+    for (let i = 0; i < 28; i++) {
+      const a = (i / 28) * Math.PI * 2, w = 0.035 + r() * 0.03, L = 380 + r() * 260;
+      const p = (ang, rad) => `${(Math.cos(ang) * rad).toFixed(1)},${(Math.sin(ang) * rad).toFixed(1)}`;
+      svg("path", { d: `M${p(a - w, 170)} L${p(a, L)} L${p(a + w, 170)} Z`, fill: "#ffe2a0", "fill-opacity": (0.25 + r() * 0.35).toFixed(2) }, $("#rays"));
+    }
+    // an eight-point star (two squares), a ring and an outer star: the rosette above the text
+    const sq = (s, rot) => { const pts = [0, 1, 2, 3].map((k) => { const a = rot + k * Math.PI / 2 + Math.PI / 4; return `${(Math.cos(a) * s).toFixed(1)},${(Math.sin(a) * s).toFixed(1)}`; }); return `M${pts.join(" L")} Z`; };
+    const star8 = (R, ri) => { const pts = []; for (let k = 0; k < 16; k++) { const a = -Math.PI / 2 + k * Math.PI / 8, rr = k % 2 ? ri : R; pts.push(`${(Math.cos(a) * rr).toFixed(1)},${(Math.sin(a) * rr).toFixed(1)}`); } return `M${pts.join(" L")} Z`; };
+    const ros = [sq(78, 0), sq(78, Math.PI / 4), star8(120, 92), `M0,-48 A48,48 0 1 1 -0.1,-48 Z`, star8(30, 14)].map((d) => svg("path", { d, opacity: 0 }, $("#rosette")));
+    // two hanging lanterns
+    const lamps = [[200, 300, 0], [880, 360, 1]].map(([x, len, k]) => {
+      const g = svg("g", { transform: `translate(${x},0)` }, $("#lamps"));
+      const sw = svg("g", {}, g);
+      svg("line", { x1: 0, y1: 0, x2: 0, y2: len, stroke: "#d9a94a", "stroke-width": 2 }, sw);
+      svg("circle", { cx: 0, cy: len + 70, r: 120, fill: "url(#lampGlow)", class: "glow" }, sw);
+      svg("path", { d: `M-14,${len} L14,${len} L22,${len + 22} L-22,${len + 22} Z`, fill: "#e0b050" }, sw);
+      svg("path", { d: `M-34,${len + 22} L34,${len + 22} L42,${len + 70} L28,${len + 118} L-28,${len + 118} L-42,${len + 70} Z`, fill: "#ffcf72", "fill-opacity": .92, stroke: "#c48a2c", "stroke-width": 4 }, sw);
+      svg("path", { d: `M0,${len + 30} V${len + 112} M-36,${len + 70} H36 M-20,${len + 26} L-14,${len + 116} M20,${len + 26} L14,${len + 116}`, stroke: "#b07a22", "stroke-width": 3, fill: "none" }, sw);
+      svg("path", { d: `M-28,${len + 118} L28,${len + 118} L0,${len + 150} Z`, fill: "#e0b050" }, sw);
+      return { sw, x, len, k };
+    });
+    // little glowing windows in the mosque and minarets
+    [[470, 1560], [510, 1560], [570, 1560], [610, 1560], [222, 1500], [842, 1500], [222, 1570], [842, 1570]].forEach(([x, y], i) => {
+      const w = svg("path", { d: `M${x},${y + 40} V${y + 12} Q${x + 9},${y} ${x + 18},${y + 12} V${y + 40} Z` }, $("#windows"));
+      tl.fromTo(w, { opacity: 0.55 }, { opacity: 1, duration: 0.9 + r() * 0.8, yoyo: true, repeat: 30, ease: "sine.inOut" }, r() * 0.8);
+    });
+
+    /* ── sky: from the last of the night to a golden morning ── */
+    tl.to("#s0", { attr: { "stop-color": "#2b3d86" }, duration: 11, ease: "sine.inOut" }, 0)
+      .to("#s1", { attr: { "stop-color": "#c4677a" }, duration: 11, ease: "sine.inOut" }, 0)
+      .to("#s2", { attr: { "stop-color": "#ffb066" }, duration: 11, ease: "sine.inOut" }, 0)
+      .to("#s0", { attr: { "stop-color": "#34509a" }, duration: 13.7, ease: "sine.inOut" }, 11)
+      .to("#s1", { attr: { "stop-color": "#f2a079" }, duration: 13.7, ease: "sine.inOut" }, 11)
+      .to("#s2", { attr: { "stop-color": "#ffd890" }, duration: 13.7, ease: "sine.inOut" }, 11)
+      .to("#mosque", { attr: { fill: "#3a1d3c" }, duration: 24.7, ease: "none" }, 0)
+      .to("#veil", { attr: { "fill-opacity": 0.22 }, duration: 24.7, ease: "none" }, 0);
+    M.sparkle(tl, $("#stars"), { at: 0, n: 70, seed: 3, x0: 0, x1: 1080, y0: 0, y1: 1100, color: "#fff6dc" });
+    tl.to("#stars", { opacity: 0, duration: 9, ease: "sine.in" }, 2);
+
+    /* ── the sun rises through the film; the rays turn; the halo breathes on every downbeat ── */
+    // dawn: the sun peeks over the dome; on «لا تغرب شمس هذا اليوم» it lifts above the words into the rosette
+    tl.fromTo("#sunMove", { y: 120 }, { y: -300, duration: 10.9, ease: M.E.cam }, 0)
+      .to("#sunMove", { y: -940, duration: 1.9, ease: M.spring("heavy") }, 10.99)
+      .to("#sunMove", { y: -975, duration: 11.8, ease: "none" }, 12.9)
+      .to("#rosette", { attr: { stroke: "#8a3b1c" }, duration: 1.2, ease: "sine.inOut" }, 11.3)
+      .fromTo("#rays", { rotation: 0, svgOrigin: "0 0" }, { rotation: 75, svgOrigin: "0 0", duration: T, ease: "none" }, 0)
+      .fromTo("#halo", { scale: 0.7, svgOrigin: "0 0" }, { scale: 1, svgOrigin: "0 0", duration: 11, ease: "sine.inOut" }, 0);
+    DOWN.forEach((d) => tl.fromTo("#halo", { opacity: 1 }, { opacity: 0.7, duration: 0.5, ease: M.E.out, immediateRender: false }, d).to("#halo", { opacity: 1, duration: 0.6, ease: "sine.inOut" }, d + 0.5));
+
+    /* ── lanterns sway, glow breathes ── */
+    lamps.forEach(({ sw, k }) => {
+      tl.fromTo(sw, { rotation: k ? 3.5 : -3.5, svgOrigin: "0 0" }, { rotation: k ? -3.5 : 3.5, svgOrigin: "0 0", duration: 2.2 + k * 0.3, yoyo: true, repeat: 11, ease: "sine.inOut" }, 0);
+      tl.fromTo(sw.querySelector(".glow"), { opacity: 0.7 }, { opacity: 1, duration: 0.96, yoyo: true, repeat: 25, ease: "sine.inOut" }, k * 0.48);
+    });
+
+    /* ── rose petals and golden dust, seeded ── */
+    // petals are a pure function of time (no negative tween positions: GSAP would shift the whole timeline)
+    const pr = M.rng(11), petals = [];
+    for (let i = 0; i < 22; i++) {
+      const x = pr() * 1080, s = 0.7 + pr() * 0.8, dur = 7 + pr() * 5, ph = pr();
+      const g = svg("g", {}, $("#petals"));
+      svg("path", { d: "M0,-16 C14,-14 18,6 0,18 C-18,6 -14,-14 0,-16 Z", fill: pr() < 0.5 ? "#e8436a" : "#f27b93", "fill-opacity": .9 }, g);
+      petals.push({ g, x, s, dur, ph, drift: (pr() - 0.5) * 340, spin: (pr() < 0.5 ? -1 : 1) * (300 + pr() * 400), sway: 20 + pr() * 30 });
+    }
+    const petalClock = { t: 0 };
+    const drawPetals = () => petals.forEach((q) => {
+      const u = (petalClock.t / q.dur + q.ph) % 1, y = -60 + u * 2050, x = q.x + q.drift * u + Math.sin(petalClock.t * 1.3 + q.ph * 9) * q.sway;
+      q.g.setAttribute("transform", `translate(${x.toFixed(1)},${y.toFixed(1)}) rotate(${(q.spin * u).toFixed(1)}) scale(${q.s.toFixed(2)})`);
+    });
+    tl.fromTo(petalClock, { t: 0 }, { t: T, duration: T, ease: "none", onUpdate: drawPetals, immediateRender: true }, 0);
+    drawPetals();
+    M.sparkle(tl, $("#dust"), { at: 0.5, n: 60, seed: 19, x0: 160, x1: 920, y0: 560, y1: 1700, color: "#ffe6a6" });
+
+    /* ── scene 1 (0–1.9): the header and the arch arrive ── */
+    M.drawPath(tl, $("#arch"), 0, 1.7, { ease: M.E.out });
+    M.drawPath(tl, $("#arch2"), 0.25, 1.7, { ease: M.E.out });
+    M.revealWords(tl, $("#month"), 0.1, { dur: 0.6 });
+    tl.set("#day", { visibility: "visible" }, 0.25).fromTo("#day", { y: 46, opacity: 0, scale: 0.92, filter: "blur(10px)" }, { y: 0, opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.8, ease: M.E.out, immediateRender: false }, 0.25);
+    M.revealWords(tl, $("#date"), 0.55, { dur: 0.6, stagger: 0.05 });
+    M.drawPath(tl, $("#dateRule"), 0.8, 0.8, { ease: M.E.out });
+    M.drawPath(tl, $("#dateRule2"), 0.95, 0.8, { ease: M.E.out });
+    ros.forEach((p, i) => M.drawPath(tl, p, 0.4 + i * 0.18, 1.3, { ease: M.E.out, opacity: 0.85 }));
+    tl.fromTo("#rosette", { rotation: 0, svgOrigin: "540 760" }, { rotation: 45, svgOrigin: "540 760", duration: T, ease: "none" }, 0);
+
+    /* ── the du'a: each line rises word by word through its mask, timed to the recitation ── */
+    const say = (id, at) => M.revealWords(tl, $(id), at, { dur: 0.65, stagger: 0.09, ease: M.E.out });
+    const off = (ids, at) => ids.forEach((id) => M.hideWords(tl, $(id), at, { dur: 0.35, stagger: 0.03 }));
+    say("#l1", 0.45);                        off(["#l1"], 1.55);
+    say("#l2", 1.95); say("#l3", 4.95);      off(["#l2", "#l3"], 6.6);
+    say("#l4", 7.05); say("#l5", 8.0);       off(["#l4", "#l5"], 10.55);
+    say("#l6", 10.99);                       off(["#l6"], 12.5);
+    say("#l7", 12.95); say("#l8", 15.9);     off(["#l7", "#l8"], 16.55);
+    say("#l9", 16.95);                       off(["#l9"], 18.5);
+    say("#l10", 18.75);                      off(["#l10"], 19.65);
+    say("#l11", 20.0); say("#l12", 21.95);   off(["#l11", "#l12"], 22.55);
+    say("#l13", 22.95);
+
+    /* ── accents: the sun flares on «لا تغرب شمس», the crowning on «آمين» ── */
+    M.flash(tl, $("#flash"), 10.99, { peak: 0.55, dur: 0.9 });
+    tl.fromTo("#sun", { scale: 1, svgOrigin: "0 0" }, { scale: 1.18, svgOrigin: "0 0", duration: 0.5, ease: M.E.out, immediateRender: false }, 10.99)
+      .to("#sun", { scale: 1, svgOrigin: "0 0", duration: 1.4, ease: "sine.inOut" }, 11.5)
+      .to("#rays", { opacity: 0.95, duration: 0.4, ease: M.E.out }, 10.99).to("#rays", { opacity: 0.6, duration: 1.6, ease: "sine.inOut" }, 11.4);
+    M.flash(tl, $("#flash"), 18.75, { peak: 0.35, dur: 0.6 });
+    M.flash(tl, $("#flash"), 22.95, { peak: 0.6, dur: 1.1 });
+    tl.to("#rays", { opacity: 1, duration: 0.5, ease: M.E.out }, 22.95)
+      .to("#rosette path", { attr: { "stroke-width": 5 }, duration: 0.6, ease: M.E.out }, 22.95)
+      .to("#arch, #arch2", { attr: { "stroke-width": 9 }, duration: 0.6, ease: M.E.out }, 22.95);
+
+    /* ── camera: a slow breath in, a push on the sun line, a crowning push on «آمين» ── */
+    tl.fromTo(cam, { scale: 1.0 }, { scale: 1.035, duration: 10.9, ease: "none" }, 0)
+      .to(cam, { scale: 1.075, y: -18, duration: 1.6, ease: M.E.cam }, 10.99)
+      .to(cam, { scale: 1.06, y: 0, duration: 9.5, ease: "none" }, 12.6)
+      .to(cam, { scale: 1.09, y: -10, duration: 1.7, ease: M.E.cam }, 22.95);
+
+    window.__timelines = window.__timelines || {};
+    window.__timelines["root"] = tl;
+    M.shim("root", T);
+  </script>
+</div>
+</body>
+</html>

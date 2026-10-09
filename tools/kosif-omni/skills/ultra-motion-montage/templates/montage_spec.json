@@ -1,0 +1,66 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "project": "cinematic_promo",
+  "aspect_ratio": "9:16",
+  "width": 1080,
+  "height": 1920,
+  "fps": 30,
+  "duration_seconds": 15.0,
+  "target_lufs": -14.0,
+  "color_preset": "teal_orange",
+  "music_track": {
+    "file": "soundtrack.wav",
+    "bpm": 112,
+    "volume_db": -12,
+    "ducking_on_voice": true,
+    "duck_amount_db": -18
+  },
+  "video_tracks": [
+    {
+      "layer": 0,
+      "name": "A-Roll",
+      "clip": "hero_footage.mp4",
+      "start": 0.0,
+      "end": 15.0,
+      "zoom_punches": [
+        { "time": 2.6, "scale": 1.12, "duration": 1.2 },
+        { "time": 6.0, "scale": 1.10, "duration": 1.0 },
+        { "time": 9.5, "scale": 1.15, "duration": 1.5 }
+      ]
+    },
+    {
+      "layer": 1,
+      "name": "B-Roll Overlay",
+      "clip": "broll_details.mp4",
+      "start": 6.0,
+      "end": 9.5,
+      "transition": "crossfade_0.3s"
+    }
+  ],
+  "captions": [
+    {
+      "start": 0.5,
+      "end": 2.5,
+      "text": "مرحباً بكم في عصر الذكاء الاصطناعي الفائق",
+      "words": ["مرحباً", "بكم", "في", "عصر", "الذكاء", "الاصطناعي", "الفائق"]
+    },
+    {
+      "start": 2.6,
+      "end": 5.8,
+      "text": "مونتاج ذكي متزامن بدقة متناهية مع الإيقاع",
+      "words": ["مونتاج", "ذكي", "متزامن", "بدقة", "متناهية", "مع", "الإيقاع"]
+    },
+    {
+      "start": 6.0,
+      "end": 9.4,
+      "text": "أنيميشن سينمائي بأعلى معايير الجرافيك العالمية",
+      "words": ["أنيميشن", "سينمائي", "بأعلى", "معايير", "الجرافيك", "العالمية"]
+    },
+    {
+      "start": 9.5,
+      "end": 14.5,
+      "text": "المستقبل بين يديك الآن — ابدأ الإبداع",
+      "words": ["المستقبل", "بين", "يديك", "الآن", "ابدأ", "الإبداع"]
+    }
+  ]
+}

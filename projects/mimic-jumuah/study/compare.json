@@ -1,0 +1,117 @@
+{
+  "ref": "C:\\Users\\اغنام الوادي\\Downloads\\IMG_9432.MP4",
+  "film": "C:\\Users\\اغنام الوادي\\Desktop\\الاداة\\mimic-jumuah\\جمعة-محاكاة.mp4",
+  "fps": 30.0,
+  "duration_offset_frames": 2.0,
+  "boundaries": [
+    {
+      "t": 2.3,
+      "ref": "fadeblack",
+      "film": "fadeblack",
+      "frames_off": 0.0,
+      "dur_ref": 0.7667,
+      "dur_film": 0.7333,
+      "seen": "frames"
+    },
+    {
+      "t": 4.8333,
+      "ref": "fadeblack",
+      "film": "fadeblack",
+      "frames_off": 0.0,
+      "dur_ref": 0.7667,
+      "dur_film": 0.7333,
+      "seen": "frames"
+    },
+    {
+      "t": 8.7333,
+      "ref": "fadeblack",
+      "film": "fadeblack",
+      "frames_off": 0.0,
+      "dur_ref": 0.7667,
+      "dur_film": 0.7,
+      "seen": "frames"
+    },
+    {
+      "t": 10.4333,
+      "ref": "fadeblack",
+      "film": "fadeblack",
+      "frames_off": 0.0,
+      "dur_ref": 0.7667,
+      "dur_film": 0.7333,
+      "seen": "frames"
+    },
+    {
+      "t": 11.9333,
+      "ref": "fadeblack",
+      "film": "fadeblack",
+      "frames_off": 0.0,
+      "dur_ref": 0.7,
+      "dur_film": 0.6667,
+      "seen": "frames"
+    },
+    {
+      "t": 15.1667,
+      "ref": "fadeblack",
+      "film": "fadeblack",
+      "frames_off": 0.0,
+      "dur_ref": 0.8,
+      "dur_film": 0.7667,
+      "seen": "frames"
+    },
+    {
+      "t": 18.7333,
+      "ref": "fadeblack",
+      "film": "fadeblack",
+      "frames_off": 0.0,
+      "dur_ref": 0.7667,
+      "dur_film": 0.7333,
+      "seen": "frames"
+    },
+    {
+      "t": 20.5333,
+      "ref": "fadeblack",
+      "film": "fadeblack",
+      "frames_off": 1.0,
+      "dur_ref": 0.7667,
+      "dur_film": 0.7333,
+      "seen": "frames"
+    },
+    {
+      "t": 22.5667,
+      "ref": "fadeblack",
+      "film": "fadeblack",
+      "frames_off": 1.0,
+      "dur_ref": 0.7333,
+      "dur_film": 0.7,
+      "seen": "frames"
+    },
+    {
+      "t": 25.6667,
+      "ref": "fadeblack",
+      "film": "fadeblack",
+      "frames_off": 1.0,
+      "dur_ref": 0.7667,
+      "dur_film": 0.7,
+      "seen": "frames"
+    }
+  ],
+  "missing": [],
+  "extra": [],
+  "mean_frames_off": 0.3,
+  "seen_in_frames": 10,
+  "seen_in_plan_only": 0,
+  "audio": {
+    "corr": 0.9937,
+    "lag_ms": -3.0
+  },
+  "checks": {
+    "duration_within_2_frames": true,
+    "every_boundary_found": true,
+    "boundaries_within_2_frames": true,
+    "transition_types_match": true,
+    "no_extra_boundaries": true,
+    "audio_same": true
+  },
+  "pass": true,
+  "sheet": "C:\\Users\\اغنام الوادي\\Desktop\\الاداة\\mimic-jumuah\\study\\compare.jpg"
+}

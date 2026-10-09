@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+node_modules/
+settings.json
+code/last.*
+motion/projects/*/frames/
+motion/projects/demo3d/
+out/*_check/
+out/frames/

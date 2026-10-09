@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8" />
+<title>تعريفان للنجاح — KOSIF Motion</title>
+<script src="assets/gsap.min.js"></script>
+<script src="assets/motion-kit.js"></script>
+<style>
+  /* never dir="rtl" on <html>: direction lives on the text elements */
+  html, body { margin: 0; padding: 0; width: 1080px; height: 1920px; overflow: hidden; background: #05070b; }
+  #root { position: relative; width: 1080px; height: 1920px; overflow: hidden; background: #05070b;
+          font-family: "Segoe UI", Tahoma, sans-serif; color: #fff; }
+  .rtl { direction: rtl; unicode-bidi: isolate; }
+  #cam { position: absolute; inset: 0; transform-origin: 50% 45%; will-change: transform; }
+  .plate { position: absolute; inset: -4%; visibility: hidden; overflow: hidden; }
+  .plate img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transform-origin: 50% 50%; }
+  .tint { position: absolute; inset: 0; pointer-events: none; }
+  /* two halves for «شوف ده… وشوف ده» */
+  .half { position: absolute; top: 0; bottom: 0; width: 50%; overflow: hidden; visibility: hidden; }
+  .half img { position: absolute; top: 0; height: 100%; width: 200%; object-fit: cover; }
+  #halfR { right: 0; } #halfR img { right: -50%; }
+  #halfL { left: 0; }  #halfL img { left: -50%; }
+  #seam { position: absolute; top: 0; bottom: 0; left: 539px; width: 2px; background: linear-gradient(#0000, #f5c97a, #0000);
+          transform-origin: 50% 50%; visibility: hidden; }
+  #shade { position: absolute; inset: 0; pointer-events: none;
+           background: linear-gradient(180deg, rgba(0,0,0,.55) 0%, rgba(0,0,0,0) 26%, rgba(0,0,0,0) 58%, rgba(0,0,0,.72) 100%); }
+
+  /* text levels: caption (speech) · keyword · label */
+  #hud { position: absolute; inset: 0; pointer-events: none; }
+  .cap { position: absolute; left: 70px; right: 70px; top: 1400px; text-align: center; font-size: 50px; font-weight: 700;
+         line-height: 1.35; visibility: hidden; text-shadow: 0 4px 18px rgba(0,0,0,.85); }
+  .cap b { color: #f5c97a; font-weight: 700; }
+  .kw { position: absolute; left: 40px; right: 40px; text-align: center; font-weight: 700; visibility: hidden;
+        line-height: 1.15; text-shadow: 0 10px 50px rgba(0,0,0,.7); }
+  .chip { position: absolute; top: 330px; right: 80px; padding: 14px 34px 20px; border-radius: 999px; font-size: 40px; font-weight: 700;
+          visibility: hidden; border: 2px solid currentColor; background: rgba(5,7,11,.45); backdrop-filter: blur(6px); }
+  .num { position: absolute; left: 0; right: 0; text-align: center; font-weight: 700; visibility: hidden; direction: ltr;
+         font-variant-numeric: tabular-nums; text-shadow: 0 12px 60px rgba(0,0,0,.6); }
+  #qmark { position: absolute; left: 0; right: 0; top: 420px; text-align: center; font-size: 420px; font-weight: 700;
+           color: rgba(245,201,122,.0); -webkit-text-stroke: 3px #f5c97a; visibility: hidden; }
+  svg.layer { position: absolute; inset: 0; width: 1080px; height: 1920px; pointer-events: none; }
+  #flash { position: absolute; inset: 0; background: #fff6e0; opacity: 0; pointer-events: none; z-index: 60; }
+  #black { position: absolute; inset: 0; background: #000; opacity: 0; pointer-events: none; z-index: 70; }
+</style>
+</head>
+<body>
+<div id="root" data-composition-id="root" data-width="1080" data-height="1920" data-start="0" data-duration="47.0" data-fps="30">
+  <audio id="voice" src="assets/voice.wav" data-start="0" data-duration="45.0" data-volume="1.0" data-role="voice"></audio>
+  <audio id="music" src="assets/score.wav" data-start="0" data-duration="47.0" data-volume="0.42" data-role="music" data-fade-out="1.2"></audio>
+
+  <div id="cam">
+    <div class="plate" id="p1"><img src="assets/s1_question.jpg"><div class="tint" style="background:rgba(10,30,45,.25)"></div></div>
+    <div class="plate" id="p2"><img src="assets/s2_hall.jpg"></div>
+    <div class="plate" id="p3"><img src="assets/s3_money.jpg"><div class="tint" id="t3" style="background:rgba(20,60,110,.18)"></div></div>
+    <div class="plate" id="p4"><img src="assets/s4_joy.jpg"><div class="tint" style="background:rgba(255,170,60,.08)"></div></div>
+    <div class="plate" id="p5"><img src="assets/s5_moment.jpg"></div>
+    <div class="half" id="halfR"><img src="assets/s3_money.jpg"><div class="tint" id="tR" style="background:rgba(0,0,0,0)"></div></div>
+    <div class="half" id="halfL"><img src="assets/s4_joy.jpg"><div class="tint" id="tL" style="background:rgba(0,0,0,0)"></div></div>
+    <div class="plate" id="p6"><img src="assets/s6_paths.jpg"></div>
+    <svg class="layer" id="fx" viewBox="0 0 1080 1920"><g id="dust"></g><g id="gold"></g></svg>
+  </div>
+  <div id="seam"></div>
+  <div id="shade"></div>
+
+  <div id="hud">
+    <svg class="layer" id="graph" viewBox="0 0 1080 1920">
+      <path id="chartUp" d="M120 1080 L250 1010 L360 1040 L480 930 L600 950 L720 820 L840 840 L960 690" fill="none" stroke="#7fd0ff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" opacity="0"/>
+      <path id="chartDown" d="M960 690 L990 760 L1010 1180" fill="none" stroke="#ff5a5a" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" opacity="0"/>
+      <circle id="ring" cx="540" cy="1030" r="150" fill="none" stroke="#f5c97a" stroke-width="5" opacity="0"/>
+      <circle id="ring2" cx="540" cy="1030" r="150" fill="none" stroke="#f5c97a" stroke-width="3" opacity="0"/>
+    </svg>
+    <div id="qmark">؟</div>
+
+    <!-- keywords -->
+    <div class="kw rtl" id="k_q1" style="top:560px;font-size:150px">النجاح</div>
+    <div class="kw rtl" id="k_q2" style="top:760px;font-size:96px;color:#f5c97a">سرّ؟</div>
+    <div class="kw rtl" id="k_q3" style="top:600px;font-size:92px">يعني إيه؟</div>
+    <div class="kw rtl" id="k_na" style="top:330px;font-size:64px">أمريكا الشمالية</div>
+    <div class="num" id="n_1000" style="top:420px;font-size:200px">0</div>
+    <div class="kw rtl" id="k_ppl" style="top:650px;font-size:64px;color:#f5c97a">شخص في القاعة</div>
+    <div class="kw rtl" id="k_ask" style="top:820px;font-size:86px">النجاح بالنسبة لك؟</div>
+
+    <div class="chip rtl" id="chip1" style="color:#7fd0ff">تعريف ١</div>
+    <div class="kw rtl" id="k_budget" style="top:470px;font-size:96px">أحقق ميزانيتي</div>
+    <div class="num" id="n_money" style="top:640px;font-size:118px;color:#7fd0ff">$0</div>
+    <div class="kw rtl" id="k_if" style="top:470px;font-size:84px">ولو ما حققتهاش؟</div>
+    <div class="kw rtl" id="k_sad" style="top:1160px;font-size:150px;color:#ff6b6b">تعيس جداً</div>
+    <div class="kw rtl" id="k_eq1" style="top:560px;font-size:110px">النجاح = <span style="color:#7fd0ff">الفلوس</span></div>
+
+    <div class="chip rtl" id="chip2" style="color:#f5c97a">تعريف ٢</div>
+    <div class="kw rtl" id="k_jump" style="top:400px;font-size:120px;color:#fff">بيتنطط</div>
+    <div class="kw rtl" id="k_laugh" style="top:1110px;font-size:120px;color:#fff">ويضحك</div>
+    <div class="kw rtl" id="k_ask2" style="top:520px;font-size:86px">والنجاح عندك؟</div>
+    <div class="kw rtl" id="k_live" style="top:430px;font-size:116px">أعيش كل لحظة</div>
+    <div class="kw rtl" id="k_last" style="top:600px;font-size:92px;color:#f5c97a">كأنها آخر لحظة</div>
+    <div class="kw rtl" id="k_real" style="top:520px;font-size:82px">ممكن فعلاً تكون <span style="color:#f5c97a">الأخيرة</span></div>
+
+    <div class="kw rtl" id="k_this1" style="top:330px;left:560px;right:20px;font-size:68px;color:#7fd0ff">شوف ده</div>
+    <div class="kw rtl" id="k_this1b" style="top:430px;left:560px;right:20px;font-size:48px;color:#fff">الفلوس</div>
+    <div class="kw rtl" id="k_this2" style="top:330px;left:20px;right:560px;font-size:68px;color:#f5c97a">وشوف ده</div>
+    <div class="kw rtl" id="k_this2b" style="top:430px;left:20px;right:560px;font-size:48px;color:#fff">اللحظة</div>
+
+    <div class="kw rtl" id="k_more" style="top:520px;font-size:76px">للنجاح أكتر من</div>
+    <div class="num" id="n_600" style="top:640px;font-size:330px;color:#f5c97a">0</div>
+    <div class="kw rtl" id="k_def" style="top:1030px;font-size:110px">تعريف</div>
+    <div class="kw rtl" id="k_yours" style="top:1220px;font-size:58px;color:#e9dcc4">إنت تعريفك إيه؟</div>
+
+    <div id="caps"></div>
+  </div>
+  <div id="flash"></div>
+  <div id="black"></div>
+
+  <script>
+    const M = window.MOTION, $ = (s) => document.querySelector(s), E = M.E, R = M.rng(11);
+    const root = $("#root"), cam = $("#cam");
+    M.vignette(root, { strength: 0.5, inner: 50 });
+    M.grain(root, { opacity: 0.07, seed: 4 });
+    const END = 47.0;
+    const tl = gsap.timeline({ paused: true, defaults: { ease: M.ease.drive } });
+
+    /* ── plates: hard cuts, each one arrives already moving (punch-in) then drifts ── */
+    function plate(id, t0, t1, o) {
+      o = o || {};
+      const el = $(id), img = el.querySelector("img");
+      tl.set(el, { visibility: "visible" }, t0);
+      tl.set(el, { visibility: "hidden" }, t1);
+      tl.fromTo(img, { scale: o.from || 1.16, x: o.x0 || 0, y: o.y0 || 0 },
+        { scale: o.to || 1.04, x: o.x1 || 0, y: o.y1 || 0, duration: t1 - t0, ease: E.dolly, immediateRender: false }, t0);
+    }
+    plate("#p1", 0, 4.18, { from: 1.0, to: 1.22, y1: 40 });
+    plate("#p2", 4.18, 13.34, { from: 1.18, to: 1.02 });
+    plate("#p3", 13.34, 24.56, { from: 1.05, to: 1.25, y1: -30 });
+    plate("#p4", 24.56, 31.0, { from: 1.25, to: 1.06, y0: 60 });
+    plate("#p5", 31.0, 39.82, { from: 1.02, to: 1.3, y1: 60 });
+    plate("#p6", 42.38, END, { from: 1.35, to: 1.0 });
+
+    /* camera: three named moves — a slow push on the question, a punch on «تعيس», a pull-back for the payoff */
+    M.push(tl, cam, 0.0, 1.0, 1.06, 4.0);
+    tl.set(cam, { scale: 1 }, 4.18);
+    tl.fromTo(cam, { scale: 1.0, x: 0 }, { scale: 1.09, duration: 0.25, ease: E.out, immediateRender: false }, 21.44);
+    tl.to(cam, { scale: 1.0, duration: 0.9, ease: E.rest }, 21.75);
+    tl.fromTo(cam, { x: -8 }, { x: 8, duration: 0.05, repeat: 7, yoyo: true, ease: "none", immediateRender: false }, 21.44);
+    tl.set(cam, { x: 0 }, 21.9);
+    tl.fromTo(cam, { scale: 1.12 }, { scale: 1.0, duration: 2.4, ease: E.out, immediateRender: false }, 42.38);
+
+    /* grades: the money world drains to grey at «تعيس جداً»; the joy world blooms */
+    tl.to("#p3 img", { filter: "grayscale(0.9) brightness(0.7) contrast(1.15)", duration: 0.6, ease: E.smooth }, 21.44);
+    tl.to("#t3", { background: "rgba(80,0,0,.22)", duration: 0.6 }, 21.44);
+    tl.fromTo("#p4 img", { filter: "brightness(1.6) saturate(0.6)" }, { filter: "brightness(1) saturate(1.15)", duration: 0.9, ease: E.out, immediateRender: false }, 24.56);
+    tl.fromTo("#p5 img", { filter: "saturate(0.9)" }, { filter: "saturate(1.25) brightness(1.05)", duration: 8, ease: "none", immediateRender: false }, 31.0);
+
+    /* seams */
+    M.flash(tl, $("#flash"), 24.5, { peak: 0.9, dur: 0.45 });
+    M.flash(tl, $("#flash"), 42.32, { peak: 0.55, dur: 0.4 });
+
+    /* ── speech captions (level 1): phrase by phrase, words rise, the key word in gold ── */
+    const CAPS = [
+      [0.00, 1.56, "إنت بتعمل إيه عشان تكون <b>ناجح؟</b>"],
+      [1.56, 2.70, "هل يا ترى النجاح <b>سرّ؟</b>"],
+      [2.70, 4.18, "طب النجاح <b>يعني إيه؟</b>"],
+      [4.18, 6.12, "أنا في دورة من الدورات"],
+      [6.12, 8.76, "كنا في بلد من بلاد الله في <b>أمريكا الشمالية</b>"],
+      [8.76, 10.52, "وكان عندي حوالي <b>ألف</b> شخص"],
+      [10.52, 13.34, "وبسأل الناس: النجاح بالنسبة لك <b>عبارة عن إيه؟</b>"],
+      [13.34, 16.18, "واحد قال لي: النجاح إني أحقق <b>ميزانيتي</b>"],
+      [16.18, 18.56, "طيب ميزانيتك كام؟ <b>٢٥ مليون دولار</b>"],
+      [18.56, 20.80, "طب لو ما حققتهاش يحصل إيه؟"],
+      [20.80, 22.20, "قال لي: هكون <b>تعيس جداً</b>"],
+      [22.20, 24.56, "فده حقق نجاحه في إيه؟ <b>بالفلوس</b>"],
+      [24.56, 26.54, "واحد تاني عمّال <b>يتنطط</b> في كل حتة"],
+      [28.76, 30.14, "وعمّال <b>يضحك</b> على كل حاجة"],
+      [30.14, 31.68, "بالنسبة لك النجاح يعني إيه؟"],
+      [31.68, 34.38, "قال لي: النجاح إني أوصل لمرحلة"],
+      [34.38, 37.32, "إني أعيش كل لحظة كأنها <b>آخر لحظة</b> في حياتي"],
+      [37.32, 39.82, "لأنه ممكن فعلاً تكون آخر لحظة في حياتي"],
+      [39.82, 42.38, "شوف ده بيفكر إزاي… وشوف ده بيفكر إزاي"],
+      [42.38, 44.60, "فالنجاح له أكتر من <b>٦٠٠ تعريف</b>"],
+    ];
+    const capsBox = $("#caps");
+    CAPS.forEach(([a, b, html], i) => {
+      const el = document.createElement("div");
+      el.className = "cap rtl";
+      el.innerHTML = html.replace(/<b>(.*?)<\/b>/g, (_, w) => w.split(" ").map((x) => `<b>${x}</b>`).join(" "));
+      capsBox.appendChild(el);
+      // split by hand so gold words keep their colour: each word in a mask
+      const ws = [];
+      Array.from(el.childNodes).forEach((n) => {
+        const gold = n.nodeType === 1;
+        (n.textContent).split(/(\s+)/).forEach((w) => {
+          if (!w) return;
+          if (/^\s+$/.test(w)) { ws.push(document.createTextNode(" ")); return; }
+          const m = document.createElement("span"); m.style.cssText = "display:inline-block;clip-path:inset(-0.1em -0.1em 0 -0.1em);padding:.04em .03em .2em;margin-bottom:-.2em;vertical-align:bottom";
+          const s = document.createElement("span"); s.style.display = "inline-block"; s.textContent = w; if (gold) s.style.color = "#f5c97a";
+          m.appendChild(s); ws.push(m);
+        });
+      });
+      el.textContent = ""; ws.forEach((n) => el.appendChild(n));
+      const inners = Array.from(el.querySelectorAll("span > span"));
+      const st = Math.min(0.06, (b - a) * 0.5 / Math.max(1, inners.length));
+      tl.set(el, { visibility: "visible" }, a);
+      tl.fromTo(inners, { yPercent: 105 }, { yPercent: 0, duration: 0.32, stagger: st, ease: E.out, immediateRender: false }, a);
+      const out = Math.min(b, (CAPS[i + 1] || [END])[0]) - 0.16;
+      tl.to(inners, { yPercent: -105, duration: 0.16, ease: E.in }, out);
+      tl.set(el, { visibility: "hidden" }, out + 0.17);
+    });
+
+    /* ── keyword level (2) ── */
+    const kw = (id, at, out, o) => { o = o || {}; M.revealWords(tl, $(id), at, { dur: o.dur || 0.6, stagger: o.stagger || 0.07 }); if (out) M.hideWords(tl, $(id), out, { dur: 0.3 }); };
+    const pop = (id, at, out) => {
+      tl.set(id, { visibility: "visible" }, at);
+      tl.fromTo(id, { scale: 0.4, opacity: 0, filter: "blur(16px)" }, { scale: 1, opacity: 1, filter: "blur(0px)", duration: 0.55, ease: M.ease.snap, immediateRender: false }, at);
+      if (out) { tl.to(id, { scale: 1.12, opacity: 0, filter: "blur(10px)", duration: 0.25, ease: E.in }, out); tl.set(id, { visibility: "hidden" }, out + 0.26); }
+    };
+
+    // 1 · the question
+    kw("#k_q1", 2.0, 2.62);
+    pop("#k_q2", 2.46, 3.4);
+    tl.set("#qmark", { visibility: "visible" }, 2.7);
+    tl.fromTo("#qmark", { scale: 2.4, opacity: 0, rotation: -12 }, { scale: 1, opacity: 1, rotation: 0, duration: 0.7, ease: E.out, immediateRender: false }, 2.7);
+    tl.to("#qmark", { color: "rgba(245,201,122,.18)", duration: 0.6 }, 3.2);
+    tl.to("#qmark", { scale: 0.2, opacity: 0, duration: 0.25, ease: E.in }, 4.0);
+    kw("#k_q3", 3.5, 4.0, { dur: 0.45 });
+
+    // 2 · the hall, a thousand people
+    kw("#k_na", 8.12, 9.6);
+    pop("#n_1000", 9.9, 12.9); M.counter(tl, $("#n_1000"), 0, 1000, 9.9, 0.7, { sep: "," });
+    kw("#k_ppl", 10.26, 11.1);
+    kw("#k_ask", 11.3, 13.0);
+
+    // 3 · definition 1 — money
+    pop("#chip1", 13.5, 24.3);
+    kw("#k_budget", 15.48, 18.5);
+    pop("#n_money", 17.6, 18.56); M.counter(tl, $("#n_money"), 0, 25000000, 17.6, 0.9, { prefix: "$" });
+    tl.set("#chartUp", { opacity: 1 }, 15.5); M.drawPath(tl, $("#chartUp"), 15.5, 2.8);
+    kw("#k_if", 18.7, 21.2);
+    tl.set("#chartDown", { opacity: 1 }, 19.64); M.drawPath(tl, $("#chartDown"), 19.64, 0.45);
+    tl.to(["#chartUp", "#chartDown"], { opacity: 0, duration: 0.3 }, 23.6);
+    pop("#k_sad", 21.44, 22.6);
+    kw("#k_eq1", 23.0, 24.3);
+
+    // 4 · definition 2 — joy
+    pop("#chip2", 25.0, 39.6);
+    tl.set("#k_jump", { visibility: "visible" }, 25.46);
+    [0, 0.42, 0.84].forEach((d, i) => {
+      tl.fromTo("#k_jump", { y: 0, scaleY: 1 }, { y: -90, scaleY: 1.08, duration: 0.2, ease: E.out, immediateRender: false }, 25.46 + d);
+      tl.to("#k_jump", { y: 0, scaleY: 0.86, duration: 0.18, ease: E.contact }, 25.66 + d);
+      tl.to("#k_jump", { scaleY: 1, duration: 0.12 }, 25.84 + d);
+    });
+    tl.fromTo("#k_jump", { opacity: 0 }, { opacity: 1, duration: 0.15, immediateRender: false }, 25.46);
+    tl.to("#k_jump", { opacity: 0, y: -40, duration: 0.3 }, 28.6); tl.set("#k_jump", { visibility: "hidden" }, 29.0);
+    pop("#k_laugh", 29.2, 30.6);
+    tl.fromTo("#k_laugh", { rotation: -4 }, { rotation: 4, duration: 0.12, repeat: 7, yoyo: true, ease: "sine.inOut", immediateRender: false }, 29.5);
+    kw("#k_ask2", 30.14, 31.5);
+
+    // 5 · the moment — a ring drawn round the sun, a heartbeat
+    M.sparkle(tl, $("#gold"), { at: 31.0, n: 60, seed: 7, x0: 0, x1: 1080, y0: 700, y1: 1500, color: "#ffd89a" });
+    tl.set("#gold", { opacity: 0 }, 0); tl.to("#gold", { opacity: 1, duration: 1.2 }, 31.0); tl.set("#gold", { opacity: 0 }, 39.82);
+    kw("#k_live", 34.72, 37.2);
+    tl.set("#ring", { opacity: 1 }, 34.9); M.drawPath(tl, $("#ring"), 34.9, 1.1);
+    kw("#k_last", 36.0, 37.2);
+    [36.14, 38.94].forEach((t) => {
+      tl.fromTo("#ring2", { opacity: 0.9, scale: 1, transformOrigin: "540px 1030px" }, { opacity: 0, scale: 1.9, duration: 0.9, ease: E.out, immediateRender: false }, t);
+    });
+    tl.to("#ring", { opacity: 0, duration: 0.4 }, 39.5);
+    kw("#k_real", 37.84, 39.5);
+
+    // 6 · two ways of thinking, side by side
+    tl.set(["#halfR", "#halfL", "#seam"], { visibility: "visible" }, 39.82);
+    tl.fromTo("#halfR", { xPercent: 100 }, { xPercent: 0, duration: 0.45, ease: E.whip, immediateRender: false }, 39.82);
+    tl.fromTo("#halfL", { xPercent: -100 }, { xPercent: 0, duration: 0.45, ease: E.whip, immediateRender: false }, 39.88);
+    tl.fromTo("#seam", { scaleY: 0 }, { scaleY: 1, duration: 0.5, ease: E.out, immediateRender: false }, 40.1);
+    tl.to("#tL", { background: "rgba(0,0,0,.6)", duration: 0.2 }, 39.95);
+    kw("#k_this1", 39.95, 42.2); kw("#k_this1b", 40.2, 42.2);
+    tl.to("#tL", { background: "rgba(0,0,0,0)", duration: 0.25 }, 40.82);
+    tl.to("#tR", { background: "rgba(0,0,0,.6)", duration: 0.25 }, 40.82);
+    kw("#k_this2", 40.82, 42.2); kw("#k_this2b", 41.05, 42.2);
+    tl.set(["#halfR", "#halfL", "#seam"], { visibility: "hidden" }, 42.38);
+
+    // 7 · payoff: 600 definitions, then the question to the viewer and a dip to black
+    kw("#k_more", 42.5);
+    pop("#n_600", 43.3); M.counter(tl, $("#n_600"), 0, 600, 43.3, 0.75, { sep: false });
+    tl.fromTo("#n_600", { textShadow: "0 0 0px rgba(245,201,122,0)" }, { textShadow: "0 0 80px rgba(245,201,122,.75)", duration: 0.5, immediateRender: false }, 44.05);
+    kw("#k_def", 43.68);
+    kw("#k_yours", 44.5, null, { dur: 0.5 });
+    tl.to("#black", { opacity: 1, duration: 0.6, ease: E.smooth }, 46.3);
+    tl.set({}, {}, END);
+
+    window.__timelines = window.__timelines || {};
+    window.__timelines["root"] = tl;
+    M.shim("root", 47.0);
+  </script>
+</div>
+</body>
+</html>

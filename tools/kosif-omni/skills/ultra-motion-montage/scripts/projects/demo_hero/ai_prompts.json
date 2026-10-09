@@ -1,0 +1,14 @@
+{
+  "title": "مستقبل الذكاء الاصطناعي",
+  "style_lock": "Cinematic 3d masterwork, volumetric raytracing, 8k resolution, octane render, 35mm anamorphic lens, high visual fidelity",
+  "shots": [
+    {
+      "shot": 1,
+      "time": "0.0 - 0.9s",
+      "veo2_prompt": "Establishing cinematic shot of مستقبل الذكاء الاصطناعي, camera slow push-in, volumetric light rays, atmospheric haze, photorealistic, 4k 24fps",
+      "sora_prompt": "Hyper-detailed cinematic wide view of مستقبل الذكاء الاصطناعي, fluid camera tracking forward, golden hour lighting, cinematic depth of field",
+      "kling_prompt": "مستقبل الذكاء الاصطناعي, cinematic atmosphere, studio lighting, smooth camera movement forward, high texture detail, 1080p",
+      "runway_gen3_prompt": "Slow cinematic dolly-in shot of مستقبل الذكاء الاصطناعي, volumetric fog, highly detailed environment, dramatic lighting"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+# KOSIF Atlas edge API. Separate from kosif-think-mcp: deploying this never touches the Full Pro worker.
+# Data: python tools/build_edge_db.py ../kosif-atlas <out.sql>, then
+#       npx wrangler d1 execute kosif_atlas --remote --file <out.sql> -c edge/atlas-api/wrangler.toml
+name = "kosif-atlas-api"
+main = "worker.js"
+compatibility_date = "2026-09-27"
+workers_dev = true
+
+[ai]
+binding = "AI"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "kosif_atlas"
+database_id = "5e9b8aa2-f271-4e1c-a955-7fef4aa082d6"
+
+[[services]]
+binding = "KOSIF_JEV"
+service = "kosif-jev"
+
+[[ratelimits]]
+name = "SEARCH_LIMITER"
+namespace_id = "7311"
+simple = { limit = 60, period = 60 }
+
+[[ratelimits]]
+name = "JEV_LIMITER"
+namespace_id = "7312"
+simple = { limit = 12, period = 60 }

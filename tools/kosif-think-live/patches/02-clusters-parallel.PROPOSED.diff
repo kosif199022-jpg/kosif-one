@@ -1,0 +1,11 @@
+--- a/worker.js
++++ b/worker.js
+@@ -3668,7 +3668,7 @@
+ 
+   meta.c500_cluster_receipts=Array.isArray(meta.c500_cluster_receipts)?meta.c500_cluster_receipts:[];
+   if(meta.c500_cluster_receipts.length<20){
+-    const start=meta.c500_cluster_receipts.length,end=Math.min(20,start+1),jobs=[];
++    const start=meta.c500_cluster_receipts.length,end=Math.min(20,start+5),jobs=[];
+     for(let g=start;g<end;g++)jobs.push(c500ClusterGroup(env,meta,g));
+     const recs=await Promise.all(jobs);meta.c500_cluster_receipts.push(...recs);meta.updated_at=new Date().toISOString();await fpPut(env,fpReqKey(requestId),meta);
+     return {reenqueue:true,stage:"c500_semantic_clusters",completed_groups:meta.c500_cluster_receipts.length,total_groups:20};

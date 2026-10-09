@@ -1,0 +1,442 @@
+{
+ "file": "C:\\Users\\اغنام الوادي\\Desktop\\الاداة\\mimic-jumuah\\جمعة-محاكاة.raw.mp4",
+ "size": "1080x1920",
+ "fps": 30,
+ "seconds": 28.234,
+ "clips": [
+  {
+   "dur": 3.067,
+   "planned": 3.067,
+   "src": "C:\\Users\\اغنام الوادي\\Desktop\\الاداة\\mimic-jumuah\\pool\\2955556000714389.edit.mp4",
+   "kind": "src",
+   "in": 2.5,
+   "out": 5.5667,
+   "speed": 1.0,
+   "ramp": null,
+   "transition": {
+    "type": "fadeblack",
+    "dur": 0.7667
+   },
+   "audio": false
+  },
+  {
+   "dur": 3.3,
+   "planned": 3.3,
+   "src": "C:\\Users\\اغنام الوادي\\Desktop\\الاداة\\mimic-jumuah\\pool\\18084835995275940.edit.mp4",
+   "kind": "src",
+   "in": 0.0,
+   "out": 3.3,
+   "speed": 1.0,
+   "ramp": null,
+   "transition": {
+    "type": "fadeblack",
+    "dur": 0.7667
+   },
+   "audio": false
+  },
+  {
+   "dur": 4.667,
+   "planned": 4.667,
+   "src": "C:\\Users\\اغنام الوادي\\Desktop\\الاداة\\mimic-jumuah\\pool\\13018286415414698.edit.mp4",
+   "kind": "src",
+   "in": 11.833,
+   "out": 16.4997,
+   "speed": 1.0,
+   "ramp": null,
+   "transition": {
+    "type": "fadeblack",
+    "dur": 0.7667
+   },
+   "audio": false
+  },
+  {
+   "dur": 2.467,
+   "planned": 2.467,
+   "src": "C:\\Users\\اغنام الوادي\\Desktop\\الاداة\\mimic-jumuah\\pool\\10485011654051510.edit.mp4",
+   "kind": "src",
+   "in": 7.5,
+   "out": 9.9667,
+   "speed": 1.0,
+   "ramp": null,
+   "transition": {
+    "type": "fadeblack",
+    "dur": 0.7667
+   },
+   "audio": false
+  },
+  {
+   "dur": 2.2,
+   "planned": 2.2,
+   "src": "C:\\Users\\اغنام الوادي\\Desktop\\الاداة\\mimic-jumuah\\pool\\24136547995855101.edit.mp4",
+   "kind": "src",
+   "in": 2.833,
+   "out": 5.033,
+   "speed": 1.0,
+   "ramp": null,
+   "transition": {
+    "type": "fadeblack",
+    "dur": 0.7
+   },
+   "audio": false
+  },
+  {
+   "dur": 4.033,
+   "planned": 4.033,
+   "src": "C:\\Users\\اغنام الوادي\\Desktop\\الاداة\\mimic-jumuah\\pool\\598415869242318138.edit.mp4",
+   "kind": "src",
+   "in": 14.167,
+   "out": 18.2004,
+   "speed": 1.0,
+   "ramp": null,
+   "transition": {
+    "type": "fadeblack",
+    "dur": 0.8
+   },
+   "audio": false
+  },
+  {
+   "dur": 4.333,
+   "planned": 4.333,
+   "src": "C:\\Users\\اغنام الوادي\\Desktop\\الاداة\\mimic-jumuah\\pool\\347269821282199516.edit.mp4",
+   "kind": "src",
+   "in": 12.0467,
+   "out": 16.38,
+   "speed": 1.0,
+   "ramp": null,
+   "transition": {
+    "type": "fadeblack",
+    "dur": 0.7667
+   },
+   "audio": false
+  },
+  {
+   "dur": 2.6,
+   "planned": 2.567,
+   "src": "C:\\Users\\اغنام الوادي\\Desktop\\الاداة\\mimic-jumuah\\pool\\573012752592996475.edit.mp4",
+   "kind": "src",
+   "in": 30.6013,
+   "out": 33.168,
+   "speed": 1.0,
+   "ramp": null,
+   "transition": {
+    "type": "fadeblack",
+    "dur": 0.7667
+   },
+   "audio": false
+  },
+  {
+   "dur": 2.767,
+   "planned": 2.767,
+   "src": "C:\\Users\\اغنام الوادي\\Desktop\\الاداة\\mimic-jumuah\\pool\\1015280309723742822.edit.mp4",
+   "kind": "src",
+   "in": 5.0,
+   "out": 7.7667,
+   "speed": 1.0,
+   "ramp": null,
+   "transition": {
+    "type": "fadeblack",
+    "dur": 0.7333
+   },
+   "audio": false
+  },
+  {
+   "dur": 3.867,
+   "planned": 3.867,
+   "src": "C:\\Users\\اغنام الوادي\\Desktop\\الاداة\\mimic-jumuah\\pool\\3448137209456394.edit.mp4",
+   "kind": "src",
+   "in": 0.0,
+   "out": 3.8667,
+   "speed": 1.0,
+   "ramp": null,
+   "transition": {
+    "type": "fadeblack",
+    "dur": 0.7667
+   },
+   "audio": false
+  },
+  {
+   "dur": 2.533,
+   "planned": 2.533,
+   "src": "C:\\Users\\اغنام الوادي\\Desktop\\الاداة\\mimic-jumuah\\pool\\17310779810119330.edit.mp4",
+   "kind": "src",
+   "in": 9.833,
+   "out": 12.3663,
+   "speed": 1.0,
+   "ramp": null,
+   "transition": null,
+   "audio": false
+  }
+ ],
+ "transitions": [
+  {
+   "after_clip": 0,
+   "type": "fadeblack",
+   "dur": 0.767,
+   "at": 2.3
+  },
+  {
+   "after_clip": 1,
+   "type": "fadeblack",
+   "dur": 0.767,
+   "at": 4.834
+  },
+  {
+   "after_clip": 2,
+   "type": "fadeblack",
+   "dur": 0.767,
+   "at": 8.734
+  },
+  {
+   "after_clip": 3,
+   "type": "fadeblack",
+   "dur": 0.767,
+   "at": 10.434
+  },
+  {
+   "after_clip": 4,
+   "type": "fadeblack",
+   "dur": 0.7,
+   "at": 11.934
+  },
+  {
+   "after_clip": 5,
+   "type": "fadeblack",
+   "dur": 0.8,
+   "at": 15.167
+  },
+  {
+   "after_clip": 6,
+   "type": "fadeblack",
+   "dur": 0.767,
+   "at": 18.734
+  },
+  {
+   "after_clip": 7,
+   "type": "fadeblack",
+   "dur": 0.767,
+   "at": 20.567
+  },
+  {
+   "after_clip": 8,
+   "type": "fadeblack",
+   "dur": 0.733,
+   "at": 22.601
+  },
+  {
+   "after_clip": 9,
+   "type": "fadeblack",
+   "dur": 0.767,
+   "at": 25.701
+  }
+ ],
+ "overlays": [
+  {
+   "overlay": 0,
+   "type": "image",
+   "start": 0.0,
+   "end": 2.6833,
+   "png": "C:\\HERMES~1\\kosif_timeline_oicbypop\\ov000.png",
+   "x": "0",
+   "y": "0"
+  },
+  {
+   "overlay": 1,
+   "type": "image",
+   "start": 2.6833,
+   "end": 5.2167,
+   "png": "C:\\HERMES~1\\kosif_timeline_oicbypop\\ov001.png",
+   "x": "0",
+   "y": "0"
+  },
+  {
+   "overlay": 2,
+   "type": "image",
+   "start": 5.2167,
+   "end": 9.1166,
+   "png": "C:\\HERMES~1\\kosif_timeline_oicbypop\\ov002.png",
+   "x": "0",
+   "y": "0"
+  },
+  {
+   "overlay": 3,
+   "type": "image",
+   "start": 9.1166,
+   "end": 10.8166,
+   "png": "C:\\HERMES~1\\kosif_timeline_oicbypop\\ov003.png",
+   "x": "0",
+   "y": "0"
+  },
+  {
+   "overlay": 4,
+   "type": "image",
+   "start": 10.8166,
+   "end": 12.2833,
+   "png": "C:\\HERMES~1\\kosif_timeline_oicbypop\\ov004.png",
+   "x": "0",
+   "y": "0"
+  },
+  {
+   "overlay": 5,
+   "type": "image",
+   "start": 12.2833,
+   "end": 15.5667,
+   "png": "C:\\HERMES~1\\kosif_timeline_oicbypop\\ov005.png",
+   "x": "0",
+   "y": "0"
+  },
+  {
+   "overlay": 6,
+   "type": "image",
+   "start": 15.5667,
+   "end": 19.1166,
+   "png": "C:\\HERMES~1\\kosif_timeline_oicbypop\\ov006.png",
+   "x": "0",
+   "y": "0"
+  },
+  {
+   "overlay": 7,
+   "type": "image",
+   "start": 19.1166,
+   "end": 20.9167,
+   "png": "C:\\HERMES~1\\kosif_timeline_oicbypop\\ov007.png",
+   "x": "0",
+   "y": "0"
+  },
+  {
+   "overlay": 8,
+   "type": "image",
+   "start": 20.9167,
+   "end": 22.9334,
+   "png": "C:\\HERMES~1\\kosif_timeline_oicbypop\\ov008.png",
+   "x": "0",
+   "y": "0"
+  },
+  {
+   "overlay": 9,
+   "type": "image",
+   "start": 22.9334,
+   "end": 26.05,
+   "png": "C:\\HERMES~1\\kosif_timeline_oicbypop\\ov009.png",
+   "x": "0",
+   "y": "0"
+  },
+  {
+   "overlay": 10,
+   "type": "image",
+   "start": 26.05,
+   "end": 28.2,
+   "png": "C:\\HERMES~1\\kosif_timeline_oicbypop\\ov010.png",
+   "x": "0",
+   "y": "0"
+  },
+  {
+   "overlay": 11,
+   "type": "text",
+   "start": 0.0,
+   "end": 2.6833,
+   "png": "C:\\HERMES~1\\kosif_timeline_oicbypop\\ov011.png",
+   "x": "0.5000*W-w/2",
+   "y": "0.4750*H-h/2"
+  },
+  {
+   "overlay": 12,
+   "type": "text",
+   "start": 2.6833,
+   "end": 5.2167,
+   "png": "C:\\HERMES~1\\kosif_timeline_oicbypop\\ov012.png",
+   "x": "0.5000*W-w/2",
+   "y": "0.4750*H-h/2"
+  },
+  {
+   "overlay": 13,
+   "type": "text",
+   "start": 5.2167,
+   "end": 9.1166,
+   "png": "C:\\HERMES~1\\kosif_timeline_oicbypop\\ov013.png",
+   "x": "0.5000*W-w/2",
+   "y": "0.4750*H-h/2"
+  },
+  {
+   "overlay": 14,
+   "type": "text",
+   "start": 9.1166,
+   "end": 10.8166,
+   "png": "C:\\HERMES~1\\kosif_timeline_oicbypop\\ov014.png",
+   "x": "0.5000*W-w/2",
+   "y": "0.4750*H-h/2"
+  },
+  {
+   "overlay": 15,
+   "type": "text",
+   "start": 10.8166,
+   "end": 12.2833,
+   "png": "C:\\HERMES~1\\kosif_timeline_oicbypop\\ov015.png",
+   "x": "0.5000*W-w/2",
+   "y": "0.4750*H-h/2"
+  },
+  {
+   "overlay": 16,
+   "type": "text",
+   "start": 12.2833,
+   "end": 15.5667,
+   "png": "C:\\HERMES~1\\kosif_timeline_oicbypop\\ov016.png",
+   "x": "0.5000*W-w/2",
+   "y": "0.4750*H-h/2"
+  },
+  {
+   "overlay": 17,
+   "type": "text",
+   "start": 15.5667,
+   "end": 19.1166,
+   "png": "C:\\HERMES~1\\kosif_timeline_oicbypop\\ov017.png",
+   "x": "0.5000*W-w/2",
+   "y": "0.4750*H-h/2"
+  },
+  {
+   "overlay": 18,
+   "type": "text",
+   "start": 19.1166,
+   "end": 20.9167,
+   "png": "C:\\HERMES~1\\kosif_timeline_oicbypop\\ov018.png",
+   "x": "0.5000*W-w/2",
+   "y": "0.4750*H-h/2"
+  },
+  {
+   "overlay": 19,
+   "type": "text",
+   "start": 20.9167,
+   "end": 22.9334,
+   "png": "C:\\HERMES~1\\kosif_timeline_oicbypop\\ov019.png",
+   "x": "0.5000*W-w/2",
+   "y": "0.4750*H-h/2"
+  },
+  {
+   "overlay": 20,
+   "type": "text",
+   "start": 22.9334,
+   "end": 26.05,
+   "png": "C:\\HERMES~1\\kosif_timeline_oicbypop\\ov020.png",
+   "x": "0.5000*W-w/2",
+   "y": "0.4750*H-h/2"
+  },
+  {
+   "overlay": 21,
+   "type": "text",
+   "start": 26.05,
+   "end": 28.2,
+   "png": "C:\\HERMES~1\\kosif_timeline_oicbypop\\ov021.png",
+   "x": "0.5000*W-w/2",
+   "y": "0.4750*H-h/2"
+  }
+ ],
+ "audio": {
+  "music": false,
+  "voice": true,
+  "sfx": 0,
+  "duck": "none",
+  "keep_clip_audio": false,
+  "lufs": -12.75,
+  "measured_lufs": -12.75
+ },
+ "workers": 4
+}

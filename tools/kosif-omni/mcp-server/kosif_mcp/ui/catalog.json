@@ -1,0 +1,93 @@
+{
+  "_about": "UI catalog for the KOSIF Omni console (/ui): Arabic labels and one runnable example per tool. '{{workspace}}' is replaced by the first folder the server enabled for file tools. 'needs': 'file' marks examples that need a real file you choose. Tested by tests/test_ui.py (every tool covered, every example valid).",
+  "families": {
+    "reasoning": "الاستدلال والقرارات والمعايرة",
+    "council": "مجلس العباقرة والمداولة",
+    "jev": "تحكيم Jev المغلق",
+    "audit": "المراجعة والمحاسبة وIFRS",
+    "code": "البرمجة والمشاريع وبوابات التسليم",
+    "web": "تصميم الويب وتدقيقه",
+    "visual": "الصور وهندسة البرومبت والرؤية",
+    "cinema": "الإخراج السينمائي والفيديو والقصة",
+    "audio": "تحليل الصوت والتعليق الصوتي",
+    "browser": "التحكم في المتصفح والكمبيوتر (ببوابات)",
+    "release": "الإصدار عبر GitHub وCloudflare",
+    "knowledge": "مكتبتك النصية وجودة المصادر",
+    "evals": "تقييم النماذج والمحكّمين",
+    "research": "التحقق من الحقائق والمصادر",
+    "product": "متطلبات المنتج والتخطيط",
+    "atlas": "مكتبة المهارات الخارجية (Atlas)",
+    "messaging": "واتساب (إرسال يدوي مؤكد فقط)",
+    "full_pro": "Full Pro والإيصالات والتنفيذ الآمن",
+    "core": "الأساسيات: التوجيه والفحص والبوابات"
+  },
+  "tools": {
+    "kosif_route": {"ar": "توجيه المهمة", "example": {"intent": "راجع قيود ضريبة القيمة المضافة لشهر سبتمبر", "max_results": 4}},
+    "kosif_capabilities": {"ar": "كل القدرات", "example": {"detail": "summary"}},
+    "kosif_skill_read": {"ar": "قراءة مهارة", "example": {"name": "kosif-web-design"}},
+    "kosif_doctor": {"ar": "فحص الخادم", "example": {}},
+    "kosif_skill_auto": {"ar": "اختيار المهارة الذكي", "example": {"task": "صمم صفحة هبوط عربية لمتجر قهوة", "jev": true, "read": false}},
+
+    "kosif_atlas_status": {"ar": "حالة Atlas", "example": {}},
+    "kosif_atlas_search": {"ar": "بحث في Atlas", "example": {"query": "accessibility audit", "limit": 5}},
+    "kosif_atlas_read": {"ar": "قراءة مهارة من Atlas", "example": {"skill_id": 13231, "limit": 8000}},
+    "kosif_atlas_inspect": {"ar": "فحص أمان حزمة", "example": {"skill_id": 13231}},
+    "kosif_atlas_vendor": {"ar": "نسخ مهارة إلى الإضافة", "example": {"skill_id": 13231, "target": "{{workspace}}/vendored-skills", "confirm": true}},
+    "kosif_atlas_configure": {"ar": "ربط مكتبة خارجية", "example": {"path": "{{workspace}}"}},
+    "kosif_atlas_index": {"ar": "فهرسة المكتبة الخارجية", "example": {"rebuild": false}},
+
+    "kosif_corpus_status": {"ar": "حالة المكتبة النصية", "example": {}},
+    "kosif_corpus_configure": {"ar": "اختيار مجلد المكتبة", "example": {"path": "{{workspace}}"}},
+    "kosif_corpus_index": {"ar": "فهرسة المكتبة", "example": {"time_budget_s": 30}},
+    "kosif_corpus_search": {"ar": "بحث في ملفاتك", "example": {"query": "تنين", "limit": 5}},
+    "kosif_corpus_read": {"ar": "قراءة جزء من ملف", "example": {"file": "README.md", "offset": 0, "length": 2000}, "needs": "file"},
+    "kosif_corpus_files": {"ar": "قائمة ملفات المكتبة", "example": {"limit": 50}},
+
+    "kosif_jev_decide": {"ar": "قرار Jev حي", "example": {"mode": "choice", "question": "Which layout fits a 55-tool console best?", "evidence": {"tools": 55, "families": 19, "users": "Arabic-first, desktop and phone"}, "options": {"sidebar": "Searchable family sidebar with a tool runner", "grid": "One big grid of tool cards", "wizard": "Step-by-step wizard only"}}},
+    "kosif_jev_status": {"ar": "حالة خدمة Jev", "example": {}},
+    "kosif_jev_packet": {"ar": "بناء حزمة Jev", "example": {"op": "build", "mode": "noul", "question": "Is the release checklist complete?", "evidence": {"tests": "88 passed", "changelog": "updated"}}},
+
+    "kosif_council_panel": {"ar": "تشكيل مجلس العباقرة", "example": {"question": "ما أفضل استراتيجية تسعير لمنتج SaaS عربي؟", "n_elite": 4, "n_scholars": 6, "seed": 7}},
+    "kosif_council_expert": {"ar": "ملف عضو في المجلس", "example": {"id": "E04", "with_prompt": false}},
+    "kosif_council_search": {"ar": "بحث في المجلس", "example": {"route_question": "how should we secure a public web console?", "limit": 10}},
+    "kosif_council_protocol": {"ar": "بروتوكول الجلسة", "example": {}},
+    "kosif_council_overlay500": {"ar": "طبقة الخمسمئة خبير", "example": {"slot_from": 1, "slot_to": 10}},
+    "kosif_council100_select": {"ar": "اختيار عدسات Council-100", "example": {"task": "review a cloudflare worker deployment for security", "mode": "pro"}},
+    "kosif_council100_aggregate": {"ar": "تجميع آراء المجلس بالأدلة", "example": {"artifacts": [{"id": "skeptic", "stance": "support", "confidence": 0.7, "evidence": ["load test passed at 2x traffic"], "objection": "", "severity": "low"}, {"id": "strict-verifier", "stance": "oppose", "confidence": 0.6, "evidence": ["no rollback drill yet"], "objection": "rollback untested", "severity": "material"}]}},
+
+    "kosif_decision_sensitivity": {"ar": "ترتيب الخيارات وحساسيتها", "example": {"criteria": {"cost": {"direction": "min", "weight": 0.5}, "quality": {"direction": "max", "weight": 0.5}}, "constraints": {"cost": {"max": 5000}}, "options": [{"id": "A", "scores": {"cost": 4000, "quality": 7}}, {"id": "B", "scores": {"cost": 3000, "quality": 6}}, {"id": "C", "scores": {"cost": 6000, "quality": 9}}]}},
+    "kosif_probability_check": {"ar": "اتساق الاحتمالات وبايز", "example": {"events": {"A": "0.3", "B": "0.6", "A&B": "0.4"}, "bayes": [{"name": "test", "prior": "0.01", "sensitivity": "0.9", "false_positive_rate": "0.05", "stated_posterior": "0.9"}]}},
+    "kosif_calibration_check": {"ar": "معايرة ألفاظ اليقين", "example": {"claims": [{"text": "This change is certainly safe", "evidence": []}, {"text": "Tests probably cover the parser", "evidence": [{"type": "measurement", "source": "coverage report"}]}]}},
+    "kosif_evidence_check": {"ar": "اتساق الأدلة", "example": {"evidence": [{"id": "e1", "source": "invoice", "type": "arithmetic", "expression": "1000*1.15", "claimed": "1150"}]}},
+    "kosif_ideate": {"ar": "توليد أفكار جانبية", "example": {"problem": "كيف نجعل شاشة الأدوات سهلة لمستخدم جديد؟", "n": 5, "seed": 11}},
+    "kosif_kcl_probe": {"ar": "مسابير حتمية", "example": {"name": "arith", "kwargs": {"expression": "2+3*4", "claimed": "14"}}},
+
+    "kosif_risk_gate": {"ar": "بوابة المخاطر", "example": {"gate": "action", "action": "send a WhatsApp message to a new number", "side_effect": "external-write", "fresh_target_verified": true, "explicit_approval": false}},
+    "kosif_receipt_verify": {"ar": "تحقق إيصال Pro", "example": {"request_id": "demo-1", "mode": "full_pro", "experts_completed": 0, "experts_required": 500}},
+    "kosif_action_gate": {"ar": "بوابة إجراءات المتصفح", "example": {"goal": "تسجيل الدخول", "steps": [{"id": "s1", "action": "type", "target": "password field", "text": "x"}]}},
+    "kosif_ui_ground": {"ar": "تحديد عنصر الواجهة", "example": {"instruction": "اضغط زر الحفظ", "elements": [{"id": "b1", "role": "button", "tag": "button", "text": "حفظ"}, {"id": "b2", "role": "button", "tag": "button", "text": "إلغاء"}]}},
+    "kosif_gh_preflight": {"ar": "فحص عمليات Git", "example": {"operations": ["git push --force origin main"], "branch": "main", "default_branch": "main"}},
+
+    "kosif_ledger_check": {"ar": "ضوابط القيود المحاسبية", "example": {"currency_minor_units": 2, "vat_rate": "0.15", "rounding": "half_up", "chart": ["1201", "4101", "2201"], "revenue_accounts": ["4101"], "bank_accounts": [], "period": {"start": "2026-09-01", "end": "2026-09-30", "status": "open"}, "entries": [{"id": "JE1", "date": "2026-09-03", "source": "INV-1", "event_key": "INV-1|A|1150.00|SAR", "lines": [{"account": "1201", "debit": "1150.00"}, {"account": "4101", "credit": "1000.00"}, {"account": "2201", "credit": "150.00"}], "tax": {"base": "1000.00", "amount": "150.00"}}], "invoices": [], "bank": []}},
+
+    "kosif_design_tokens": {"ar": "رموز التصميم والألوان", "example": {"brand": "#0f766e", "name": "k", "radius": 10}},
+    "kosif_web_audit": {"ar": "تدقيق صفحة ويب", "example": {"html": "<!doctype html><html lang=\"ar\" dir=\"rtl\"><head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><title>تجربة</title></head><body><main><h1>مرحبا</h1><img src=\"a.png\"></main></body></html>"}},
+
+    "kosif_prompt_forge": {"ar": "صياغة برومبت صورة/فيديو", "example": {"mode": "image", "subject": "a barista", "action": "pouring latte art", "environment": "small cafe at dawn", "lens": "50mm f/1.8", "lighting": "soft window key from left", "style": "editorial photo", "aspect": "4:5", "platforms": ["midjourney", "flux", "chatgpt"]}},
+    "kosif_image_prompt_lint": {"ar": "فحص برومبت صورة", "example": {"mode": "image", "prompt": "cinematic photo of a duck at a canyon, wide shot, 35mm, fire key light, teal grade, fine film grain, 16:9"}},
+    "kosif_llm_prompt_lint": {"ar": "فحص برومبت نموذج لغوي", "example": {"kind": "system", "prompt": "You are a helpful assistant. Always answer in Arabic. Summarize the user's document in 5 bullet points.", "untrusted_inputs": true}},
+    "kosif_visual_contract": {"ar": "عقد التنفيذ البصري", "example": {"command": "build", "payload": {"request_id": "demo-visual-1", "goal": "a white duck wearing a copper pot helmet on a volcanic cliff", "required": ["white duck", "copper pot helmet"], "forbidden": ["text", "watermark"], "success_criteria": ["helmet clearly visible"]}}},
+    "kosif_scene_spec_check": {"ar": "التحقق من SceneSpec", "example": {"scene": {"subjects": [{"id": "duck", "description": "white duck"}]}}},
+    "kosif_image_analyze": {"ar": "تحليل صورة بالقياس", "example": {"path": "{{workspace}}/image.png", "summary": true}, "needs": "file"},
+
+    "kosif_story_lint": {"ar": "فحص بناء القصة", "example": {"central_conflict": "character vs supernatural", "protagonist": "البطة", "beats": [{"id": 1, "goal": "حماية البركة", "motivation": "عائلتها هناك", "conflict": "التنين يحرق القصب", "stakes": "خسارة البيت", "stakes_level": 1, "choice": "البطة تقرر البقاء", "type": "setup"}, {"id": 2, "goal": "إبعاد التنين", "motivation": "الصغار محاصرون", "conflict": "النار تقترب", "stakes": "حياة الصغار", "stakes_level": 2, "choice": "البطة تقود الصغار إلى الماء", "level": "story"}, {"id": 3, "goal": "إطفاء النار", "motivation": "لا أحد غيرها", "conflict": "خوفها من التنين", "stakes": "البركة كلها", "stakes_level": 3, "choice": "البطة تواجه خوفها", "level": "inner"}], "climax": {"outer": "تطفئ النار بالماء", "inner": "تتغلب على خوفها"}}},
+    "kosif_light_calc": {"ar": "حسابات الإضاءة", "example": {"op": "inverse_square", "d1": 1, "d2": 2}},
+    "kosif_audio_analyze": {"ar": "تحليل ملف صوتي", "example": {"path": "{{workspace}}/audio.wav", "target": "streaming", "summary": true}, "needs": "file"},
+
+    "kosif_code_scan": {"ar": "فحص الكود", "example": {"paths": ["{{workspace}}"]}},
+    "kosif_delivery_gate": {"ar": "بوابة التسليم", "example": {"paths": ["{{workspace}}"], "project": true}},
+    "kosif_project_forge": {"ar": "إنشاء مشروع جاهز", "example": {"member": "security-red-teamer", "name": "secret-guard", "out": "{{workspace}}/secret-guard", "archetype": "python-lib", "goal": "Detect leaked secrets in a folder"}},
+
+    "kosif_full_pro_entry": {"ar": "حارس طلب Full Pro", "example": {"command": "enter", "selected": true, "text": "use full pro mode for a design review", "executor": "text"}}
+  }
+}

@@ -1,0 +1,260 @@
+{
+  "pool": "C:\\Users\\اغنام الوادي\\Desktop\\الاداة\\mimic-jumuah\\pool",
+  "strength": 0.7,
+  "picks": [
+    {
+      "shot": 1,
+      "file": "C:\\Users\\اغنام الوادي\\Desktop\\الاداة\\mimic-jumuah\\pool\\2955556000714389.edit.mp4",
+      "kind": "video",
+      "in": 2.5,
+      "speed": 1.0,
+      "cost": 0.4206,
+      "forced": true,
+      "match": {
+        "r": [
+          1.0539,
+          -17.92
+        ],
+        "g": [
+          1.0618,
+          -14.13
+        ],
+        "b": [
+          1.1219,
+          -21.31
+        ]
+      }
+    },
+    {
+      "shot": 2,
+      "file": "C:\\Users\\اغنام الوادي\\Desktop\\الاداة\\mimic-jumuah\\pool\\18084835995275940.edit.mp4",
+      "kind": "video",
+      "in": 0.0,
+      "speed": 1.0,
+      "cost": 0.5367,
+      "forced": true,
+      "match": {
+        "r": [
+          0.9284,
+          43.68
+        ],
+        "g": [
+          0.9022,
+          24.84
+        ],
+        "b": [
+          0.9131,
+          8.86
+        ]
+      }
+    },
+    {
+      "shot": 3,
+      "file": "C:\\Users\\اغنام الوادي\\Desktop\\الاداة\\mimic-jumuah\\pool\\13018286415414698.edit.mp4",
+      "kind": "video",
+      "in": 11.833,
+      "speed": 1.0,
+      "cost": 0.4303,
+      "forced": true,
+      "match": {
+        "r": [
+          1.223,
+          -23.68
+        ],
+        "g": [
+          1.1363,
+          -3.24
+        ],
+        "b": [
+          0.9803,
+          13.64
+        ]
+      }
+    },
+    {
+      "shot": 4,
+      "file": "C:\\Users\\اغنام الوادي\\Desktop\\الاداة\\mimic-jumuah\\pool\\10485011654051510.edit.mp4",
+      "kind": "video",
+      "in": 7.5,
+      "speed": 1.0,
+      "cost": 0.4821,
+      "forced": true,
+      "match": {
+        "r": [
+          1.1068,
+          -10.92
+        ],
+        "g": [
+          0.9658,
+          1.28
+        ],
+        "b": [
+          0.89,
+          -9.28
+        ]
+      }
+    },
+    {
+      "shot": 5,
+      "file": "C:\\Users\\اغنام الوادي\\Desktop\\الاداة\\mimic-jumuah\\pool\\24136547995855101.edit.mp4",
+      "kind": "video",
+      "in": 2.833,
+      "speed": 1.0,
+      "cost": 0.5498,
+      "forced": true,
+      "match": {
+        "r": [
+          1.0223,
+          45.71
+        ],
+        "g": [
+          1.3073,
+          2.25
+        ],
+        "b": [
+          1.2675,
+          -11.97
+        ]
+      }
+    },
+    {
+      "shot": 6,
+      "file": "C:\\Users\\اغنام الوادي\\Desktop\\الاداة\\mimic-jumuah\\pool\\598415869242318138.edit.mp4",
+      "kind": "video",
+      "in": 14.167,
+      "speed": 1.0,
+      "cost": 0.6022,
+      "forced": true,
+      "match": {
+        "r": [
+          1.248,
+          112.7
+        ],
+        "g": [
+          1.6,
+          101.5
+        ],
+        "b": [
+          1.6,
+          96.76
+        ]
+      }
+    },
+    {
+      "shot": 7,
+      "file": "C:\\Users\\اغنام الوادي\\Desktop\\الاداة\\mimic-jumuah\\pool\\347269821282199516.edit.mp4",
+      "kind": "video",
+      "in": 12.167,
+      "speed": 1.0,
+      "cost": 0.4901,
+      "forced": true,
+      "match": {
+        "r": [
+          1.4135,
+          -67.76
+        ],
+        "g": [
+          1.4502,
+          -56.59
+        ],
+        "b": [
+          1.3899,
+          -39.34
+        ]
+      }
+    },
+    {
+      "shot": 8,
+      "file": "C:\\Users\\اغنام الوادي\\Desktop\\الاداة\\mimic-jumuah\\pool\\573012752592996475.edit.mp4",
+      "kind": "video",
+      "in": 30.667,
+      "speed": 1.0,
+      "cost": 0.5257,
+      "forced": true,
+      "match": {
+        "r": [
+          0.8176,
+          80.78
+        ],
+        "g": [
+          0.9145,
+          55.05
+        ],
+        "b": [
+          1.1297,
+          2.16
+        ]
+      }
+    },
+    {
+      "shot": 9,
+      "file": "C:\\Users\\اغنام الوادي\\Desktop\\الاداة\\mimic-jumuah\\pool\\1015280309723742822.edit.mp4",
+      "kind": "video",
+      "in": 5.0,
+      "speed": 1.0,
+      "cost": 0.5206,
+      "forced": true,
+      "match": {
+        "r": [
+          1.278,
+          -3.75
+        ],
+        "g": [
+          1.1622,
+          27.95
+        ],
+        "b": [
+          1.0587,
+          34.17
+        ]
+      }
+    },
+    {
+      "shot": 10,
+      "file": "C:\\Users\\اغنام الوادي\\Desktop\\الاداة\\mimic-jumuah\\pool\\3448137209456394.edit.mp4",
+      "kind": "video",
+      "in": 0.0,
+      "speed": 1.0,
+      "cost": 0.3562,
+      "forced": true,
+      "match": {
+        "r": [
+          1.3032,
+          -72.96
+        ],
+        "g": [
+          1.0325,
+          -24.06
+        ],
+        "b": [
+          1.0744,
+          -40.53
+        ]
+      }
+    },
+    {
+      "shot": 11,
+      "file": "C:\\Users\\اغنام الوادي\\Desktop\\الاداة\\mimic-jumuah\\pool\\17310779810119330.edit.mp4",
+      "kind": "video",
+      "in": 9.833,
+      "speed": 1.0,
+      "cost": 0.4157,
+      "forced": true,
+      "match": {
+        "r": [
+          0.9072,
+          32.61
+        ],
+        "g": [
+          0.9857,
+          6.13
+        ],
+        "b": [
+          1.0441,
+          -10.37
+        ]
+      }
+    }
+  ],
+  "unclean_shots": []
+}

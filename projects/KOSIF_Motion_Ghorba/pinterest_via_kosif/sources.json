@@ -1,0 +1,29 @@
+{
+  "project": "Ghorba",
+  "downloader": "KOSIF C Video Fetch from current KOSIF Montage & Motion",
+  "source_disclaimer": "Downloading publicly accessible video does not grant republication rights. Verify author/license before publishing.",
+  "clips": [
+    {
+      "source_url": "https://www.pinterest.com/pin/592082682294635799/",
+      "local_subfolder": "pin_592082682294635799",
+      "filename": "KOSIF-C-Video.mp4",
+      "duration_seconds": 9.637687,
+      "bytes": 473696,
+      "sha256": "c2831221bf508bb9a900e41bfe642bbf541675656c81e473cba46bb382ebd08f",
+      "video_codec": "h264",
+      "audio_codec": "aac",
+      "rights": "not verified"
+    },
+    {
+      "source_url": "https://uk.pinterest.com/pin/394557617374323837/",
+      "local_subfolder": "pin_394557617374323837",
+      "filename": "KOSIF-C-Video.mp4",
+      "duration_seconds": 7.766667,
+      "bytes": 305223,
+      "sha256": "6c65742be41a38b3d6b338994e0470145d443944ed1a0c06052e8dda5bcea4d3",
+      "video_codec": "h264",
+      "audio_codec": "aac",
+      "rights": "not verified"
+    }
+  ]
+}

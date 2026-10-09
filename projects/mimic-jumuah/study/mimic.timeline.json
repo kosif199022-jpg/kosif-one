@@ -1,0 +1,673 @@
+{
+  "size": "1080x1920",
+  "fps": 30,
+  "background": "#000000",
+  "clips": [
+    {
+      "fit": "cover",
+      "src": "C:\\Users\\اغنام الوادي\\Desktop\\الاداة\\mimic-jumuah\\pool\\2955556000714389.edit.mp4",
+      "in": 2.5,
+      "out": 5.5667,
+      "speed": 1.0,
+      "mute": true,
+      "match": {
+        "r": [
+          1.0539,
+          -17.92
+        ],
+        "g": [
+          1.0618,
+          -14.13
+        ],
+        "b": [
+          1.1219,
+          -21.31
+        ]
+      },
+      "transition": {
+        "type": "fadeblack",
+        "dur": 0.7667
+      }
+    },
+    {
+      "fit": "cover",
+      "src": "C:\\Users\\اغنام الوادي\\Desktop\\الاداة\\mimic-jumuah\\pool\\18084835995275940.edit.mp4",
+      "in": 0.0,
+      "out": 3.3,
+      "speed": 1.0,
+      "mute": true,
+      "match": {
+        "r": [
+          0.9284,
+          43.68
+        ],
+        "g": [
+          0.9022,
+          24.84
+        ],
+        "b": [
+          0.9131,
+          8.86
+        ]
+      },
+      "transition": {
+        "type": "fadeblack",
+        "dur": 0.7667
+      }
+    },
+    {
+      "fit": "cover",
+      "src": "C:\\Users\\اغنام الوادي\\Desktop\\الاداة\\mimic-jumuah\\pool\\13018286415414698.edit.mp4",
+      "in": 11.833,
+      "out": 16.4997,
+      "speed": 1.0,
+      "mute": true,
+      "match": {
+        "r": [
+          1.223,
+          -23.68
+        ],
+        "g": [
+          1.1363,
+          -3.24
+        ],
+        "b": [
+          0.9803,
+          13.64
+        ]
+      },
+      "transition": {
+        "type": "fadeblack",
+        "dur": 0.7667
+      }
+    },
+    {
+      "fit": "cover",
+      "src": "C:\\Users\\اغنام الوادي\\Desktop\\الاداة\\mimic-jumuah\\pool\\10485011654051510.edit.mp4",
+      "in": 7.5,
+      "out": 9.9667,
+      "speed": 1.0,
+      "mute": true,
+      "match": {
+        "r": [
+          1.1068,
+          -10.92
+        ],
+        "g": [
+          0.9658,
+          1.28
+        ],
+        "b": [
+          0.89,
+          -9.28
+        ]
+      },
+      "transition": {
+        "type": "fadeblack",
+        "dur": 0.7667
+      }
+    },
+    {
+      "fit": "cover",
+      "src": "C:\\Users\\اغنام الوادي\\Desktop\\الاداة\\mimic-jumuah\\pool\\24136547995855101.edit.mp4",
+      "in": 2.833,
+      "out": 5.033,
+      "speed": 1.0,
+      "mute": true,
+      "match": {
+        "r": [
+          1.0223,
+          45.71
+        ],
+        "g": [
+          1.3073,
+          2.25
+        ],
+        "b": [
+          1.2675,
+          -11.97
+        ]
+      },
+      "transition": {
+        "type": "fadeblack",
+        "dur": 0.7
+      }
+    },
+    {
+      "fit": "cover",
+      "src": "C:\\Users\\اغنام الوادي\\Desktop\\الاداة\\mimic-jumuah\\pool\\598415869242318138.edit.mp4",
+      "in": 14.167,
+      "out": 18.2004,
+      "speed": 1.0,
+      "mute": true,
+      "match": {
+        "r": [
+          1.248,
+          112.7
+        ],
+        "g": [
+          1.6,
+          101.5
+        ],
+        "b": [
+          1.6,
+          96.76
+        ]
+      },
+      "transition": {
+        "type": "fadeblack",
+        "dur": 0.8
+      }
+    },
+    {
+      "fit": "cover",
+      "src": "C:\\Users\\اغنام الوادي\\Desktop\\الاداة\\mimic-jumuah\\pool\\347269821282199516.edit.mp4",
+      "in": 12.0467,
+      "out": 16.38,
+      "speed": 1.0,
+      "mute": true,
+      "match": {
+        "r": [
+          1.4135,
+          -67.76
+        ],
+        "g": [
+          1.4502,
+          -56.59
+        ],
+        "b": [
+          1.3899,
+          -39.34
+        ]
+      },
+      "transition": {
+        "type": "fadeblack",
+        "dur": 0.7667
+      }
+    },
+    {
+      "fit": "cover",
+      "src": "C:\\Users\\اغنام الوادي\\Desktop\\الاداة\\mimic-jumuah\\pool\\573012752592996475.edit.mp4",
+      "in": 30.6013,
+      "out": 33.168,
+      "speed": 1.0,
+      "mute": true,
+      "match": {
+        "r": [
+          0.8176,
+          80.78
+        ],
+        "g": [
+          0.9145,
+          55.05
+        ],
+        "b": [
+          1.1297,
+          2.16
+        ]
+      },
+      "transition": {
+        "type": "fadeblack",
+        "dur": 0.7667
+      }
+    },
+    {
+      "fit": "cover",
+      "src": "C:\\Users\\اغنام الوادي\\Desktop\\الاداة\\mimic-jumuah\\pool\\1015280309723742822.edit.mp4",
+      "in": 5.0,
+      "out": 7.7667,
+      "speed": 1.0,
+      "mute": true,
+      "match": {
+        "r": [
+          1.278,
+          -3.75
+        ],
+        "g": [
+          1.1622,
+          27.95
+        ],
+        "b": [
+          1.0587,
+          34.17
+        ]
+      },
+      "transition": {
+        "type": "fadeblack",
+        "dur": 0.7333
+      }
+    },
+    {
+      "fit": "cover",
+      "src": "C:\\Users\\اغنام الوادي\\Desktop\\الاداة\\mimic-jumuah\\pool\\3448137209456394.edit.mp4",
+      "in": 0.0,
+      "out": 3.8667,
+      "speed": 1.0,
+      "mute": true,
+      "match": {
+        "r": [
+          1.3032,
+          -72.96
+        ],
+        "g": [
+          1.0325,
+          -24.06
+        ],
+        "b": [
+          1.0744,
+          -40.53
+        ]
+      },
+      "transition": {
+        "type": "fadeblack",
+        "dur": 0.7667
+      }
+    },
+    {
+      "fit": "cover",
+      "src": "C:\\Users\\اغنام الوادي\\Desktop\\الاداة\\mimic-jumuah\\pool\\17310779810119330.edit.mp4",
+      "in": 9.833,
+      "out": 12.3663,
+      "speed": 1.0,
+      "mute": true,
+      "match": {
+        "r": [
+          0.9072,
+          32.61
+        ],
+        "g": [
+          0.9857,
+          6.13
+        ],
+        "b": [
+          1.0441,
+          -10.37
+        ]
+      }
+    }
+  ],
+  "overlays": [
+    {
+      "type": "image",
+      "src": "C:\\Users\\اغنام الوادي\\Desktop\\الاداة\\mimic-jumuah\\study\\layer\\overlay.png",
+      "start": 0.0,
+      "end": 2.6833,
+      "width": 1080,
+      "x": 0,
+      "y": 0,
+      "anim": "none",
+      "fade_in": 0.45,
+      "fade_out": 0.38335
+    },
+    {
+      "type": "image",
+      "src": "C:\\Users\\اغنام الوادي\\Desktop\\الاداة\\mimic-jumuah\\study\\layer\\overlay.png",
+      "start": 2.6833,
+      "end": 5.2167,
+      "width": 1080,
+      "x": 0,
+      "y": 0,
+      "anim": "none",
+      "fade_in": 0.38335,
+      "fade_out": 0.38335
+    },
+    {
+      "type": "image",
+      "src": "C:\\Users\\اغنام الوادي\\Desktop\\الاداة\\mimic-jumuah\\study\\layer\\overlay.png",
+      "start": 5.2167,
+      "end": 9.1166,
+      "width": 1080,
+      "x": 0,
+      "y": 0,
+      "anim": "none",
+      "fade_in": 0.38335,
+      "fade_out": 0.38335
+    },
+    {
+      "type": "image",
+      "src": "C:\\Users\\اغنام الوادي\\Desktop\\الاداة\\mimic-jumuah\\study\\layer\\overlay.png",
+      "start": 9.1166,
+      "end": 10.8166,
+      "width": 1080,
+      "x": 0,
+      "y": 0,
+      "anim": "none",
+      "fade_in": 0.38335,
+      "fade_out": 0.38335
+    },
+    {
+      "type": "image",
+      "src": "C:\\Users\\اغنام الوادي\\Desktop\\الاداة\\mimic-jumuah\\study\\layer\\overlay.png",
+      "start": 10.8166,
+      "end": 12.2833,
+      "width": 1080,
+      "x": 0,
+      "y": 0,
+      "anim": "none",
+      "fade_in": 0.38335,
+      "fade_out": 0.35
+    },
+    {
+      "type": "image",
+      "src": "C:\\Users\\اغنام الوادي\\Desktop\\الاداة\\mimic-jumuah\\study\\layer\\overlay.png",
+      "start": 12.2833,
+      "end": 15.5667,
+      "width": 1080,
+      "x": 0,
+      "y": 0,
+      "anim": "none",
+      "fade_in": 0.35,
+      "fade_out": 0.4
+    },
+    {
+      "type": "image",
+      "src": "C:\\Users\\اغنام الوادي\\Desktop\\الاداة\\mimic-jumuah\\study\\layer\\overlay.png",
+      "start": 15.5667,
+      "end": 19.1166,
+      "width": 1080,
+      "x": 0,
+      "y": 0,
+      "anim": "none",
+      "fade_in": 0.4,
+      "fade_out": 0.38335
+    },
+    {
+      "type": "image",
+      "src": "C:\\Users\\اغنام الوادي\\Desktop\\الاداة\\mimic-jumuah\\study\\layer\\overlay.png",
+      "start": 19.1166,
+      "end": 20.9167,
+      "width": 1080,
+      "x": 0,
+      "y": 0,
+      "anim": "none",
+      "fade_in": 0.38335,
+      "fade_out": 0.38335
+    },
+    {
+      "type": "image",
+      "src": "C:\\Users\\اغنام الوادي\\Desktop\\الاداة\\mimic-jumuah\\study\\layer\\overlay.png",
+      "start": 20.9167,
+      "end": 22.9334,
+      "width": 1080,
+      "x": 0,
+      "y": 0,
+      "anim": "none",
+      "fade_in": 0.38335,
+      "fade_out": 0.36665
+    },
+    {
+      "type": "image",
+      "src": "C:\\Users\\اغنام الوادي\\Desktop\\الاداة\\mimic-jumuah\\study\\layer\\overlay.png",
+      "start": 22.9334,
+      "end": 26.05,
+      "width": 1080,
+      "x": 0,
+      "y": 0,
+      "anim": "none",
+      "fade_in": 0.36665,
+      "fade_out": 0.38335
+    },
+    {
+      "type": "image",
+      "src": "C:\\Users\\اغنام الوادي\\Desktop\\الاداة\\mimic-jumuah\\study\\layer\\overlay.png",
+      "start": 26.05,
+      "end": 28.2,
+      "width": 1080,
+      "x": 0,
+      "y": 0,
+      "anim": "none",
+      "fade_in": 0.38335,
+      "fade_out": 0.033
+    },
+    {
+      "type": "text",
+      "font": "C:\\WINDOWS\\Fonts\\DIWANLTR.TTF",
+      "size": 135,
+      "color": "#fdfbf3",
+      "stroke": 7,
+      "stroke_color": "#000000",
+      "shadow": true,
+      "anim": "fade",
+      "fade": 0.35,
+      "line_height": 1.25,
+      "align": "center",
+      "engine": "browser",
+      "text": "اللهمَّ في صباحِ يومِ الجمعة",
+      "start": 0.0,
+      "end": 2.6833,
+      "x": "0.5000*W-w/2",
+      "y": "0.4750*H-h/2",
+      "fade_in": 0.45,
+      "nowrap": true,
+      "fade_out": 0.38335
+    },
+    {
+      "type": "text",
+      "font": "C:\\WINDOWS\\Fonts\\DIWANLTR.TTF",
+      "size": 135,
+      "color": "#fdfbf3",
+      "stroke": 7,
+      "stroke_color": "#000000",
+      "shadow": true,
+      "anim": "fade",
+      "fade": 0.35,
+      "line_height": 1.25,
+      "align": "center",
+      "engine": "browser",
+      "text": "صلّوا على نبيّنا محمّد ﷺ",
+      "start": 2.6833,
+      "end": 5.2167,
+      "x": "0.5000*W-w/2",
+      "y": "0.4750*H-h/2",
+      "nowrap": true,
+      "fade_in": 0.38335,
+      "fade_out": 0.38335
+    },
+    {
+      "type": "text",
+      "font": "C:\\WINDOWS\\Fonts\\DIWANLTR.TTF",
+      "size": 135,
+      "color": "#fdfbf3",
+      "stroke": 7,
+      "stroke_color": "#000000",
+      "shadow": true,
+      "anim": "fade",
+      "fade": 0.35,
+      "line_height": 1.25,
+      "align": "center",
+      "engine": "browser",
+      "text": "صبَّ اللهُ عليكم خيرَ الأقدارِ صبًّا",
+      "start": 5.2167,
+      "end": 9.1166,
+      "x": "0.5000*W-w/2",
+      "y": "0.4750*H-h/2",
+      "nowrap": true,
+      "fade_in": 0.38335,
+      "fade_out": 0.38335
+    },
+    {
+      "type": "text",
+      "font": "C:\\WINDOWS\\Fonts\\DIWANLTR.TTF",
+      "size": 135,
+      "color": "#fdfbf3",
+      "stroke": 7,
+      "stroke_color": "#000000",
+      "shadow": true,
+      "anim": "fade",
+      "fade": 0.35,
+      "line_height": 1.25,
+      "align": "center",
+      "engine": "browser",
+      "text": "وأضاءَ طريقَكم",
+      "start": 9.1166,
+      "end": 10.8166,
+      "x": "0.5000*W-w/2",
+      "y": "0.4750*H-h/2",
+      "nowrap": true,
+      "fade_in": 0.38335,
+      "fade_out": 0.38335
+    },
+    {
+      "type": "text",
+      "font": "C:\\WINDOWS\\Fonts\\DIWANLTR.TTF",
+      "size": 135,
+      "color": "#fdfbf3",
+      "stroke": 7,
+      "stroke_color": "#000000",
+      "shadow": true,
+      "anim": "fade",
+      "fade": 0.35,
+      "line_height": 1.25,
+      "align": "center",
+      "engine": "browser",
+      "text": "بنورِ الهداية",
+      "start": 10.8166,
+      "end": 12.2833,
+      "x": "0.5000*W-w/2",
+      "y": "0.4750*H-h/2",
+      "nowrap": true,
+      "fade_in": 0.38335,
+      "fade_out": 0.35
+    },
+    {
+      "type": "text",
+      "font": "C:\\WINDOWS\\Fonts\\DIWANLTR.TTF",
+      "size": 135,
+      "color": "#fdfbf3",
+      "stroke": 7,
+      "stroke_color": "#000000",
+      "shadow": true,
+      "anim": "fade",
+      "fade": 0.35,
+      "line_height": 1.25,
+      "align": "center",
+      "engine": "browser",
+      "text": "وأعطاكم فوقَ ما ترجون",
+      "start": 12.2833,
+      "end": 15.5667,
+      "x": "0.5000*W-w/2",
+      "y": "0.4750*H-h/2",
+      "nowrap": true,
+      "fade_in": 0.35,
+      "fade_out": 0.4
+    },
+    {
+      "type": "text",
+      "font": "C:\\WINDOWS\\Fonts\\DIWANLTR.TTF",
+      "size": 135,
+      "color": "#fdfbf3",
+      "stroke": 7,
+      "stroke_color": "#000000",
+      "shadow": true,
+      "anim": "fade",
+      "fade": 0.35,
+      "line_height": 1.25,
+      "align": "center",
+      "engine": "browser",
+      "text": "ورزقنا صلاحًا في النيّةِ والذريّة",
+      "start": 15.5667,
+      "end": 19.1166,
+      "x": "0.5000*W-w/2",
+      "y": "0.4750*H-h/2",
+      "nowrap": true,
+      "fade_in": 0.4,
+      "fade_out": 0.38335
+    },
+    {
+      "type": "text",
+      "font": "C:\\WINDOWS\\Fonts\\DIWANLTR.TTF",
+      "size": 135,
+      "color": "#fdfbf3",
+      "stroke": 7,
+      "stroke_color": "#000000",
+      "shadow": true,
+      "anim": "fade",
+      "fade": 0.35,
+      "line_height": 1.25,
+      "align": "center",
+      "engine": "browser",
+      "text": "وأسعدَ أيّامنا",
+      "start": 19.1166,
+      "end": 20.9167,
+      "x": "0.5000*W-w/2",
+      "y": "0.4750*H-h/2",
+      "nowrap": true,
+      "fade_in": 0.38335,
+      "fade_out": 0.38335
+    },
+    {
+      "type": "text",
+      "font": "C:\\WINDOWS\\Fonts\\DIWANLTR.TTF",
+      "size": 135,
+      "color": "#fdfbf3",
+      "stroke": 7,
+      "stroke_color": "#000000",
+      "shadow": true,
+      "anim": "fade",
+      "fade": 0.35,
+      "line_height": 1.25,
+      "align": "center",
+      "engine": "browser",
+      "text": "بالمسرّاتِ الدائمة",
+      "start": 20.9167,
+      "end": 22.9334,
+      "x": "0.5000*W-w/2",
+      "y": "0.4750*H-h/2",
+      "nowrap": true,
+      "fade_in": 0.38335,
+      "fade_out": 0.36665
+    },
+    {
+      "type": "text",
+      "font": "C:\\WINDOWS\\Fonts\\DIWANLTR.TTF",
+      "size": 135,
+      "color": "#fdfbf3",
+      "stroke": 7,
+      "stroke_color": "#000000",
+      "shadow": true,
+      "anim": "fade",
+      "fade": 0.35,
+      "line_height": 1.25,
+      "align": "center",
+      "engine": "browser",
+      "text": "يا حيُّ يا قيّوم",
+      "start": 22.9334,
+      "end": 26.05,
+      "x": "0.5000*W-w/2",
+      "y": "0.4750*H-h/2",
+      "nowrap": true,
+      "fade_in": 0.36665,
+      "fade_out": 0.38335
+    },
+    {
+      "type": "text",
+      "font": "C:\\WINDOWS\\Fonts\\DIWANLTR.TTF",
+      "size": 135,
+      "color": "#fdfbf3",
+      "stroke": 7,
+      "stroke_color": "#000000",
+      "shadow": true,
+      "anim": "fade",
+      "fade": 0.35,
+      "line_height": 1.25,
+      "align": "center",
+      "engine": "browser",
+      "text": "يا ربَّ العالمين",
+      "start": 26.05,
+      "end": 28.2,
+      "x": "0.5000*W-w/2",
+      "y": "0.4750*H-h/2",
+      "nowrap": true,
+      "fade_in": 0.38335
+    }
+  ],
+  "audio": {
+    "keep_clip_audio": false,
+    "duck": "none",
+    "voice": {
+      "src": "C:\\Users\\اغنام الوادي\\Desktop\\الاداة\\mimic-jumuah\\study\\audio.wav",
+      "start": 0
+    },
+    "lufs": -12.75
+  }
+}

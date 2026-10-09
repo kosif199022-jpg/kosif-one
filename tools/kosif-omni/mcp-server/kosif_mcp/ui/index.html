@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="description" content="KOSIF Omni interactive console: every tool of the server with schema-generated forms, workflows, skills, Atlas and commands.">
+<title>KOSIF Omni — الشاشة التفاعلية</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="app.css">
+<script src="app.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#main" data-i18n="skip">تخطَّ إلى المحتوى</a>
+<header class="top">
+  <button id="navToggle" class="btn icon only-narrow" type="button" aria-controls="side" aria-expanded="false" data-i18n-label="menu" aria-label="القائمة">☰</button>
+  <a class="brand" href="#/home">
+    <span class="logo" aria-hidden="true">K</span>
+    <span class="brand-text"><h1>KOSIF Omni</h1><small data-i18n="subtitle">الشاشة التفاعلية</small></span>
+  </a>
+  <p id="status" class="status" role="status" aria-live="polite"></p>
+  <div class="top-actions">
+    <button id="connBtn" class="btn ghost" type="button"><span aria-hidden="true">🔑</span> <span data-i18n="connect">الاتصال</span></button>
+    <button id="langBtn" class="btn ghost" type="button" lang="en">English</button>
+    <button id="themeBtn" class="btn ghost" type="button"></button>
+  </div>
+</header>
+<div class="layout">
+  <nav id="side" class="side" data-i18n-label="tools_nav" aria-label="الأدوات">
+    <ul class="views">
+      <li><a href="#/home" data-view="home"><span aria-hidden="true">🏠</span> <span data-i18n="nav_home">الرئيسية</span></a></li>
+      <li><a href="#/flows" data-view="flows"><span aria-hidden="true">⚡</span> <span data-i18n="nav_flows">سير العمل</span></a></li>
+      <li><a href="#/skills" data-view="skills"><span aria-hidden="true">📘</span> <span data-i18n="nav_skills">المهارات</span></a></li>
+      <li><a href="#/atlas" data-view="atlas"><span aria-hidden="true">🗺️</span> <span data-i18n="nav_atlas">Atlas</span></a></li>
+      <li><a href="#/commands" data-view="commands"><span aria-hidden="true">⌘</span> <span data-i18n="nav_commands">الأوامر</span></a></li>
+      <li><a href="#/history" data-view="history"><span aria-hidden="true">🕘</span> <span data-i18n="nav_history">السجل</span></a></li>
+    </ul>
+    <div class="search">
+      <label for="toolSearch" class="sr-only" data-i18n="search_label">ابحث في الأدوات</label>
+      <input id="toolSearch" type="search" autocomplete="off" spellcheck="false">
+      <p id="toolCount" class="muted small" aria-live="polite"></p>
+    </div>
+    <div id="toolTree" class="tree"></div>
+  </nav>
+  <main id="main" tabindex="-1">
+    <section id="view-home" class="view" data-view="home"></section>
+    <section id="view-tool" class="view" data-view="tool" hidden></section>
+    <section id="view-flows" class="view" data-view="flows" hidden></section>
+    <section id="view-skills" class="view" data-view="skills" hidden></section>
+    <section id="view-atlas" class="view" data-view="atlas" hidden></section>
+    <section id="view-commands" class="view" data-view="commands" hidden></section>
+    <section id="view-history" class="view" data-view="history" hidden></section>
+  </main>
+</div>
+
+<dialog id="connDlg" aria-labelledby="connTitle">
+  <form id="connForm" method="dialog" class="dlg">
+    <h2 id="connTitle" data-i18n="conn_title">الاتصال بالخادم</h2>
+    <p class="muted" data-i18n="conn_body">هذا الخادم يطلب رمز وصول. انسخه من نافذة تشغيل الخادم (يظهر مرة واحدة) أو من KOSIF_MCP_TOKEN.</p>
+    <label for="tokenInput" data-i18n="token_label">رمز الوصول (Bearer token)</label>
+    <input id="tokenInput" type="password" autocomplete="off" spellcheck="false" dir="ltr">
+    <label class="check"><input id="rememberToken" type="checkbox"> <span data-i18n="remember">تذكّر على هذا الجهاز</span></label>
+    <p class="note small" data-i18n="token_note">يبقى الرمز في هذا المتصفح فقط، ولا يُرسل إلا في ترويسة Authorization إلى هذا الخادم نفسه. لا يوضع في الرابط أبدًا.</p>
+    <div class="row end">
+      <button type="button" id="disconnectBtn" class="btn ghost" data-i18n="disconnect">قطع الاتصال</button>
+      <button type="button" id="connCancel" class="btn ghost" data-i18n="cancel">إلغاء</button>
+      <button type="submit" id="connSubmit" class="btn primary" data-i18n="conn_btn">اتصال</button>
+    </div>
+  </form>
+</dialog>
+
+<dialog id="confirmDlg" aria-labelledby="confirmTitle">
+  <div class="dlg">
+    <h2 id="confirmTitle" data-i18n="confirm_title">تأكيد أداة تكتب</h2>
+    <p data-i18n="confirm_body">هذه الأداة تغيّر ملفات أو إعدادات على هذا الجهاز. راجع الوسائط قبل التنفيذ.</p>
+    <p><code id="confirmTool"></code></p>
+    <pre id="confirmArgs" class="code" dir="ltr"></pre>
+    <div class="row end">
+      <button type="button" id="confirmNo" class="btn ghost" data-i18n="cancel">إلغاء</button>
+      <button type="button" id="confirmYes" class="btn danger" data-i18n="confirm_run">تنفيذ</button>
+    </div>
+  </div>
+</dialog>
+
+<dialog id="infoDlg" aria-labelledby="infoTitle">
+  <div class="dlg">
+    <div class="row between">
+      <h2 id="infoTitle"></h2>
+      <button type="button" id="infoClose" class="btn icon ghost" data-i18n-label="close" aria-label="إغلاق">✕</button>
+    </div>
+    <div id="infoBody"></div>
+  </div>
+</dialog>
+
+<div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+<noscript><p class="noscript">This console needs JavaScript. The REST API (/v1/tools) and MCP endpoint (/mcp) work without it.</p></noscript>
+</body>
+</html>

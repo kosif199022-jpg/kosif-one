@@ -1,0 +1,7 @@
+▶ "C:\Users\اغنام الوادي\Desktop\الاداة\kosif-montage-motion\scripts\kmotion.py" direct --name directed
+usage: direct.py [-h] --name NAME [--size SIZE] [--model MODEL]
+                 [--words WORDS] [--accent ACCENT] [--credit CREDIT]
+                 [--no-decaption] [--render] [--fix FIX]
+                 clip
+direct.py: error: the following arguments are required: clip
+■ failed (exit 2, 2.9 s)

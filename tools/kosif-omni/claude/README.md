@@ -1,0 +1,1 @@
+See ../INSTALL.ar.md. `project-instructions.md` goes into a Claude Project's custom instructions; upload the zips from `kosif-omni-dist/claude-ai-skills/` as Skills; attach the MCP server as a connector if you host it over HTTPS.

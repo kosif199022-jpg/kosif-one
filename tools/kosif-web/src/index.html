@@ -1,0 +1,31 @@
+<title>KOSIF</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Readex+Pro:wght@300;400;500;600;700&display=swap">
+<link rel="stylesheet" href="kosif.css">
+<div id="app" class="app">
+  <aside class="rail" id="rail" aria-label="KOSIF">
+    <a class="brand" href="#home" aria-label="KOSIF">
+      <svg class="seal" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="21.5" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="24" cy="24" r="17" fill="none" stroke="currentColor" stroke-width="1" stroke-dasharray="2 2.6"/><path d="M17 14v20M17 24l11-10M20.5 21l8.5 13" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="33.5" cy="33.5" r="3" fill="var(--accent)"/></svg>
+      <span class="wordmark">KOSIF</span>
+    </a>
+    <nav class="rail-nav" id="rail-nav"></nav>
+    <p class="rail-foot" id="rail-foot"></p>
+  </aside>
+  <div class="main">
+    <header class="top" id="top">
+      <button class="icon-btn back" id="back" type="button" hidden></button>
+      <h1 class="top-title" id="top-title">KOSIF</h1>
+      <div class="top-actions" id="top-actions"></div>
+    </header>
+    <main id="view" class="view" tabindex="-1"></main>
+  </div>
+  <nav class="tabbar" id="tabbar"></nav>
+</div>
+<div id="sheet" class="sheet" hidden></div>
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script src="kosif-core.js"></script>
+<script src="kosif-i18n.js"></script>
+<script src="kosif-data.js"></script>
+<script src="kosif-app.js"></script>

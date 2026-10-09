@@ -1,0 +1,1917 @@
+{
+ "kosif-deep-researcher": [
+  {
+   "skill_id": 13549,
+   "skill": "tavily-research",
+   "plugin": "tavily",
+   "license": "MIT",
+   "description": "Conduct comprehensive AI-powered research with citations via the Tavily CLI. Use this skill when the user wants deep research, a detailed report, a comparison, market analysis, lit",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/3195-tavily/13549-tavily-research"
+  },
+  {
+   "skill_id": 2045,
+   "skill": "live-research",
+   "plugin": "brightdata-plugin",
+   "license": "MIT",
+   "description": "Produce a deep, multi-source, cited research brief on a topic from live web data using Bright Data's Discover API (intent-ranked web search + parsed page content). Use when the use",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/895-brightdata-plugin/2045-live-research"
+  },
+  {
+   "skill_id": 695,
+   "skill": "deep-research",
+   "plugin": "deep-research",
+   "license": "MIT",
+   "description": "Run a disciplined, multi-source research investigation for a high-stakes question or decision — fan-out web search across many channels, parallel sub-agents, source triangulation (",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/218-deep-research/695-deep-research"
+  },
+  {
+   "skill_id": 10150,
+   "skill": "company-deep-dive",
+   "plugin": "nimble",
+   "license": "MIT",
+   "description": "Use this skill ANY TIME the user asks about a specific company. Triggers: \"tell me about [company]\", \"research [company]\", \"what does [company] do\", \"who is [company]\", \"look up [c",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/2666-nimble/10150-company-deep-dive"
+  },
+  {
+   "skill_id": 648,
+   "skill": "research-summarizer",
+   "plugin": "research-summarizer",
+   "license": "MIT",
+   "description": "Structured research summarization agent skill for non-dev users. Handles academic papers, web articles, reports, and documentation. Extracts key findings, generates comparative ana",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/202-research-summarizer/648-research-summarizer"
+  },
+  {
+   "skill_id": 3720,
+   "skill": "research-writing-literature",
+   "plugin": "thermal-fluid-research-workflow",
+   "license": "MIT",
+   "description": "Write and revise rigorous research narratives, literature reviews, manuscript sections, citations, and figure discussions. Use for technical introductions, methods, results, discus",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/1498-thermal-fluid-research-workflow/3720-research-writing-literature"
+  },
+  {
+   "skill_id": 13572,
+   "skill": "literature-review",
+   "plugin": "literature-publication",
+   "license": "MIT AND Apache-2.0",
+   "description": "Plan and conduct reproducible literature reviews with explicit search boundaries, documented screening decisions, structured evidence extraction, quality appraisal, synthesis, and ",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/3206-literature-publication/13572-literature-review"
+  },
+  {
+   "skill_id": 3714,
+   "skill": "mechanical-engineering-research",
+   "plugin": "thermal-fluid-research-workflow",
+   "license": "MIT",
+   "description": "Apply source-aware mechanical-engineering judgment to research, analysis, coding, writing, teaching, research identity, and release work. Use for thermal-fluid systems, heat transf",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/1498-thermal-fluid-research-workflow/3714-mechanical-engineering-research"
+  }
+ ],
+ "kosif-fact-checker": [
+  {
+   "skill_id": 8222,
+   "skill": "claim-grounding",
+   "plugin": "sci-audit",
+   "license": "MIT",
+   "description": "Use when checking whether the numeric and factual claims in an LLM-generated scientific text are actually supported by a cited source (axis B) — trigger on \"is this number sourced\"",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/2204-sci-audit/8222-claim-grounding"
+  },
+  {
+   "skill_id": 715,
+   "skill": "ai-citation-verification",
+   "plugin": "mas-ai-workflows",
+   "license": "MIT",
+   "description": "Check whether an AI answer's citations actually support its factual claims, with source-location evidence and explicit uncertainty.",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/229-mas-ai-workflows/715-ai-citation-verification"
+  },
+  {
+   "skill_id": 13560,
+   "skill": "scientific-critical-thinking",
+   "plugin": "evidence-lab-core",
+   "license": "MIT",
+   "description": "Audit scientific claims, assumptions, causal language, bias, confounding, and evidence quality without drafting a formal referee report. Use for critical appraisal, evidence gradin",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/3199-evidence-lab-core/13560-scientific-critical-thinking"
+  },
+  {
+   "skill_id": 8221,
+   "skill": "citation-forensics",
+   "plugin": "sci-audit",
+   "license": "MIT",
+   "description": "Use when auditing the references of an LLM-generated scientific text for fabricated or hallucinated sources (axis A) — trigger on \"are these citations real\", \"check the DOIs\", \"ver",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/2204-sci-audit/8221-citation-forensics"
+  },
+  {
+   "skill_id": 13153,
+   "skill": "hallucination-checks",
+   "plugin": "adlc-verify",
+   "license": "MIT",
+   "description": "Use before merging agent-generated code, when a build fails on an unknown symbol, package, or flag, when an agent adds or suggests a new dependency, or when PR text claims results ",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/3052-adlc-verify/13153-hallucination-checks"
+  },
+  {
+   "skill_id": 8224,
+   "skill": "sci-audit-orchestrator",
+   "plugin": "sci-audit",
+   "license": "MIT",
+   "description": "Use when auditing an LLM-generated scientific text (article draft, thesis chapter, review, report, abstract) for integrity and language quality — trigger on \"audit this text\", \"che",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/2204-sci-audit/8224-sci-audit-orchestrator"
+  },
+  {
+   "skill_id": 9633,
+   "skill": "measure",
+   "plugin": "verification",
+   "license": "MIT",
+   "description": "Verify a measurable-improvement claim against a baseline captured BEFORE the change. Two metric families (`performance`: wall time, memory, allocations, throughput, latency; `metri",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/2481-verification/9633-measure"
+  },
+  {
+   "skill_id": 9632,
+   "skill": "confirm",
+   "plugin": "verification",
+   "license": "MIT",
+   "description": "Prove a change achieved its intended outcome: a mechanical build+test+lint prerequisite (delegated to /toolchain:check and /toolchain:lint, STOPs if broken), then outcome verificat",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/2481-verification/9632-confirm"
+  }
+ ],
+ "kosif-strategist": [
+  {
+   "skill_id": 411,
+   "skill": "ceo-advisor",
+   "plugin": "c-level-skills",
+   "license": "MIT",
+   "description": "Executive leadership guidance for strategic decision-making, organizational development, and stakeholder management. Use when planning strategy, preparing board presentations, mana",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/138-c-level-skills/411-ceo-advisor"
+  },
+  {
+   "skill_id": 14297,
+   "skill": "competitive-landscape",
+   "plugin": "startup-business-analyst",
+   "license": "MIT",
+   "description": "Analyze competition, identify differentiation opportunities, and develop winning market positioning strategies using Porter's Five Forces, Blue Ocean Strategy, and positioning maps",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/3524-startup-business-analyst/14297-competitive-landscape"
+  },
+  {
+   "skill_id": 11656,
+   "skill": "pestle-analysis",
+   "plugin": "pm-product-strategy",
+   "license": "MIT",
+   "description": "Perform a PESTLE analysis covering Political, Economic, Social, Technological, Legal, and Environmental factors. Use when assessing the macro environment, doing strategic planning,",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/2883-pm-product-strategy/11656-pestle-analysis"
+  },
+  {
+   "skill_id": 14299,
+   "skill": "startup-financial-modeling",
+   "plugin": "startup-business-analyst",
+   "license": "MIT",
+   "description": "Build comprehensive 3-5 year financial models with revenue projections, cost structures, cash flow analysis, and scenario planning for early-stage startups. Use this skill when cre",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/3524-startup-business-analyst/14299-startup-financial-modeling"
+  },
+  {
+   "skill_id": 11662,
+   "skill": "swot-analysis",
+   "plugin": "pm-product-strategy",
+   "license": "MIT",
+   "description": "Perform a detailed SWOT analysis — strengths, weaknesses, opportunities, and threats with actionable recommendations. Use when doing strategic assessment, competitive analysis, or ",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/2883-pm-product-strategy/11662-swot-analysis"
+  },
+  {
+   "skill_id": 639,
+   "skill": "product-strategist",
+   "plugin": "product-skills",
+   "license": "MIT",
+   "description": "Strategic product leadership toolkit for Head of Product covering OKR cascade generation, quarterly planning, competitive landscape analysis, product vision documents, and team sca",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/198-product-skills/639-product-strategist"
+  },
+  {
+   "skill_id": 14105,
+   "skill": "good-strategy-bad-strategy",
+   "plugin": "strategy-growth",
+   "license": "MIT",
+   "description": "Formulate and audit real strategy using Richard Rumelt''s \"Good Strategy Bad Strategy\": an honest diagnosis, a guiding policy, and coherent action instead of goals, vision, and wis",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/3435-strategy-growth/14105-good-strategy-bad-strategy"
+  },
+  {
+   "skill_id": 11609,
+   "skill": "outcome-roadmap",
+   "plugin": "pm-execution",
+   "license": "MIT",
+   "description": "Transform an output-focused roadmap into an outcome-focused one that communicates strategic intent. Rewrites initiatives as outcome statements reflecting user and business impacts.",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/2878-pm-execution/11609-outcome-roadmap"
+  }
+ ],
+ "kosif-probability-analyst": [
+  {
+   "skill_id": 13565,
+   "skill": "statistical-analysis",
+   "plugin": "quantitative-sciences",
+   "license": "MIT",
+   "description": "Guided statistical analysis for research data - test selection, assumption checking, effect sizes, power analysis, Bayesian alternatives, and APA-formatted reporting. Use whenever ",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/3202-quantitative-sciences/13565-statistical-analysis"
+  },
+  {
+   "skill_id": 569,
+   "skill": "ab-test-setup",
+   "plugin": "marketing-skills",
+   "license": "MIT",
+   "description": "When the user wants to plan, design, or implement an A/B test or experiment. Also use when the user mentions \"A/B test,\" \"split test,\" \"experiment,\" \"test this change,\" \"variant co",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/192-marketing-skills/569-ab-test-setup"
+  },
+  {
+   "skill_id": 12929,
+   "skill": "content-experimentation-best-practices",
+   "plugin": "sanity",
+   "license": "MIT",
+   "description": "Content experimentation and A/B testing guidance covering experiment design, hypotheses, metrics, sample size, statistical foundations, CMS-managed variants, and common analysis pi",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/3024-sanity/12929-content-experimentation-best-practices"
+  },
+  {
+   "skill_id": 11602,
+   "skill": "ab-test-analysis",
+   "plugin": "pm-data-analytics",
+   "license": "MIT",
+   "description": "Analyze A/B test results with statistical significance, sample size validation, confidence intervals, and ship/extend/stop recommendations. Use when evaluating experiment results, ",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/2877-pm-data-analytics/11602-ab-test-analysis"
+  },
+  {
+   "skill_id": 8497,
+   "skill": "regression-and-forecasting-review",
+   "plugin": "applied-statistics",
+   "license": "MIT",
+   "description": "Review or design a regression model or a time-series forecast so it's defensible — pick the model family (OLS / logistic / Poisson GLM; ARIMA / SARIMAX / ETS), check the assumption",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/2235-applied-statistics/8497-regression-and-forecasting-review"
+  },
+  {
+   "skill_id": 8764,
+   "skill": "ab-test-plumbing",
+   "plugin": "experimentation-growth-engineering",
+   "license": "MIT",
+   "description": "Build trustworthy A/B-test plumbing: deterministic sticky assignment, exposure logging (who actually saw the variant), Sample-Ratio-Mismatch checks before reading results, pre-regi",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/2291-experimentation-growth-engineering/8764-ab-test-plumbing"
+  },
+  {
+   "skill_id": 3483,
+   "skill": "ab-testing",
+   "plugin": "marketing-skills",
+   "license": "MIT",
+   "description": "When the user wants to plan, design, or implement an A/B test or experiment, or build a growth experimentation program. Also use when the user mentions \"A/B test,\" \"split test,\" \"e",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/1446-marketing-skills/3483-ab-testing"
+  },
+  {
+   "skill_id": 4574,
+   "skill": "forecasting-time-series-data",
+   "plugin": "time-series-forecaster",
+   "license": "MIT",
+   "description": "Process this skill enables AI assistant to forecast future values based",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/1603-time-series-forecaster/4574-forecasting-time-series-data"
+  }
+ ],
+ "kosif-architect": [
+  {
+   "skill_id": 14078,
+   "skill": "design-code-architecture",
+   "plugin": "metaskills",
+   "license": "MIT",
+   "description": "Guided journey from an app idea to a deliberate architecture: boundaries, domain model, data decisions, and resilience, making only the expensive-to-reverse decisions and deferring",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/3431-metaskills/14078-design-code-architecture"
+  },
+  {
+   "skill_id": 14075,
+   "skill": "create-app",
+   "plugin": "metaskills",
+   "license": "MIT",
+   "description": "Guided journey from a raw app idea to a validated, cleanly architected first version that ships on a sustainable cadence. Orchestrates ten skills phase by phase - lean-startup, des",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/3431-metaskills/14075-create-app"
+  },
+  {
+   "skill_id": 14062,
+   "skill": "domain-driven-design",
+   "plugin": "code-craftsmanship",
+   "license": "MIT",
+   "description": "Model software around the business domain using bounded contexts, aggregates, and ubiquitous language. Use when the user mentions \"domain modeling\", \"bounded context\", \"aggregate r",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/3429-code-craftsmanship/14062-domain-driven-design"
+  },
+  {
+   "skill_id": 14108,
+   "skill": "clean-architecture",
+   "plugin": "systems-architecture",
+   "license": "MIT",
+   "description": "Structure software around the Dependency Rule: source code dependencies point inward from frameworks to use cases to entities. Use when the user mentions \"architecture layers\", \"de",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/3436-systems-architecture/14108-clean-architecture"
+  },
+  {
+   "skill_id": 3570,
+   "skill": "recording-architecture-decisions",
+   "plugin": "aegis",
+   "license": "MIT",
+   "description": "Use when the user asks to create, write, update, amend, supersede, or evaluate an ADR, architecture decision record, durable architecture decision, decision log, or baseline sync a",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/1457-aegis/3570-recording-architecture-decisions"
+  },
+  {
+   "skill_id": 962,
+   "skill": "system-design",
+   "plugin": "engineering",
+   "license": "Apache-2.0",
+   "description": "Design systems, services, and architectures. Trigger with \"design a system for\", \"how should we architect\", \"system design for\", \"what's the right architecture for\", or when the us",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/319-engineering/962-system-design"
+  },
+  {
+   "skill_id": 14073,
+   "skill": "architecture-optimization",
+   "plugin": "metaskills",
+   "license": "MIT",
+   "description": "Guided journey from a working codebase grown slow and tangled to one measurably fast, cleanly bounded, and readable. Orchestrates eight skills phase by phase - working-with-legacy-",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/3431-metaskills/14073-architecture-optimization"
+  },
+  {
+   "skill_id": 14084,
+   "skill": "improve-code-quality",
+   "plugin": "metaskills",
+   "license": "MIT",
+   "description": "Guided journey from a working-but-untested vibe-coded prototype to a production-ready product with tests, clean structure, a business-rules boundary, and resilience at scale. Orche",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/3431-metaskills/14084-improve-code-quality"
+  }
+ ],
+ "kosif-backend-engineer": [
+  {
+   "skill_id": 13251,
+   "skill": "postgresql-table-design",
+   "plugin": "database-design",
+   "license": "MIT",
+   "description": "Use this skill when designing or reviewing a PostgreSQL-specific schema. Covers best-practices, data types, indexing, constraints, performance patterns, and advanced features",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/3083-database-design/13251-postgresql-table-design"
+  },
+  {
+   "skill_id": 12151,
+   "skill": "prisma-database-setup",
+   "plugin": "prisma",
+   "license": "MIT",
+   "description": "Guides for configuring Prisma with different database providers (PostgreSQL, MySQL, SQLite, MongoDB, etc.). Use when setting up a new project, changing databases, or troubleshootin",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/2930-prisma/12151-prisma-database-setup"
+  },
+  {
+   "skill_id": 2350,
+   "skill": "fastapi-app",
+   "plugin": "app-starter",
+   "license": "MIT",
+   "description": "Bootstrap a new FastAPI backend with async SQLAlchemy 2.0, asyncpg, Alembic, Pydantic v2, and no deprecated APIs. Use when the user wants to start, scaffold, or set up a new FastAP",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/1065-app-starter/2350-fastapi-app"
+  },
+  {
+   "skill_id": 3371,
+   "skill": "workers-best-practices",
+   "plugin": "cloudflare-skills",
+   "license": "Apache-2.0",
+   "description": "Cloudflare Workers best practices for production applications. Use when writing, reviewing, or configuring Workers.",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/1416-cloudflare-skills/3371-workers-best-practices"
+  },
+  {
+   "skill_id": 4702,
+   "skill": "designing-database-schemas",
+   "plugin": "database-schema-designer",
+   "license": "MIT",
+   "description": "Process use when you need to work with database schema design.",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/1698-database-schema-designer/4702-designing-database-schemas"
+  },
+  {
+   "skill_id": 4409,
+   "skill": "flux-schema",
+   "plugin": "tonone",
+   "license": "MIT",
+   "description": "Design and build database schema — tables, columns, types, indexes, constraints, relationships. Given a domain description, output the schema and write the files. Use when asked to",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/1567-tonone/4409-flux-schema"
+  },
+  {
+   "skill_id": 14202,
+   "skill": "dotnet-backend-patterns",
+   "plugin": "dotnet-contribution",
+   "license": "MIT",
+   "description": "Master C#/.NET backend development patterns for building robust APIs, MCP servers, and enterprise applications. Covers async/await, dependency injection, Entity Framework Core, Dap",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/3481-dotnet-contribution/14202-dotnet-backend-patterns"
+  },
+  {
+   "skill_id": 3365,
+   "skill": "nextjs-on-cloudflare",
+   "plugin": "cloudflare-skills",
+   "license": "Apache-2.0",
+   "description": "Build, migrate, and deploy Next.js apps on Cloudflare Workers with vinext. Use when starting a Next.js project on Cloudflare, moving an existing app to Workers, choosing between vi",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/1416-cloudflare-skills/3365-nextjs-on-cloudflare"
+  }
+ ],
+ "kosif-frontend-engineer": [
+  {
+   "skill_id": 13267,
+   "skill": "tailwind-design-system",
+   "plugin": "frontend-mobile-development",
+   "license": "MIT",
+   "description": "Build scalable design systems with Tailwind CSS v4, design tokens, component libraries, and responsive patterns. Use when creating component libraries, implementing design systems,",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/3096-frontend-mobile-development/13267-tailwind-design-system"
+  },
+  {
+   "skill_id": 13631,
+   "skill": "ui-design",
+   "plugin": "uizze",
+   "license": "MIT",
+   "description": "Design, build, or improve web and mobile interfaces using real product examples from UIZZE’s 800,000+ web and iOS screens. Use for UI design, UX design, frontend or web design, mob",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/3219-uizze/13631-ui-design"
+  },
+  {
+   "skill_id": 8077,
+   "skill": "frontend-math-foundations",
+   "plugin": "lvtd-skills",
+   "license": "MIT",
+   "description": "Explain and apply foundational math for front-end development, including arithmetic, algebra, ratios, exponents, roots, linear equations, inequalities, geometry, trigonometry, coor",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/2199-lvtd-skills/8077-frontend-math-foundations"
+  },
+  {
+   "skill_id": 12946,
+   "skill": "audit-frontend-design",
+   "plugin": "memoire",
+   "license": "MIT",
+   "description": "Use when reviewing or changing a React, Next.js, Tailwind, or shadcn interface and you need evidence-backed findings for accessibility, hierarchy, tokens, states, and responsive de",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/3029-memoire/12946-audit-frontend-design"
+  },
+  {
+   "skill_id": 3674,
+   "skill": "tailwind-best-practices",
+   "plugin": "tailwind",
+   "license": "MIT",
+   "description": "Tailwind CSS v4 guidance: utility-first patterns, @theme directive for color/spacing/font config, @source for content paths, dark mode, responsive design, oklch colors, custom vari",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/1483-tailwind/3674-tailwind-best-practices"
+  },
+  {
+   "skill_id": 8280,
+   "skill": "frontend-performance",
+   "plugin": "majestic-frontend",
+   "license": "MIT",
+   "description": "Prevent, audit, and diagnose frontend performance regressions affecting LCP, CLS, or INP across layouts, assets, loading, and responsiveness.",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/2210-majestic-frontend/8280-frontend-performance"
+  },
+  {
+   "skill_id": 11591,
+   "skill": "build-frontend",
+   "plugin": "codex-howto",
+   "license": "MIT",
+   "description": "Build or modify frontend interfaces using repository-native components while preserving accessibility, responsive behavior, state handling, and visual verification. Use for UI feat",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/2875-codex-howto/11591-build-frontend"
+  },
+  {
+   "skill_id": 10365,
+   "skill": "game-ui-frontend",
+   "plugin": "game-studio",
+   "license": "MIT",
+   "description": "Design UI surfaces for browser games. Use when the user asks for HUDs, menus, overlays, responsive layouts, or visual direction that must protect the playfield.",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/2696-game-studio/10365-game-ui-frontend"
+  }
+ ],
+ "kosif-test-engineer": [
+  {
+   "skill_id": 13274,
+   "skill": "javascript-testing-patterns",
+   "plugin": "javascript-typescript",
+   "license": "MIT",
+   "description": "Implement comprehensive testing strategies using Jest, Vitest, and Testing Library for unit tests, integration tests, and end-to-end testing with mocking, fixtures, and test-driven",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/3102-javascript-typescript/13274-javascript-testing-patterns"
+  },
+  {
+   "skill_id": 501,
+   "skill": "playwright-pro",
+   "plugin": "pw",
+   "license": "MIT",
+   "description": "Production-grade Playwright testing toolkit. Use when the user mentions Playwright tests, end-to-end testing, browser automation, fixing flaky tests, test migration, CI/CD testing,",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/151-pw/501-playwright-pro"
+  },
+  {
+   "skill_id": 2528,
+   "skill": "python-testing",
+   "plugin": "python-development",
+   "license": "MIT",
+   "description": "Design and implement robust Python tests with pytest, including unit and integration boundaries, fixtures, parametrization, failure cases, and optional property-based tests. Use wh",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/1111-python-development/2528-python-testing"
+  },
+  {
+   "skill_id": 14187,
+   "skill": "e2e-testing-patterns",
+   "plugin": "developer-essentials",
+   "license": "MIT",
+   "description": "Master end-to-end testing with Playwright and Cypress to build reliable test suites that catch bugs, improve confidence, and enable fast deployment. Use when implementing E2E tests",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/3476-developer-essentials/14187-e2e-testing-patterns"
+  },
+  {
+   "skill_id": 12091,
+   "skill": "java-junit",
+   "plugin": "java-development",
+   "license": "MIT",
+   "description": "Get best practices for JUnit 5 unit testing, including data-driven tests",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/2911-java-development/12091-java-junit"
+  },
+  {
+   "skill_id": 14419,
+   "skill": "test-suite-generator",
+   "plugin": "done-when-pipeline",
+   "license": "MIT",
+   "description": "Turn an EARS spec + done_when.yaml contract into the full test pyramid: existence checks (ripgrep/tree-sitter), unit tests (example-based + property-based), integration tests (with",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/3595-done-when-pipeline/14419-test-suite-generator"
+  },
+  {
+   "skill_id": 13925,
+   "skill": "farley-score",
+   "plugin": "farley-score",
+   "license": "MIT",
+   "description": "Score test-suite quality with Dave Farley's 8 Properties of Good Tests (Understandable, Maintainable, Repeatable, Atomic, Necessary, Granular, Fast, First/TDD) and produce a weight",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/3389-farley-score/13925-farley-score"
+  },
+  {
+   "skill_id": 7899,
+   "skill": "property-based-testing",
+   "plugin": "testing-plugin",
+   "license": "MIT",
+   "description": "Property-based testing with fast-check (TS/JS) and Hypothesis (Python). Use when generating test data, finding edge cases, testing properties, or writing QuickCheck-style tests.",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/2172-testing-plugin/7899-property-based-testing"
+  }
+ ],
+ "kosif-debugger": [
+  {
+   "skill_id": 14186,
+   "skill": "debugging-strategies",
+   "plugin": "developer-essentials",
+   "license": "MIT",
+   "description": "Master systematic debugging techniques, profiling tools, and root cause analysis to efficiently track down bugs across any codebase or technology stack. Use when investigating bugs",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/3476-developer-essentials/14186-debugging-strategies"
+  },
+  {
+   "skill_id": 4210,
+   "skill": "root-cause-analysis",
+   "plugin": "condux",
+   "license": "MIT",
+   "description": "Enforces root-cause-first bug investigation — read the error, reproduce it, trace the data flow backward. Never propose a solution before the investigation phase completes.",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/1534-condux/4210-root-cause-analysis"
+  },
+  {
+   "skill_id": 7364,
+   "skill": "debugging",
+   "plugin": "yellow-core",
+   "license": "MIT",
+   "description": "Find root causes systematically before fixing — trace the causal chain and form hypotheses with predictions for uncertain links. Use when debugging errors, test failures, stack tra",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/2078-yellow-core/7364-debugging"
+  },
+  {
+   "skill_id": 13650,
+   "skill": "root-cause-investigator",
+   "plugin": "thinking-tools",
+   "license": "MIT",
+   "description": "Systematic root cause analysis for errors, bugs, and unexpected behaviors using 5-Why methodology. Use when user reports errors, build failures, test failures, performance issues, ",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/3233-thinking-tools/13650-root-cause-investigator"
+  },
+  {
+   "skill_id": 3343,
+   "skill": "debug",
+   "plugin": "toolu",
+   "license": "MIT",
+   "description": "Use when something is broken and you need the root cause — a failing or flaky test, a crash, a stack trace, wrong output, a regression, a Sentry issue. Drives a scientific-debug lo",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/1408-toolu/3343-debug"
+  },
+  {
+   "skill_id": 2392,
+   "skill": "trace",
+   "plugin": "hyperflow",
+   "license": "MIT",
+   "description": "Use when encountering bugs, test failures, runtime errors, unexpected behavior, broken builds, or \"this doesn't work\" reports. Systematic root-cause analysis before any patch — nev",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/1076-hyperflow/2392-trace"
+  },
+  {
+   "skill_id": 9621,
+   "skill": "diagnose",
+   "plugin": "testing",
+   "license": "MIT",
+   "description": "Diagnose and fix failing tests. Failure classification, root-cause analysis (never retry blindly), then the reproduce → isolate → fix → retest → regression loop. Use when: 'why doe",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/2478-testing/9621-diagnose"
+  },
+  {
+   "skill_id": 14189,
+   "skill": "git-advanced-workflows",
+   "plugin": "developer-essentials",
+   "license": "MIT",
+   "description": "Master advanced Git workflows including rebasing, cherry-picking, bisect, worktrees, and reflog to maintain clean history and recover from any situation. Use when managing complex ",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/3476-developer-essentials/14189-git-advanced-workflows"
+  }
+ ],
+ "kosif-security-auditor": [
+  {
+   "skill_id": 10190,
+   "skill": "octopus-security-audit",
+   "plugin": "claude-octopus",
+   "license": "MIT",
+   "description": "OWASP compliance, vulnerability scanning, and adversarial red team testing — use for security reviews",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/2673-claude-octopus/10190-octopus-security-audit"
+  },
+  {
+   "skill_id": 10142,
+   "skill": "security-audit",
+   "plugin": "project",
+   "license": "BSD-3-Clause",
+   "description": "This skill should be used when the user says \\\"security audit\\\", \\\"check for vulnerabilities\\\", \\\"security review\\\", \\\"harden project\\\", \\\"dependency audit\\\", \\\"credential scan\\\", ",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/2664-project/10142-security-audit"
+  },
+  {
+   "skill_id": 14286,
+   "skill": "stride-analysis-patterns",
+   "plugin": "security-scanning",
+   "license": "MIT",
+   "description": "Apply STRIDE methodology to systematically identify threats. Use when analyzing system security, conducting threat modeling sessions, or creating security documentation.",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/3515-security-scanning/14286-stride-analysis-patterns"
+  },
+  {
+   "skill_id": 7701,
+   "skill": "configure-security",
+   "plugin": "configure-plugin",
+   "license": "MIT",
+   "description": "Security scanning: dependency automation, SAST, secrets detection. Use when setting up Renovate/Dependabot, CodeQL, or TruffleHog in CI, or creating a SECURITY.md policy.",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/2145-configure-plugin/7701-configure-security"
+  },
+  {
+   "skill_id": 7080,
+   "skill": "scanning-for-vulnerabilities",
+   "plugin": "vulnerability-scanner",
+   "license": "MIT",
+   "description": "Execute this skill enables comprehensive vulnerability scanning using",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/1940-vulnerability-scanner/7080-scanning-for-vulnerabilities"
+  },
+  {
+   "skill_id": 7081,
+   "skill": "scanning-for-xss-vulnerabilities",
+   "plugin": "xss-vulnerability-scanner",
+   "license": "MIT",
+   "description": "Execute this skill enables AI assistant to automatically scan for xss",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/1941-xss-vulnerability-scanner/7081-scanning-for-xss-vulnerabilities"
+  },
+  {
+   "skill_id": 773,
+   "skill": "repo-best-practices",
+   "plugin": "best-practices",
+   "license": "MIT",
+   "description": "Use when editing repository hygiene and CI config — .pre-commit-config.yaml hooks, .github/dependabot.yml, GitHub Actions workflows (.github/workflows/*.yml, permissions, zizmor au",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/237-best-practices/773-repo-best-practices"
+  },
+  {
+   "skill_id": 2264,
+   "skill": "set-up-secret-scanning",
+   "plugin": "set-up-secret-scanning",
+   "license": "MIT",
+   "description": "Add gitleaks and TruffleHog secret scanning to GitHub Actions. Use for \"add secret scanning\" or \"set up gitleaks\"; for app code, use handle-secrets.",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/980-set-up-secret-scanning/2264-set-up-secret-scanning"
+  }
+ ],
+ "kosif-code-reviewer": [
+  {
+   "skill_id": 3653,
+   "skill": "address-review",
+   "plugin": "go-workflow",
+   "license": "MIT",
+   "description": "Address pull request review feedback from humans or bots. Use when existing comments, requested changes, unresolved review threads, or CodeRabbit/codex review findings need code fi",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/1479-go-workflow/3653-address-review"
+  },
+  {
+   "skill_id": 7638,
+   "skill": "code-review",
+   "plugin": "code-quality-plugin",
+   "license": "MIT",
+   "description": "Code review for quality, security, performance, and architecture. Use when reviewing code, auditing OWASP, checking SOLID, or finding perf bottlenecks and test gaps.",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/2140-code-quality-plugin/7638-code-review"
+  },
+  {
+   "skill_id": 11596,
+   "skill": "review-code",
+   "plugin": "codex-howto",
+   "license": "MIT",
+   "description": "Review code changes for correctness defects, regressions, security risks, data-integrity problems, concurrency hazards, and missing meaningful tests. Use for pull requests, branche",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/2875-codex-howto/11596-review-code"
+  },
+  {
+   "skill_id": 14185,
+   "skill": "code-review-excellence",
+   "plugin": "developer-essentials",
+   "license": "MIT",
+   "description": "Master effective code review practices to provide constructive feedback, catch bugs early, and foster knowledge sharing while maintaining team morale. Use when reviewing pull reque",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/3476-developer-essentials/14185-code-review-excellence"
+  },
+  {
+   "skill_id": 4295,
+   "skill": "subagent-refactoring-methodology",
+   "plugin": "plugin-creator",
+   "license": "MIT",
+   "description": "Analysis criteria, transformation patterns, output format, and validation checklist for refactoring Claude Code agent prompt files. Load this skill when preparing to run the subage",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/1547-plugin-creator/4295-subagent-refactoring-methodology"
+  },
+  {
+   "skill_id": 4822,
+   "skill": "review-pr",
+   "plugin": "claude-workflow-skills",
+   "license": "MIT",
+   "description": "Reviews an open pull request against coding standards, security, and test coverage, then posts a structured review comment and either approves or requests changes. Use when the use",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/1799-claude-workflow-skills/4822-review-pr"
+  },
+  {
+   "skill_id": 7640,
+   "skill": "code-test-quality",
+   "plugin": "code-quality-plugin",
+   "license": "MIT",
+   "description": "Analyze test quality: smells, empty assertions, flaky patterns, coverage gaps. Use when tests are unreliable, coverage is misleading, or after major refactors.",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/2140-code-quality-plugin/7640-code-test-quality"
+  },
+  {
+   "skill_id": 7847,
+   "skill": "python-code-quality",
+   "plugin": "python-plugin",
+   "license": "MIT",
+   "description": "Python code quality with ruff and ty. Use when the user mentions ruff, ty, linting, formatting, type checking, or Python code style.",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/2166-python-plugin/7847-python-code-quality"
+  }
+ ],
+ "kosif-devops-engineer": [
+  {
+   "skill_id": 4720,
+   "skill": "building-cicd-pipelines",
+   "plugin": "ci-cd-pipeline-builder",
+   "license": "MIT",
+   "description": "Execute use when you need to work with deployment and CI/CD.",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/1713-ci-cd-pipeline-builder/4720-building-cicd-pipelines"
+  },
+  {
+   "skill_id": 4726,
+   "skill": "managing-deployment-rollbacks",
+   "plugin": "deployment-rollback-manager",
+   "license": "MIT",
+   "description": "Deploy use when you need to work with deployment and CI/CD.",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/1719-deployment-rollback-manager/4726-managing-deployment-rollbacks"
+  },
+  {
+   "skill_id": 4736,
+   "skill": "generating-infrastructure-as-code",
+   "plugin": "infrastructure-as-code-generator",
+   "license": "MIT",
+   "description": "Execute use when generating infrastructure as code configurations. Trigger",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/1729-infrastructure-as-code-generator/4736-generating-infrastructure-as-code"
+  },
+  {
+   "skill_id": 7757,
+   "skill": "github-actions-mcp-config",
+   "plugin": "github-actions-plugin",
+   "license": "MIT",
+   "description": "MCP server config for GitHub Actions — tool permissions, env vars, multi-server setups. Use when configuring MCP servers in GitHub Actions workflows.",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/2153-github-actions-plugin/7757-github-actions-mcp-config"
+  },
+  {
+   "skill_id": 7783,
+   "skill": "helm-release-recovery",
+   "plugin": "kubernetes-plugin",
+   "license": "MIT",
+   "description": "Recover from failed Helm deployments — rollback, fix stuck states (pending-install/upgrade), atomic deployments. Use when the user mentions rollback, failed Helm upgrade, or stuck ",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/2157-kubernetes-plugin/7783-helm-release-recovery"
+  },
+  {
+   "skill_id": 13242,
+   "skill": "gitlab-ci-patterns",
+   "plugin": "cicd-automation",
+   "license": "MIT",
+   "description": "Build GitLab CI/CD pipelines with multi-stage workflows, caching, and distributed runners for scalable automation. Use when implementing GitLab CI/CD, optimizing pipeline performan",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/3074-cicd-automation/13242-gitlab-ci-patterns"
+  },
+  {
+   "skill_id": 14174,
+   "skill": "terraform-module-library",
+   "plugin": "cloud-infrastructure",
+   "license": "MIT",
+   "description": "Build reusable Terraform modules for AWS, Azure, GCP, and OCI infrastructure following infrastructure-as-code best practices. Use when creating infrastructure modules, standardizin",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/3458-cloud-infrastructure/14174-terraform-module-library"
+  },
+  {
+   "skill_id": 7074,
+   "skill": "finding-security-misconfigurations",
+   "plugin": "security-misconfiguration-finder",
+   "license": "MIT",
+   "description": "Configure identify security misconfigurations in infrastructure-as-code,",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/1934-security-misconfiguration-finder/7074-finding-security-misconfigurations"
+  }
+ ],
+ "kosif-data-engineer": [
+  {
+   "skill_id": 2546,
+   "skill": "chdb-sql",
+   "plugin": "clickhouse-best-practices",
+   "license": "Apache-2.0",
+   "description": "Use when the user wants to run SQL — especially analytical SQL — on local files (parquet/csv/json), URLs, S3 paths, or remote databases (Postgres, MySQL, MongoDB, ClickHouse Cloud,",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/1117-clickhouse-best-practices/2546-chdb-sql"
+  },
+  {
+   "skill_id": 4548,
+   "skill": "preprocessing-data-with-automated-pipelines",
+   "plugin": "data-preprocessing-pipeline",
+   "license": "MIT",
+   "description": "Process automate data cleaning, transformation, and validation for ML",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/1577-data-preprocessing-pipeline/4548-preprocessing-data-with-automated-pipeli"
+  },
+  {
+   "skill_id": 4549,
+   "skill": "creating-data-visualizations",
+   "plugin": "data-visualization-creator",
+   "license": "MIT",
+   "description": "Generate plots, charts, and graphs from data with automatic visualization",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/1578-data-visualization-creator/4549-creating-data-visualizations"
+  },
+  {
+   "skill_id": 944,
+   "skill": "sql-queries",
+   "plugin": "data",
+   "license": "Apache-2.0",
+   "description": "Write correct, performant SQL across all major data warehouse dialects (Snowflake, BigQuery, Databricks, PostgreSQL, etc.). Use when writing queries, optimizing slow SQL, translati",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/317-data/944-sql-queries"
+  },
+  {
+   "skill_id": 10320,
+   "skill": "d3-data-visualization",
+   "plugin": "build-web-data-visualization",
+   "license": "MIT",
+   "description": "Build custom data visualizations with D3. Use when the user needs SVG or DOM-based charts, rich annotation, domain-native contextual backgrounds, data joins, custom scales or inter",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/2690-build-web-data-visualization/10320-d3-data-visualization"
+  },
+  {
+   "skill_id": 2545,
+   "skill": "chdb-datastore",
+   "plugin": "clickhouse-best-practices",
+   "license": "Apache-2.0",
+   "description": "Use when the user has tabular data (pandas DataFrame, parquet, csv, Arrow, json) and wants to filter, group, aggregate, join, or speed up slow pandas. Provides chDB DataStore — sam",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/1117-clickhouse-best-practices/2545-chdb-datastore"
+  },
+  {
+   "skill_id": 3407,
+   "skill": "spreadsheet",
+   "plugin": "openai-office-skills",
+   "license": "MIT",
+   "description": "Use when tasks involve creating, editing, analyzing, or formatting spreadsheets (`.xlsx`, `.csv`, `.tsv`) with formula-aware workflows, cached recalculation, and visual review.",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/1428-openai-office-skills/3407-spreadsheet"
+  },
+  {
+   "skill_id": 4710,
+   "skill": "optimizing-sql-queries",
+   "plugin": "sql-query-optimizer",
+   "license": "MIT",
+   "description": "Execute use when you need to work with query optimization.",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/1706-sql-query-optimizer/4710-optimizing-sql-queries"
+  }
+ ],
+ "kosif-web-operator": [
+  {
+   "skill_id": 2931,
+   "skill": "playwright",
+   "plugin": "playwright",
+   "license": "MIT",
+   "description": "Browser automation with Playwright for Python. Use when testing websites, taking screenshots, filling forms, scraping web content, or automating browser interactions. Triggers on b",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/1251-playwright/2931-playwright"
+  },
+  {
+   "skill_id": 7897,
+   "skill": "playwright-cli",
+   "plugin": "testing-plugin",
+   "license": "MIT",
+   "description": "Playwright CLI browser automation — navigate, screenshot, fill forms, click. Use when automating browser tasks from the shell; 4-10x more token-efficient than Playwright MCP.",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/2172-testing-plugin/7897-playwright-cli"
+  },
+  {
+   "skill_id": 501,
+   "skill": "playwright-pro",
+   "plugin": "pw",
+   "license": "MIT",
+   "description": "Production-grade Playwright testing toolkit. Use when the user mentions Playwright tests, end-to-end testing, browser automation, fixing flaky tests, test migration, CI/CD testing,",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/151-pw/501-playwright-pro"
+  },
+  {
+   "skill_id": 14695,
+   "skill": "agent-browser",
+   "plugin": "agent-browser",
+   "license": "MIT",
+   "description": "Expert on browser automation with AI agents using Vercel's agent-browser CLI. Use when the user wants to automate browsers, scrape websites, capture screenshots, or build AI-powere",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/3622-agent-browser/14695-agent-browser"
+  },
+  {
+   "skill_id": 7898,
+   "skill": "playwright-testing",
+   "plugin": "testing-plugin",
+   "license": "MIT",
+   "description": "Playwright E2E testing — cross-browser, visual regression, API testing, mobile emulation. Use when writing E2E tests or setting up automated UI testing for web apps.",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/2172-testing-plugin/7898-playwright-testing"
+  },
+  {
+   "skill_id": 286,
+   "skill": "browser-automation",
+   "plugin": "browser",
+   "license": "MIT",
+   "description": "Prove rendered behavior in a real browser and report pass, fail, or blocked with",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/112-browser/286-browser-automation"
+  },
+  {
+   "skill_id": 14701,
+   "skill": "firecrawl",
+   "plugin": "firecrawl",
+   "license": "MIT",
+   "description": "Expert on Firecrawl — web scraping, crawling, search, and browser automation API for AI agents. Use when the user wants to scrape websites, crawl pages, search the web, extract str",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/3628-firecrawl/14701-firecrawl"
+  },
+  {
+   "skill_id": 7708,
+   "skill": "configure-ux-testing",
+   "plugin": "configure-plugin",
+   "license": "MIT",
+   "description": "UX testing: Playwright E2E, axe-core a11y, visual regression. Use when setting up E2E testing, screenshot assertions, browser automation, or a11y CI workflows.",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/2145-configure-plugin/7708-configure-ux-testing"
+  }
+ ],
+ "kosif-arabic-editor": [
+  {
+   "skill_id": 8941,
+   "skill": "l10n-pipeline-and-tms",
+   "plugin": "localization-i18n-engineering",
+   "license": "MIT",
+   "description": "Design and operate the localization pipeline: string extraction configuration, TMS (Phrase, Lokalise, Crowdin, Transifex) integration and handoff, XLIFF/ARB/PO/JSON format conversi",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/2329-localization-i18n-engineering/8941-l10n-pipeline-and-tms"
+  },
+  {
+   "skill_id": 584,
+   "skill": "copy-editing",
+   "plugin": "marketing-skills",
+   "license": "MIT",
+   "description": "When the user wants to edit, review, or improve existing marketing copy. Also use when the user mentions 'edit this copy,' 'review my copy,' 'copy feedback,' 'proofread,' 'polish t",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/192-marketing-skills/584-copy-editing"
+  },
+  {
+   "skill_id": 3256,
+   "skill": "markdown-proofreading",
+   "plugin": "hugo-blog",
+   "license": "MIT",
+   "description": "Proofread markdown files for typos, grammar, logic errors, and consistency issues.",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/1383-hugo-blog/3256-markdown-proofreading"
+  },
+  {
+   "skill_id": 8940,
+   "skill": "i18n-foundations-and-icu",
+   "plugin": "localization-i18n-engineering",
+   "license": "MIT",
+   "description": "Core internationalization foundations: string externalization strategy, ICU MessageFormat for plurals and gender selects, CLDR plural rules, locale-aware formatting via ECMA-402/In",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/2329-localization-i18n-engineering/8940-i18n-foundations-and-icu"
+  },
+  {
+   "skill_id": 11665,
+   "skill": "grammar-check",
+   "plugin": "pm-toolkit",
+   "license": "MIT",
+   "description": "Identify grammar, logical, and flow errors in text and suggest targeted fixes without rewriting the entire text. Use when proofreading content, checking writing quality, or reviewi",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/2884-pm-toolkit/11665-grammar-check"
+  },
+  {
+   "skill_id": 8180,
+   "skill": "self-publishing-production",
+   "plugin": "lvtd-skills",
+   "license": "MIT",
+   "description": "Plan and check the final production tasks for self-publishing nonfiction books, including copyediting, final review readers, proofreading, layout, cover files, print-on-demand, ISB",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/2199-lvtd-skills/8180-self-publishing-production"
+  },
+  {
+   "skill_id": 3217,
+   "skill": "book-edit",
+   "plugin": "velith",
+   "license": "Apache-2.0",
+   "description": "Phase 4: Editing. Fact-check (nonfiction), assessment, developmental edit, line edit, copy edit, proofread, then a cold read by simulated readers that issues the readiness verdict.",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/1376-velith/3217-book-edit"
+  },
+  {
+   "skill_id": 4060,
+   "skill": "language-audit",
+   "plugin": "digital-marketing-pro",
+   "license": "MIT",
+   "description": "Audit multilingual integrity across every language version of a site or content set — hreflang implementation, content parity (missing, outdated, or structurally divergent translat",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/1520-digital-marketing-pro/4060-language-audit"
+  }
+ ],
+ "kosif-storyteller": [
+  {
+   "skill_id": 14161,
+   "skill": "data-storytelling",
+   "plugin": "business-analytics",
+   "license": "MIT",
+   "description": "Transform data into compelling narratives using visualization, context, and persuasive structure. Use when presenting analytics to stakeholders, creating data reports, or building ",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/3455-business-analytics/14161-data-storytelling"
+  },
+  {
+   "skill_id": 8090,
+   "skill": "game-story-world-character",
+   "plugin": "lvtd-skills",
+   "license": "MIT",
+   "description": "Design or evaluate game story, world, characters, spaces, presence, aesthetics, and indirect control. Use when adding narrative, quests, levels, environments, character arcs, world",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/2199-lvtd-skills/8090-game-story-world-character"
+  },
+  {
+   "skill_id": 2877,
+   "skill": "plot-structure",
+   "plugin": "story-skills",
+   "license": "MIT",
+   "description": "This skill should be used when the user asks to \"create a plot arc\", \"story structure\", \"add a plot point\", \"story timeline\", \"track foreshadowing\", \"pacing\", \"sagging middle\", \"ac",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/1213-story-skills/2877-plot-structure"
+  },
+  {
+   "skill_id": 433,
+   "skill": "internal-narrative",
+   "plugin": "c-level-skills",
+   "license": "MIT",
+   "description": "Build and maintain one coherent company story across all audiences — employees, investors, customers, candidates, and partners. Detects narrative contradictions and ensures the sam",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/138-c-level-skills/433-internal-narrative"
+  },
+  {
+   "skill_id": 2891,
+   "skill": "worldbuilding",
+   "plugin": "story-skills",
+   "license": "MIT",
+   "description": "This skill should be used when the user asks to \"create a location\", \"add a location\", \"magic system\", \"political system\", \"build the world\", \"add culture\", \"world history\", \"techn",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/1213-story-skills/2891-worldbuilding"
+  },
+  {
+   "skill_id": 3498,
+   "skill": "copywriting",
+   "plugin": "marketing-skills",
+   "license": "MIT",
+   "description": "When the user wants to write, rewrite, or improve marketing copy for any page — including homepage, landing pages, pricing pages, feature pages, about pages, or product pages. Also",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/1446-marketing-skills/3498-copywriting"
+  },
+  {
+   "skill_id": 2870,
+   "skill": "chapter-writing",
+   "plugin": "story-skills",
+   "license": "MIT",
+   "description": "This skill should be used when the user asks to \"write a chapter\", \"next chapter\", \"chapter outline\", \"draft chapter\", \"continue the story\", \"write a scene\", \"outline a chapter\", o",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/1213-story-skills/2870-chapter-writing"
+  },
+  {
+   "skill_id": 2885,
+   "skill": "story-init",
+   "plugin": "story-skills",
+   "license": "MIT",
+   "description": "This skill should be used when the user asks to \"start a new story\", \"initialize a story project\", \"create a story\", \"new book\", \"set up a story\", or wants to begin a new fiction w",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/1213-story-skills/2885-story-init"
+  }
+ ],
+ "kosif-cinema-director": [
+  {
+   "skill_id": 10272,
+   "skill": "video",
+   "plugin": "emulo",
+   "license": "MIT",
+   "description": "Use when a brief has to become a film. Turns a one line ask into a Claude Design prompt written in the animations-v3 engine's own language, plus the built piece.jsx and a contact s",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/2681-emulo/10272-video"
+  },
+  {
+   "skill_id": 212,
+   "skill": "brand-film",
+   "plugin": "video-skills",
+   "license": "MIT",
+   "description": "Plan and make a narrative product brand film that moves from a human problem to a product reveal. Use for launch films, cinematic teasers, and campaign videos where story matters m",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/101-video-skills/212-brand-film"
+  },
+  {
+   "skill_id": 3228,
+   "skill": "book-screenplay",
+   "plugin": "velith",
+   "license": "Apache-2.0",
+   "description": "Screenplay craft reference: format, three-act and sequence structure, scene construction, dialogue subtext, A/B/C story weaving, series bibles, and screenplay-specific AI tells. Re",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/1376-velith/3228-book-screenplay"
+  },
+  {
+   "skill_id": 12594,
+   "skill": "video-gen",
+   "plugin": "pwdev-social-media",
+   "license": "Apache-2.0",
+   "description": "Produz vídeo curto — roteiro, storyboard, prompts por cena e geração via Runway quando há chave. Use quando o usuário disser \"vídeo\", \"reels\", \"roteiro de vídeo\", \"Runway\", \"Higgsf",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/2976-pwdev-social-media/12594-video-gen"
+  },
+  {
+   "skill_id": 3218,
+   "skill": "book-fiction",
+   "plugin": "velith",
+   "license": "Apache-2.0",
+   "description": "Fiction craft reference for all subgenres: structure options, scene design, character depth, dialogue, POV and distance, the fiction-specific AI tells, and language notes. Read by ",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/1376-velith/3218-book-fiction"
+  },
+  {
+   "skill_id": 9356,
+   "skill": "produce",
+   "plugin": "animation",
+   "license": "MIT",
+   "description": "Make a film from a brief and one or more style packs: pre-production boards for the user to approve, then a shot list, scenes, rendered frames, a delivered file, and a review again",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/2414-animation/9356-produce"
+  },
+  {
+   "skill_id": 214,
+   "skill": "creator-video",
+   "plugin": "video-skills",
+   "license": "MIT",
+   "description": "Plan and script a short video presented by a person on camera. Use for founder demos, talking-head explainers, creator tutorials, launch clips, and shot lists.",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/101-video-skills/214-creator-video"
+  },
+  {
+   "skill_id": 3222,
+   "skill": "book-illustrate",
+   "plugin": "velith",
+   "license": "Apache-2.0",
+   "description": "Alias for /book-visuals limited to diffusion illustrations (scene, header, spot art). Kept for compatibility; new work should use /book-visuals, which also covers diagrams, charts,",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/1376-velith/3222-book-illustrate"
+  }
+ ],
+ "kosif-image-prompt-engineer": [
+  {
+   "skill_id": 3504,
+   "skill": "image",
+   "plugin": "marketing-skills",
+   "license": "MIT",
+   "description": "When the user wants to create, generate, edit, or optimize images for marketing — blog heroes, social graphics, product mockups, profile banners, listing visuals, or brand assets. ",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/1446-marketing-skills/3504-image"
+  },
+  {
+   "skill_id": 12595,
+   "skill": "visual-consistency",
+   "plugin": "pwdev-social-media",
+   "license": "Apache-2.0",
+   "description": "Mantém coerência visual entre peças geradas por IA — seed, modelo fixo, referência de estilo e biblioteca de prompts da marca. Use quando o usuário disser \"as peças não parecem da ",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/2976-pwdev-social-media/12595-visual-consistency"
+  },
+  {
+   "skill_id": 8854,
+   "skill": "prompt-to-asset-routing",
+   "plugin": "generative-web-media",
+   "license": "MIT",
+   "description": "Route a creative brief to the right AI generator across images (photoreal, illustration, vector/SVG, text-in-image), video, 3D, and audio — plus the editing round-trips (inpaint, o",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/2306-generative-web-media/8854-prompt-to-asset-routing"
+  },
+  {
+   "skill_id": 12590,
+   "skill": "prompt-craft",
+   "plugin": "pwdev-social-media",
+   "license": "Apache-2.0",
+   "description": "Constrói prompts para geradores de imagem e vídeo — estrutura, parâmetros, referência de estilo e negativa. Use quando o usuário disser \"prompt\", \"como pedir isso pra IA\", \"melhora",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/2976-pwdev-social-media/12590-prompt-craft"
+  },
+  {
+   "skill_id": 12577,
+   "skill": "alt-text",
+   "plugin": "pwdev-social-media",
+   "license": "Apache-2.0",
+   "description": "Escreve texto alternativo e descrição de imagem para peças de rede social. Use quando o usuário disser \"alt text\", \"texto alternativo\", \"descrição da imagem\", \"acessibilidade da pe",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/2976-pwdev-social-media/12577-alt-text"
+  },
+  {
+   "skill_id": 8853,
+   "skill": "license-and-provenance-ledger",
+   "plugin": "generative-web-media",
+   "license": "MIT",
+   "description": "Pin each asset's commercial-use license before the prompt (flag the FLUX-dev non-commercial trap; Firefly-indemnified where indemnity_required; Grok has no IP indemnity), write the",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/2306-generative-web-media/8853-license-and-provenance-ledger"
+  },
+  {
+   "skill_id": 12594,
+   "skill": "video-gen",
+   "plugin": "pwdev-social-media",
+   "license": "Apache-2.0",
+   "description": "Produz vídeo curto — roteiro, storyboard, prompts por cena e geração via Runway quando há chave. Use quando o usuário disser \"vídeo\", \"reels\", \"roteiro de vídeo\", \"Runway\", \"Higgsf",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/2976-pwdev-social-media/12594-video-gen"
+  },
+  {
+   "skill_id": 3231,
+   "skill": "book-visuals",
+   "plugin": "velith",
+   "license": "Apache-2.0",
+   "description": "Book visual system: art bible and look lock, figure plan per chapter, code-rendered diagrams/charts/technical drawings, diffusion-generated illustrations and spot art, photo sourci",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/1376-velith/3231-book-visuals"
+  }
+ ],
+ "kosif-video-producer": [
+  {
+   "skill_id": 757,
+   "skill": "remotion",
+   "plugin": "mas-video-lab",
+   "license": "MIT",
+   "description": "Create React video compositions with Remotion, parameterize timelines with props, and configure CLI or server-side rendering.",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/235-mas-video-lab/757-remotion"
+  },
+  {
+   "skill_id": 3531,
+   "skill": "video",
+   "plugin": "marketing-skills",
+   "license": "MIT",
+   "description": "When the user wants to create, generate, or produce video content using AI tools or programmatic frameworks. Also use when the user mentions 'video production,' 'AI video,' 'Remoti",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/1446-marketing-skills/3531-video"
+  },
+  {
+   "skill_id": 10435,
+   "skill": "remotion-maps",
+   "plugin": "remotion",
+   "license": "MIT",
+   "description": "Remotion Map animation knowledge",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/2712-remotion/10435-remotion-maps"
+  },
+  {
+   "skill_id": 754,
+   "skill": "ffmpeg",
+   "plugin": "mas-video-lab",
+   "license": "MIT",
+   "description": "Transcode and compress video with FFmpeg, inspect streams with ffprobe, build filtergraphs and HLS outputs, and diagnose codec or hardware-encoder failures.",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/235-mas-video-lab/754-ffmpeg"
+  },
+  {
+   "skill_id": 755,
+   "skill": "final-cut-pro",
+   "plugin": "mas-video-lab",
+   "license": "MIT",
+   "description": "Automate Final Cut Pro interchange with FCPXML, prepare Motion or Compressor workflows, and troubleshoot media rendering.",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/235-mas-video-lab/755-final-cut-pro"
+  },
+  {
+   "skill_id": 10431,
+   "skill": "remotion-captions",
+   "plugin": "remotion",
+   "license": "MIT",
+   "description": "Transcribing, displaying and animating captions",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/2712-remotion/10431-remotion-captions"
+  },
+  {
+   "skill_id": 10436,
+   "skill": "remotion-markup",
+   "plugin": "remotion",
+   "license": "MIT",
+   "description": "Content, animation and effects best practices",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/2712-remotion/10436-remotion-markup"
+  },
+  {
+   "skill_id": 9243,
+   "skill": "transcoding-and-abr-ladder",
+   "plugin": "streaming-media-engineering",
+   "license": "MIT",
+   "description": "Choose codecs in tiers (H.264 reach floor + HEVC/AV1/VP9 efficiency), design the ABR ladder per-title from content complexity rather than a fixed table, build the FFmpeg pipeline f",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/2387-streaming-media-engineering/9243-transcoding-and-abr-ladder"
+  }
+ ],
+ "kosif-lighting-designer": [],
+ "kosif-audio-engineer": [
+  {
+   "skill_id": 5515,
+   "skill": "elevenlabs-core-workflow-b",
+   "plugin": "elevenlabs-pack",
+   "license": "MIT",
+   "description": "Implement ElevenLabs speech-to-speech, sound effects, audio isolation, and speech-to-text. Use when converting one voice to another, generating sound effects from a text descriptio",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/1847-elevenlabs-pack/5515-elevenlabs-core-workflow-b"
+  },
+  {
+   "skill_id": 4163,
+   "skill": "game-audio-procedural",
+   "plugin": "gamegen",
+   "license": "MIT",
+   "description": "Every sound is a Python function and every track is a Python score, rendered deterministically from seeds. Assets are",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/1526-gamegen/4163-game-audio-procedural"
+  },
+  {
+   "skill_id": 1994,
+   "skill": "transcribe",
+   "plugin": "intel",
+   "license": "MIT",
+   "description": "Turn audio into plain-text words, transcribed locally with whisper — a finite file or URL, or a live stream captured as it plays. Use when you have recorded or ongoing audio (a pod",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/886-intel/1994-transcribe"
+  },
+  {
+   "skill_id": 10378,
+   "skill": "hyperframes",
+   "plugin": "hyperframes",
+   "license": "Apache-2.0",
+   "description": "Create video compositions, animations, title cards, overlays, captions, voiceovers, audio-reactive visuals, and scene transitions in HyperFrames HTML. Use when asked to build any H",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/2702-hyperframes/10378-hyperframes"
+  },
+  {
+   "skill_id": 3892,
+   "skill": "music",
+   "plugin": "homie",
+   "license": "Apache-2.0",
+   "description": "Make songs, themes and game scores for a Homie studio with ElevenLabs Music, through the creator's OWN ElevenLabs account — a composition plan for anything sung, a transcription ch",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/1511-homie/3892-music"
+  },
+  {
+   "skill_id": 3901,
+   "skill": "sound",
+   "plugin": "homie",
+   "license": "Apache-2.0",
+   "description": "Make a game's sound effects and synthesized music on the creator's own computer, free, with no provider or account — a set of effects (jump, coin, hit, explosion, win, lose, UI) re",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/1511-homie/3901-sound"
+  },
+  {
+   "skill_id": 2280,
+   "skill": "write-realtime-audio-code",
+   "plugin": "write-realtime-audio-code",
+   "license": "MIT",
+   "description": "Write or review real-time audio callbacks: audio-thread safety, lock-free messaging, and plugin state. Not for generic queues, GUI, or offline DSP.",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/996-write-realtime-audio-code/2280-write-realtime-audio-code"
+  },
+  {
+   "skill_id": 8508,
+   "skill": "choose-audio-dsp-architecture",
+   "plugin": "audio-dsp-engineering",
+   "license": "MIT",
+   "description": "Pick the right audio-DSP architecture for a described product by traversing the audio-DSP architecture decision tree (latency tolerance → processing model → time-vs-frequency domai",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/2238-audio-dsp-engineering/8508-choose-audio-dsp-architecture"
+  }
+ ],
+ "kosif-voice-director": [
+  {
+   "skill_id": 5514,
+   "skill": "elevenlabs-core-workflow-a",
+   "plugin": "elevenlabs-pack",
+   "license": "MIT",
+   "description": "Implement ElevenLabs text-to-speech and voice cloning workflows. Use when building TTS features, cloning voices from audio samples, streaming speech to a chatbot, or implementing t",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/1847-elevenlabs-pack/5514-elevenlabs-core-workflow-a"
+  },
+  {
+   "skill_id": 5515,
+   "skill": "elevenlabs-core-workflow-b",
+   "plugin": "elevenlabs-pack",
+   "license": "MIT",
+   "description": "Implement ElevenLabs speech-to-speech, sound effects, audio isolation, and speech-to-text. Use when converting one voice to another, generating sound effects from a text descriptio",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/1847-elevenlabs-pack/5515-elevenlabs-core-workflow-b"
+  },
+  {
+   "skill_id": 5519,
+   "skill": "elevenlabs-hello-world",
+   "plugin": "elevenlabs-pack",
+   "license": "MIT",
+   "description": "Generate your first ElevenLabs text-to-speech audio file. Use when starting a new ElevenLabs integration, testing your setup, or learning basic TTS API patterns before wiring voice",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/1847-elevenlabs-pack/5519-elevenlabs-hello-world"
+  },
+  {
+   "skill_id": 10378,
+   "skill": "hyperframes",
+   "plugin": "hyperframes",
+   "license": "Apache-2.0",
+   "description": "Create video compositions, animations, title cards, overlays, captions, voiceovers, audio-reactive visuals, and scene transitions in HyperFrames HTML. Use when asked to build any H",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/2702-hyperframes/10378-hyperframes"
+  },
+  {
+   "skill_id": 8616,
+   "skill": "speech-recognition-and-synthesis",
+   "plugin": "conversational-ai-voice-engineering",
+   "license": "MIT",
+   "description": "Engineer the ASR and TTS layer of a voice agent: choose STT/TTS providers on the channel (narrowband telephony vs wideband web), languages, streaming support, WER, and cost; stream",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/2261-conversational-ai-voice-engineering/8616-speech-recognition-and-synthesis"
+  },
+  {
+   "skill_id": 8618,
+   "skill": "voice-agent-architecture-and-latency",
+   "plugin": "conversational-ai-voice-engineering",
+   "license": "MIT",
+   "description": "Choose the voice-agent pipeline shape (cascade STT->LLM->TTS vs speech-to-speech), the channel (telephony / web / SDK), and the build-vs-platform bet (Twilio / Vapi / Retell / Live",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/2261-conversational-ai-voice-engineering/8618-voice-agent-architecture-and-latency"
+  },
+  {
+   "skill_id": 2876,
+   "skill": "line-editing",
+   "plugin": "story-skills",
+   "license": "MIT",
+   "description": "This skill should be used when the user asks to \"line edit\", \"edit my prose\", \"polish this chapter\", \"tighten the prose\", \"improve the sentences\", \"copyedit\", \"proofread\", \"proof p",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/1213-story-skills/2876-line-editing"
+  },
+  {
+   "skill_id": 2890,
+   "skill": "voice-style",
+   "plugin": "story-skills",
+   "license": "MIT",
+   "description": "This skill should be used when the user asks to \"create a style sheet\", \"style guide\", \"house style\", \"keep the voice consistent\", \"voice drift\", \"British or American spelling\", \"c",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/1213-story-skills/2890-voice-style"
+  }
+ ],
+ "kosif-visual-critic": [
+  {
+   "skill_id": 9082,
+   "skill": "visual-qa",
+   "plugin": "power-platform",
+   "license": "MIT",
+   "description": "AI-powered visual QA testing that walks through an app in the browser, records every action with annotated captions (what was done, what should happen), captures screenshots/GIFs, ",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/2354-power-platform/9082-visual-qa"
+  },
+  {
+   "skill_id": 4196,
+   "skill": "ui-screenshots",
+   "plugin": "webcraft",
+   "license": "MIT",
+   "description": "Capture screenshots and short clips of any web application's UI for visual review, documentation, or pull requests. Use for screenshot requests, before/after comparisons, recording",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/1530-webcraft/4196-ui-screenshots"
+  },
+  {
+   "skill_id": 12863,
+   "skill": "uxd-evaluate-design-heuristics",
+   "plugin": "uxd-research",
+   "license": "Apache-2.0",
+   "description": "Score a design against accessibility, visual hierarchy, content, and state coverage heuristics. Use when a team asks for an AI design critique, a heuristic review, or a neutral eva",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/3011-uxd-research/12863-uxd-evaluate-design-heuristics"
+  },
+  {
+   "skill_id": 8203,
+   "skill": "visual-docs-diagrams",
+   "plugin": "lvtd-skills",
+   "license": "MIT",
+   "description": "Design and review visual content for developer documentation, including screenshots, architecture diagrams, boxes-and-arrows diagrams, flowcharts, swimlanes, video decisions, acces",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/2199-lvtd-skills/8203-visual-docs-diagrams"
+  },
+  {
+   "skill_id": 4182,
+   "skill": "design-critique",
+   "plugin": "uxdesign",
+   "license": "Apache-2.0",
+   "description": "Get structured design feedback across multiple dimensions.",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/1529-uxdesign/4182-design-critique"
+  },
+  {
+   "skill_id": 4153,
+   "skill": "visual-evidence-review",
+   "plugin": "agent-fleet",
+   "license": "MIT",
+   "description": "Make agent-authored UI changes easy to review in their task. This skill applies in assisted and unattended work; it does",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/1523-agent-fleet/4153-visual-evidence-review"
+  },
+  {
+   "skill_id": 10335,
+   "skill": "visualization-strategy-and-critique",
+   "plugin": "build-web-data-visualization",
+   "license": "MIT",
+   "description": "Choose, lay out, critique, and explain data visualizations. Use when the user asks what visualization fits a dataset or goal, how a chart, dashboard, operational workspace, UML-lik",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/2690-build-web-data-visualization/10335-visualization-strategy-and-critique"
+  },
+  {
+   "skill_id": 10270,
+   "skill": "design",
+   "plugin": "emulo",
+   "license": "MIT",
+   "description": "Use for UI, UX, visual hierarchy, frontend-design judgment, references, redesigns, and design critique when the user's Emulo taste should guide the task. Do not use for unrelated e",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/2681-emulo/10270-design"
+  }
+ ],
+ "kosif-ifrs-auditor": [
+  {
+   "skill_id": 2916,
+   "skill": "hledger",
+   "plugin": "hledger",
+   "license": "MIT",
+   "description": "Plain-text double-entry accounting with hledger. Use when recording transactions, checking balances, generating financial reports (balance sheet, income statement, cashflow), impor",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/1236-hledger/2916-hledger"
+  },
+  {
+   "skill_id": 14396,
+   "skill": "tax-reconciliation",
+   "plugin": "xbert-tax-reconciliation",
+   "license": "MIT",
+   "description": "Walk accounting profit to taxable income for a year-end tax reconciliation worksheet — company, trust, or partnership structure, with every adjustment tied to its source journal or",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/3584-xbert-tax-reconciliation/14396-tax-reconciliation"
+  },
+  {
+   "skill_id": 9290,
+   "skill": "design-fx-and-interest-rate-hedge",
+   "plugin": "treasury-management",
+   "license": "MIT",
+   "description": "Design an FX or interest-rate hedge by traversing the treasury decision tree (scope the exposure: transaction vs translation vs economic → decide hedge-vs-accept → set hedge ratio ",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/2399-treasury-management/9290-design-fx-and-interest-rate-hedge"
+  },
+  {
+   "skill_id": 972,
+   "skill": "financial-statements",
+   "plugin": "finance",
+   "license": "Apache-2.0",
+   "description": "Generate financial statements (income statement, balance sheet, cash flow) with period-over-period comparison and variance analysis. Use when preparing a monthly or quarterly P&L, ",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/321-finance/972-financial-statements"
+  },
+  {
+   "skill_id": 8757,
+   "skill": "framework-selection-and-materiality",
+   "plugin": "esg-sustainability-reporting",
+   "license": "MIT",
+   "description": "Select the applicable sustainability-reporting framework(s) and scope the disclosure: determine which standards apply (CSRD/ESRS, ISSB IFRS S1/S2, GRI, SEC), run the right material",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/2289-esg-sustainability-reporting/8757-framework-selection-and-materiality"
+  },
+  {
+   "skill_id": 2839,
+   "skill": "accounting-inbox",
+   "plugin": "carrel-finance",
+   "license": "MIT",
+   "description": "The end-to-end recipe for turning a folder of invoices, receipts, statements and billing emails into a searchable archive with carrel — extract fields, cross-reference by invoice/P",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/1196-carrel-finance/2839-accounting-inbox"
+  },
+  {
+   "skill_id": 560,
+   "skill": "financial-analyst",
+   "plugin": "finance-skills",
+   "license": "MIT",
+   "description": "Performs financial ratio analysis, DCF valuation, budget variance analysis, and rolling forecast construction for strategic decision-making. Use when analyzing financial statements",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/189-finance-skills/560-financial-analyst"
+  },
+  {
+   "skill_id": 8756,
+   "skill": "disclosure-and-assurance-readiness",
+   "plugin": "esg-sustainability-reporting",
+   "license": "MIT",
+   "description": "Draft the sustainability disclosure with its evidence trail, build the data controls, assess readiness for the target assurance level (limited vs reasonable), run a gap assessment ",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/2289-esg-sustainability-reporting/8756-disclosure-and-assurance-readiness"
+  }
+ ],
+ "kosif-product-manager": [
+  {
+   "skill_id": 12614,
+   "skill": "sdd-prd",
+   "plugin": "sdd-composy",
+   "license": "Apache-2.0",
+   "description": "Create or revise the problem-first SDD Composy PRD (tasks/prd-SLUG/prd.md) with stable RF/CA identifiers, stopping at the human approval gate. Use when a user problem needs a produ",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/2980-sdd-composy/12614-sdd-prd"
+  },
+  {
+   "skill_id": 13931,
+   "skill": "requirements-elicitation",
+   "plugin": "requirements-elicitation",
+   "license": "MIT",
+   "description": "Systematic framework for analyzing product documents (PRDs, feature specs, user stories, roadmaps, one-pagers) to identify gaps, generate clarifying questions for PMs and engineers",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/3395-requirements-elicitation/13931-requirements-elicitation"
+  },
+  {
+   "skill_id": 11619,
+   "skill": "user-stories",
+   "plugin": "pm-execution",
+   "license": "MIT",
+   "description": "Create user stories following the 3 C's (Card, Conversation, Confirmation) and INVEST criteria with descriptions, design links, and acceptance criteria. Use when writing user stori",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/2878-pm-execution/11619-user-stories"
+  },
+  {
+   "skill_id": 11606,
+   "skill": "create-prd",
+   "plugin": "pm-execution",
+   "license": "MIT",
+   "description": "Create a Product Requirements Document using a comprehensive 8-section template covering problem, objectives, segments, value propositions, solution, and release planning. Use when",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/2878-pm-execution/11606-create-prd"
+  },
+  {
+   "skill_id": 637,
+   "skill": "product-manager-toolkit",
+   "plugin": "product-skills",
+   "license": "MIT",
+   "description": "Comprehensive toolkit for product managers including RICE prioritization, customer interview analysis, PRD templates, discovery frameworks, and go-to-market strategies. Use when pr",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/198-product-skills/637-product-manager-toolkit"
+  },
+  {
+   "skill_id": 1406,
+   "skill": "requirement-patterns",
+   "plugin": "speckit-generator",
+   "license": "MIT",
+   "description": "This skill should be used when writing requirements, specifications, or user stories. Triggers on phrases like \"write requirements\", \"create spec\", \"define user stories\", \"document",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/377-speckit-generator/1406-requirement-patterns"
+  },
+  {
+   "skill_id": 11618,
+   "skill": "test-scenarios",
+   "plugin": "pm-execution",
+   "license": "MIT",
+   "description": "Create comprehensive test scenarios from user stories with test objectives, starting conditions, user roles, step-by-step actions, and expected outcomes. Use when writing QA test c",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/2878-pm-execution/11618-test-scenarios"
+  },
+  {
+   "skill_id": 7967,
+   "skill": "ln-12-product-requirements-builder",
+   "plugin": "product-discovery-suite",
+   "license": "MIT",
+   "description": "Defines product requirements, business rules and acceptance criteria for a committed intent; edits product docs only.",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/2180-product-discovery-suite/7967-ln-12-product-requirements-builder"
+  }
+ ],
+ "kosif-ux-accessibility": [
+  {
+   "skill_id": 12864,
+   "skill": "uxd-research-heuristic-eval",
+   "plugin": "uxd-research",
+   "license": "Apache-2.0",
+   "description": "Conduct a heuristic evaluation of a prototype or interface using three independent expert evaluators. Use when running a usability audit, evaluating a UI against Nielsen's heuristi",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/3011-uxd-research/12864-uxd-research-heuristic-eval"
+  },
+  {
+   "skill_id": 7559,
+   "skill": "accessibility-implementation",
+   "plugin": "accessibility-plugin",
+   "license": "MIT",
+   "description": "WCAG 2.1/2.2 compliance, ARIA patterns, keyboard nav, focus management, a11y testing. Use when implementing accessible components or user mentions WCAG/ARIA/screen readers.",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/2133-accessibility-plugin/7559-accessibility-implementation"
+  },
+  {
+   "skill_id": 644,
+   "skill": "ux-researcher-designer",
+   "plugin": "product-skills",
+   "license": "MIT",
+   "description": "UX research and design toolkit for Senior UX Designer/Researcher including data-driven persona generation, journey mapping, usability testing frameworks, and research synthesis. Us",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/198-product-skills/644-ux-researcher-designer"
+  },
+  {
+   "skill_id": 12862,
+   "skill": "uxd-discovery",
+   "plugin": "uxd-research",
+   "license": "Apache-2.0",
+   "description": "Produce a structured UX discovery brief from a feature request, Jira issue, or problem statement. Use when framing a design problem, identifying strategic decisions, or scoping des",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/3011-uxd-research/12862-uxd-discovery"
+  },
+  {
+   "skill_id": 12803,
+   "skill": "pf-a11y-audit",
+   "plugin": "pf-a11y",
+   "license": "MIT",
+   "description": "Audit PatternFly components and pages against WCAG and ARIA best practices. Use when reviewing accessibility, fixing screen reader issues, or validating ARIA usage in PatternFly-ba",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/2999-pf-a11y/12803-pf-a11y-audit"
+  },
+  {
+   "skill_id": 14306,
+   "skill": "accessibility-compliance",
+   "plugin": "ui-design",
+   "license": "MIT",
+   "description": "Implement WCAG 2.2 compliant interfaces with mobile accessibility, inclusive design patterns, and assistive technology support. Use when auditing accessibility, implementing ARIA p",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/3529-ui-design/14306-accessibility-compliance"
+  },
+  {
+   "skill_id": 12863,
+   "skill": "uxd-evaluate-design-heuristics",
+   "plugin": "uxd-research",
+   "license": "Apache-2.0",
+   "description": "Score a design against accessibility, visual hierarchy, content, and state coverage heuristics. Use when a team asks for an AI design critique, a heuristic review, or a neutral eva",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/3011-uxd-research/12863-uxd-evaluate-design-heuristics"
+  },
+  {
+   "skill_id": 3841,
+   "skill": "accessibility",
+   "plugin": "universal-design-principles",
+   "license": "MIT",
+   "description": "Use this skill on every design task that produces a user-facing surface. Trigger on every screen, component, prototype, or design review — accessibility isn''t a phase, it''s a pro",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/1503-universal-design-principles/3841-accessibility"
+  }
+ ],
+ "kosif-prompt-engineer": [
+  {
+   "skill_id": 24,
+   "skill": "prompt-engineering",
+   "plugin": "ai-tooling",
+   "license": "MIT",
+   "description": "Knowledge base behind the prompt-engineer agent and /prompt-optimize: the source-of-truth order for model facts, the model-class gate, and six on-demand references covering reasoni",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/15-ai-tooling/24-prompt-engineering"
+  },
+  {
+   "skill_id": 85,
+   "skill": "prompt-optimize-workflow",
+   "plugin": "ai-tooling",
+   "license": "MIT",
+   "description": "Present the efficiency-versus-effectiveness frontier as labelled variants and let the user pick. TRIGGER WHEN: the user wants to review or optimize a prompt, system message, or age",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/55-ai-tooling/85-prompt-optimize-workflow"
+  },
+  {
+   "skill_id": 4375,
+   "skill": "cortex-prompt",
+   "plugin": "tonone",
+   "license": "MIT",
+   "description": "Build a production-ready prompt package — system prompt, few-shot examples, output format, edge case handling, eval criteria. Use when asked to \"prompt engineering\", \"build a promp",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/1567-tonone/4375-cortex-prompt"
+  },
+  {
+   "skill_id": 13288,
+   "skill": "eval-harness-first",
+   "plugin": "llm-finetuning",
+   "license": "MIT",
+   "description": "Build the evaluation harness that gates every fine-tuning run — golden sets, per-failure-mode graders, judge calibration, and base-model baselines. Use when starting a fine-tuning ",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/3104-llm-finetuning/13288-eval-harness-first"
+  },
+  {
+   "skill_id": 8937,
+   "skill": "build-llm-judge",
+   "plugin": "llm-evaluation-engineering",
+   "license": "MIT",
+   "description": "Design, calibrate, and bias-audit an LLM-as-judge so its scores track human judgment: named criteria with anchored levels (not 'rate 1-10'), a structured verdict + reason, a pinned",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/2328-llm-evaluation-engineering/8937-build-llm-judge"
+  },
+  {
+   "skill_id": 13282,
+   "skill": "prompt-engineering-patterns",
+   "plugin": "llm-application-dev",
+   "license": "MIT",
+   "description": "This skill should be used when the user asks to \"optimize a prompt\", \"improve prompt performance\", \"design a prompt template\", \"write better prompts\", \"debug prompt issues\", \"use c",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/3103-llm-application-dev/13282-prompt-engineering-patterns"
+  },
+  {
+   "skill_id": 7468,
+   "skill": "agent-eval",
+   "plugin": "agent-dev-kit",
+   "license": "MIT",
+   "description": "Set up Vitest evaluation for TypeScript agents and RAG — golden JSON datasets, Zod LLM-as-judge, trajectory tool-correctness and max-turns checks. Use before shipping or when chang",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/2103-agent-dev-kit/7468-agent-eval"
+  },
+  {
+   "skill_id": 13086,
+   "skill": "agent-runtime-guardrails",
+   "plugin": "adlc-agent-engineering",
+   "license": "MIT",
+   "description": "Use when shipping an agent to users or connecting it to real systems, after a red-team or prompt-injection finding, or when mapping an agent's controls to the OWASP Agentic Top 10.",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/3045-adlc-agent-engineering/13086-agent-runtime-guardrails"
+  }
+ ],
+ "kosif-atlas-scout": [
+  {
+   "skill_id": 914,
+   "skill": "agent-development",
+   "plugin": "plugin-dev",
+   "license": "Apache-2.0",
+   "description": "This skill should be used when the user asks to \"create an agent\", \"add an agent\", \"write a subagent\", \"agent frontmatter\", \"when to use description\", \"agent examples\", \"agent tool",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/301-plugin-dev/914-agent-development"
+  },
+  {
+   "skill_id": 920,
+   "skill": "skill-development",
+   "plugin": "plugin-dev",
+   "license": "Apache-2.0",
+   "description": "This skill should be used when the user wants to \"create a skill\", \"add a skill to plugin\", \"write a new skill\", \"improve skill description\", \"organize skill content\", or needs gui",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/301-plugin-dev/920-skill-development"
+  },
+  {
+   "skill_id": 8445,
+   "skill": "writing-for-agents",
+   "plugin": "mattpocock-skills",
+   "license": "MIT",
+   "description": "Writing documents for agents. Use when creating or editing skills, or modifying AGENTS.md or CLAUDE.md.",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/2224-mattpocock-skills/8445-writing-for-agents"
+  },
+  {
+   "skill_id": 3581,
+   "skill": "writing-skills",
+   "plugin": "aegis",
+   "license": "MIT",
+   "description": "Use when creating new skills, editing existing skills, or verifying skills work before deployment",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/1457-aegis/3581-writing-skills"
+  },
+  {
+   "skill_id": 7090,
+   "skill": "skill-creator",
+   "plugin": "skill-creator",
+   "license": "MIT",
+   "description": "Create production-grade agent skills aligned with the 2026 AgentSkills.io",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/1947-skill-creator/7090-skill-creator"
+  },
+  {
+   "skill_id": 11338,
+   "skill": "agent-prompt-standards",
+   "plugin": "instructions",
+   "license": "MIT",
+   "description": "Agent prompt writing conventions enforced across all creator and auditor skills. Loaded by other skills, not invoked directly.",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/2808-instructions/11338-agent-prompt-standards"
+  },
+  {
+   "skill_id": 12691,
+   "skill": "plugin-feedback",
+   "plugin": "development-skills",
+   "license": "MIT",
+   "description": "Write development-skills feedback from observed work, or assess a report for useful simplifications.",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/2992-development-skills/12691-plugin-feedback"
+  },
+  {
+   "skill_id": 916,
+   "skill": "hook-development",
+   "plugin": "plugin-dev",
+   "license": "Apache-2.0",
+   "description": "This skill should be used when the user asks to \"create a hook\", \"add a PreToolUse/PostToolUse/Stop hook\", \"validate tool use\", \"implement prompt-based hooks\", \"use ${CLAUDE_PLUGIN",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/301-plugin-dev/916-hook-development"
+  }
+ ],
+ "kosif-integrator": [
+  {
+   "skill_id": 966,
+   "skill": "knowledge-synthesis",
+   "plugin": "enterprise-search",
+   "license": "Apache-2.0",
+   "description": "Combines search results from multiple sources into coherent, deduplicated answers with source attribution. Handles confidence scoring based on freshness and authority, and summariz",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/320-enterprise-search/966-knowledge-synthesis"
+  },
+  {
+   "skill_id": 4302,
+   "skill": "summarizer",
+   "plugin": "summarizer",
+   "license": "MIT",
+   "description": "Route requests to summarize files, URLs, images, inline text, or multiple sources. Select the requested format and preserve evidence, exact counts, uncertainty and source coverage ",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/1549-summarizer/4302-summarizer"
+  },
+  {
+   "skill_id": 4301,
+   "skill": "multi-source-synthesis",
+   "plugin": "summarizer",
+   "license": "MIT",
+   "description": "Integrate multiple source findings into an attributed synthesis or comparison. Use for combine these summaries, synthesize results, merge findings or multi-source analysis. Preserv",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/1549-summarizer/4301-multi-source-synthesis"
+  },
+  {
+   "skill_id": 10189,
+   "skill": "octopus-research",
+   "plugin": "claude-octopus",
+   "license": "MIT",
+   "description": "Thorough research across multiple sources — use for complex topics needing broad synthesis",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/2673-claude-octopus/10189-octopus-research"
+  },
+  {
+   "skill_id": 2523,
+   "skill": "orchestration-strategy",
+   "plugin": "orchestration-strategy",
+   "license": "MIT",
+   "description": "Use when facing multiple implementation tasks that could benefit from parallelization or when deciding between solo, parallel agent, sequential subagent, or agent team approaches",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/1108-orchestration-strategy/2523-orchestration-strategy"
+  },
+  {
+   "skill_id": 4320,
+   "skill": "docs-consolidate",
+   "plugin": "gates",
+   "license": "MIT",
+   "description": "Audit a repo's documentation for internal contradictions, stale claims, orphans and bloat after it has accumulated commits, then report findings for the user to disposition. Use wh",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/1554-gates/4320-docs-consolidate"
+  },
+  {
+   "skill_id": 11544,
+   "skill": "comparative-synthesis",
+   "plugin": "papersflow-codex-plugin",
+   "license": "MIT",
+   "description": "Compare and synthesize findings across multiple completed DeepScan reports. Use when the user wants cross-run analysis, trend comparison, or a unified summary from several research",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/2839-papersflow-codex-plugin/11544-comparative-synthesis"
+  },
+  {
+   "skill_id": 648,
+   "skill": "research-summarizer",
+   "plugin": "research-summarizer",
+   "license": "MIT",
+   "description": "Structured research summarization agent skill for non-dev users. Handles academic papers, web articles, reports, and documentation. Extracts key findings, generates comparative ana",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/202-research-summarizer/648-research-summarizer"
+  }
+ ],
+ "kosif-quality-gate": [
+  {
+   "skill_id": 12518,
+   "skill": "flow-verify",
+   "plugin": "pwdev-flow",
+   "license": "Apache-2.0",
+   "description": "Adversarially verify an implementation against its objective, acceptance criteria, definition of done, and prohibitions using fresh evidence. Use for completion gates, release read",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/2968-pwdev-flow/12518-flow-verify"
+  },
+  {
+   "skill_id": 12615,
+   "skill": "sdd-qa",
+   "plugin": "sdd-composy",
+   "license": "Apache-2.0",
+   "description": "Independent quality assurance for one SDD Composy task in qa_required: CA coverage, unit/integration/E2E, accessibility, responsiveness, environment, and evidence inventory, produc",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/2980-sdd-composy/12615-sdd-qa"
+  },
+  {
+   "skill_id": 13152,
+   "skill": "definition-of-done",
+   "plugin": "adlc-verify",
+   "license": "MIT",
+   "description": "Use when agents claim work is done prematurely, when standardizing the quality bar for agent-authored changes across teams, or when writing the verification section of a context fi",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/3052-adlc-verify/13152-definition-of-done"
+  },
+  {
+   "skill_id": 14503,
+   "skill": "verification-before-completion",
+   "plugin": "hotl",
+   "license": "MIT",
+   "description": "Use before claiming any work is complete, fixed, or passing — runs verification commands and confirms output before making success claims.",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/3606-hotl/14503-verification-before-completion"
+  },
+  {
+   "skill_id": 13159,
+   "skill": "verify-change",
+   "plugin": "adlc-verify",
+   "license": "MIT",
+   "description": "Use when the user invokes $verify-change, or asks to run the Definition of Done Check workflow from the adlc-verify plugin end to end.",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/3052-adlc-verify/13159-verify-change"
+  },
+  {
+   "skill_id": 4209,
+   "skill": "preflight",
+   "plugin": "condux",
+   "license": "MIT",
+   "description": "Lightweight \"am I actually done?\" checklist before calling /finalize. Prevents premature completion — catches skipped steps, missing behavior, and silent regressions.",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/1534-condux/4209-preflight"
+  },
+  {
+   "skill_id": 12557,
+   "skill": "qa-specialist-cicd",
+   "plugin": "pwdev-qa",
+   "license": "Apache-2.0",
+   "description": "Design deterministic CI quality gates that read the normalized manifest verdict independently from report-export process status.",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/2974-pwdev-qa/12557-qa-specialist-cicd"
+  },
+  {
+   "skill_id": 10116,
+   "skill": "grant-figure-qa",
+   "plugin": "grant",
+   "license": "BSD-3-Clause",
+   "description": "Use this skill to review grant proposal figures for compliance, resolution, accessibility, and quality. Triggers on \"check grant figures\", \"review proposal figures\", \"figure QA for",
+   "online_folder": "https://github.com/kosif199022-jpg/kosif-atlas/tree/main/skills/2658-grant/10116-grant-figure-qa"
+  }
+ ]
+}

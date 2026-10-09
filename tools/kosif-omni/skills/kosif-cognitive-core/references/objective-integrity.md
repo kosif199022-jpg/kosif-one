@@ -1,0 +1,2 @@
+# Objective Integrity / Goodhart Guard
+For optimization, ranking, KPI or score track: `true_objective`, `proxy`, `constraints`, `externalities`, `gaming_path`, `tail_risk`, `lock_in`, `guardrails`, and `reversal_condition`. Ask how an agent could improve the proxy while worsening the true objective. If plausible, direct outcome checks, multiple guardrails or human/verifier review are required. Never let router latency/cost optimization materially reduce evidence quality, reversibility or user-goal success.

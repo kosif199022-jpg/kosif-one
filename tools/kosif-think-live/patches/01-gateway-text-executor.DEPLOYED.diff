@@ -1,0 +1,52 @@
+--- a/worker.js
++++ b/worker.js
+@@ -1952,13 +1952,13 @@
+ const TOOLS=[
+   {
+     name:"kosif_full_pro_execute",
+-    description:"PRIMARY gateway for explicit Pro/Full Pro requests. Call this as the first substantive tool when the user asks for Pro, Full Pro, all experts, or all capabilities. It starts or resumes the durable KOSIF Full Pro pipeline and is the only allowed image execution path for that request. If status is running, do not call host-native image generation; call this tool again with the same request_id or report exact progress. If complete, it returns the Secure Executor artifact plus current-request receipts.",
++    description:"PRIMARY gateway for explicit Pro/Full Pro requests. Call this as the first substantive tool when the user asks for Pro, Full Pro, all experts, or all capabilities. It starts or resumes the durable KOSIF Full Pro pipeline and is the only allowed image execution path for that request. If status is running, do not call host-native image generation; call this tool again with the same request_id or report exact progress. If complete, it returns the Secure Executor artifact plus current-request receipts. For a question that needs a written answer pass executor:\"text\"; completion then returns text_result and final_answer.",
+     inputSchema:{
+       type:"object",
+       properties:{
+         request_id:{type:"string",description:"Stable idempotency key for this Full Pro request. Reuse exactly on every retry/resume."},
+         subject:{type:"string",description:"Complete user task to execute in Full Pro."},
+-        executor:{type:"string",enum:["image"]},
++        executor:{type:"string",enum:["image","text"],description:"image (default) or text: a question answered in writing; text returns text_result and final_answer instead of an image."},
+         visual:{type:"boolean"},
+         requires_shared_visual:{type:"boolean"},source_asset_hash:{type:"string",description:"Optional expected SHA-256 hex of the exact original visual asset."},source_asset_ref:{type:"string",description:"HTTPS image URL or data:image/...;base64 source for the exact original pixels. KOSIF fetches once, hashes, vision-probes and reuses the stored bytes for all 500 experts."},shared_visual_verified:{type:"boolean",description:"Deprecated caller hint; ignored as proof. Server verification is authoritative."},live_tools:{type:"array",items:{type:"string"},maxItems:200},available_tools:{type:"array",maxItems:200,items:{type:"object",properties:{name:{type:"string"},description:{type:"string"},connected:{type:"boolean"},costClass:{type:"string"},pluginId:{type:"string"},schemaHash:{type:"string"},version:{type:"string"},verbs:{type:"array",items:{type:"string"}},trustScore:{type:"number"},authState:{type:"string"},readOnlyHint:{type:"boolean"},destructiveHint:{type:"boolean"},idempotentHint:{type:"boolean"},openWorldHint:{type:"boolean"}},required:["name"],additionalProperties:true}},approved_tools:{type:"array",items:{type:"string"},maxItems:100},excluded_tools:{type:"array",items:{type:"string"},maxItems:100},budget_mode:{type:"string"},write_intent:{type:"boolean"},
+         confirmed_full_pro:{type:"boolean",enum:[true]}
+@@ -2359,17 +2359,21 @@
+   const id=text(args?.request_id,160),subject=text(args?.subject,12000);
+   if(!id||!subject) throw new Error("FULL_PRO_GATEWAY_INPUT_REQUIRED");
+   if(args?.confirmed_full_pro!==true) throw new Error("FULL_PRO_CONFIRMATION_REQUIRED");
+-  const executor=text(args?.executor||"image",40),visual=args?.visual!==false;
+-  if(executor!=="image") throw new Error("FULL_PRO_GATEWAY_EXECUTOR_UNSUPPORTED");
++  const executor=text(args?.executor||"image",40),visual=executor==="text"?false:args?.visual!==false;
++  if(!["image","text"].includes(executor)) throw new Error("FULL_PRO_GATEWAY_EXECUTOR_UNSUPPORTED");
+   let meta=await fpGet(env,fpReqKey(id));
+   if(!meta){
+-    await fullProStart(env,{request_id:id,subject,executor:"image",visual,requires_shared_visual:args?.requires_shared_visual===true,source_asset_hash:args?.source_asset_hash,source_asset_ref:args?.source_asset_ref,shared_visual_verified:args?.shared_visual_verified===true,live_tools:args?.live_tools,available_tools:args?.available_tools,approved_tools:args?.approved_tools,excluded_tools:args?.excluded_tools,budget_mode:args?.budget_mode,write_intent:args?.write_intent===true},false);
++    await fullProStart(env,{request_id:id,subject,executor,visual,requires_shared_visual:args?.requires_shared_visual===true,source_asset_hash:args?.source_asset_hash,source_asset_ref:args?.source_asset_ref,shared_visual_verified:args?.shared_visual_verified===true,live_tools:args?.live_tools,available_tools:args?.available_tools,approved_tools:args?.approved_tools,excluded_tools:args?.excluded_tools,budget_mode:args?.budget_mode,write_intent:args?.write_intent===true},false);
+     meta=await fpGet(env,fpReqKey(id));
+   }else if(meta.subject!==subject||meta.executor!==executor||meta.visual!==visual){
+     throw new Error("FULL_PRO_REQUEST_CONFLICT");
+   }
+   const status=await fullProStatus(env,{request_id:id});
+   const state=String(status?.status||"");
++  if(state==="complete"&&meta.executor==="text"){
++    if(!status?.text_result||!status?.final_answer) throw new Error("FULL_PRO_TEXT_RESULT_MISSING");
++    return {kind:"complete",data:{...status,mode:"full_pro_gateway",gateway:"kosif_full_pro_execute",host_directive:"FULL_PRO_COMPLETE_TEXT_RESULT",executor_policy:"KOSIF_TEXT_RESULT_ONLY"}};
++  }
+   if(state==="complete"){
+     const artifact=await fpGet(env,fpArtifactKey(id));
+     if(!artifact?.data||!artifact?.receipt?.result_digest) throw new Error("FULL_PRO_ARTIFACT_MISSING");
+@@ -2382,7 +2386,7 @@
+   if(/^(failed|blocked|cancelled|bypass)/.test(state)){
+     return {kind:"terminal",data:{...status,mode:"full_pro_gateway",gateway:"kosif_full_pro_execute",host_directive:"FULL_PRO_TERMINAL_FAIL_CLOSED_NO_HOST_NATIVE_FALLBACK",executor_policy:"KOSIF_SECURE_EXECUTOR_ONLY"}};
+   }
+-  return {kind:"running",data:{...status,mode:"full_pro_gateway",gateway:"kosif_full_pro_execute",host_directive:"FULL_PRO_IN_PROGRESS_NO_HOST_NATIVE_FALLBACK",executor_policy:"KOSIF_SECURE_EXECUTOR_ONLY",next_action:{tool:"kosif_full_pro_execute",request_id:id,subject,executor:"image",visual,requires_shared_visual:args?.requires_shared_visual===true,source_asset_hash:args?.source_asset_hash||null,source_asset_ref:args?.source_asset_ref||null,shared_visual_verified:args?.shared_visual_verified===true,live_tools:Array.isArray(args?.live_tools)?args.live_tools:[],available_tools:Array.isArray(args?.available_tools)?args.available_tools:[],approved_tools:Array.isArray(args?.approved_tools)?args.approved_tools:[],excluded_tools:Array.isArray(args?.excluded_tools)?args.excluded_tools:[],budget_mode:args?.budget_mode||"default",write_intent:args?.write_intent===true,confirmed_full_pro:true}}};
++  return {kind:"running",data:{...status,mode:"full_pro_gateway",gateway:"kosif_full_pro_execute",host_directive:"FULL_PRO_IN_PROGRESS_NO_HOST_NATIVE_FALLBACK",executor_policy:"KOSIF_SECURE_EXECUTOR_ONLY",next_action:{tool:"kosif_full_pro_execute",request_id:id,subject,executor,visual,requires_shared_visual:args?.requires_shared_visual===true,source_asset_hash:args?.source_asset_hash||null,source_asset_ref:args?.source_asset_ref||null,shared_visual_verified:args?.shared_visual_verified===true,live_tools:Array.isArray(args?.live_tools)?args.live_tools:[],available_tools:Array.isArray(args?.available_tools)?args.available_tools:[],approved_tools:Array.isArray(args?.approved_tools)?args.approved_tools:[],excluded_tools:Array.isArray(args?.excluded_tools)?args.excluded_tools:[],budget_mode:args?.budget_mode||"default",write_intent:args?.write_intent===true,confirmed_full_pro:true}}};
+ }
+ 
+ function receiptFor(tool,started,data){

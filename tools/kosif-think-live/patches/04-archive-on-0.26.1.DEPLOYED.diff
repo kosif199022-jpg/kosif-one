@@ -1,0 +1,92 @@
+--- a/worker.js
++++ b/worker.js
+@@ -3023,6 +3023,7 @@
+     throw new Error("FULL_PRO_REQUEST_CONFLICT");
+   }
+   const status = await fullProStatus(env, { request_id: id });
++  status.archive_url = await fpArchiveUrl(env, id);
+   const state = String(status?.status || "");
+   if (state === "complete" && meta.executor === "text") {
+     if (!status?.text_result || !status?.final_answer) throw new Error("FULL_PRO_TEXT_RESULT_MISSING");
+@@ -6708,6 +6709,73 @@
+ function fpArtifactKey(id) {
+   return "fp:artifact:" + id;
+ }
++// Per-request archive: a private capability URL (/requests/<id>/<128-bit key>/) that serves everything stored for one request.
++// The key lives in its own KV record so concurrent meta writes from the finalizer can never change it.
++const FP_ARCHIVE_FILES=new Set(["","status.json","request.json","experts.json","pipeline.json","result.md"]);
++function fpArchiveKeyKey(id){return "fp:archivekey:"+id;}
++async function fpArchiveKey(env,id,create){
++  let v=await env.FULL_PRO_STATE.get(fpArchiveKeyKey(id));
++  if(!v&&create){
++    const b=new Uint8Array(16);crypto.getRandomValues(b);
++    await env.FULL_PRO_STATE.put(fpArchiveKeyKey(id),[...b].map(x=>x.toString(16).padStart(2,"0")).join(""));
++    v=await env.FULL_PRO_STATE.get(fpArchiveKeyKey(id));
++  }
++  return v||null;
++}
++async function fpArchiveUrl(env,id){
++  try{const key=await fpArchiveKey(env,id,true);return key?AUTH0_AUDIENCE+"/requests/"+encodeURIComponent(id)+"/"+key+"/":null;}catch(_){return null;}
++}
++function fpSameKey(a,b){
++  a=String(a||"");b=String(b||"");if(!a||a.length!==b.length)return false;
++  let d=0;for(let i=0;i<a.length;i++)d|=a.charCodeAt(i)^b.charCodeAt(i);return d===0;
++}
++function fpEsc(s){return String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));}
++function fpArchiveResult(meta){
++  const lines=["# "+(meta.subject||meta.request_id),"","- request_id: `"+meta.request_id+"`","- executor: "+(meta.executor||"image"),"- status: "+(meta.status||"unknown"),"- started: "+(meta.started_at||"")+" · updated: "+(meta.updated_at||"")];
++  if(meta.last_error)lines.push("- last_error: `"+meta.last_error+"`");
++  const tr=meta.text_result,hp=meta.host_image_prompt;
++  if(tr&&tr.answer){
++    lines.push("","## Answer","",String(tr.answer));
++    for(const [k,label] of [["evidence","Evidence"],["uncertainty","Uncertainty"],["objections","Objections"]])
++      if(Array.isArray(tr[k])&&tr[k].length)lines.push("","### "+label,"",...tr[k].map(x=>"- "+(typeof x==="string"?x:JSON.stringify(x))));
++    if(tr.confidence!=null)lines.push("","Confidence: "+tr.confidence);
++  }else if(hp&&hp.render_prompt){
++    lines.push("","## Image prompt","","```text",String(hp.render_prompt),"```","","- aspect ratio: "+(hp.aspect_ratio||""));
++    if(Array.isArray(hp.negative_constraints)&&hp.negative_constraints.length)lines.push("- negative: "+hp.negative_constraints.join("; "));
++  }else{
++    lines.push("","## Result","","No final result yet (status: "+(meta.status||"unknown")+").");
++  }
++  return lines.join("\n")+"\n";
++}
++async function fullProArchiveRoute(env,url,req){
++  const hdr={"x-robots-tag":"noindex, nofollow"};
++  const notFound=()=>json({error:"not_found"},404,hdr);
++  if(req.method!=="GET"&&req.method!=="HEAD")return json({error:"method_not_allowed"},405,{allow:"GET, HEAD"});
++  const m=url.pathname.match(/^\/requests\/([A-Za-z0-9._:-]{1,160})\/([0-9a-f]{32})\/?([a-z.]*)$/);
++  if(!m||!env.FULL_PRO_STATE||!FP_ARCHIVE_FILES.has(m[3]))return notFound();
++  const id=m[1],file=m[3];
++  if(!fpSameKey(await fpArchiveKey(env,id,false),m[2]))return notFound();
++  const meta=await fpGet(env,fpReqKey(id));if(!meta)return notFound();
++  if(file==="status.json")return json(await fullProStatus(env,{request_id:id}),200,hdr);
++  if(file==="request.json"){const {source_asset_ref,...rest}=meta;return json(rest,200,hdr);}
++  if(file==="pipeline.json")return json({request_id:id,semantic_clusters:meta.c500_cluster_receipts||[],candidates:meta.c500_candidates||[],missing_voice:meta.c500_missing_voice_receipt||null,jev_round_a:meta.c500_jev_round_a||[],finalists:meta.c500_finalists||[],challenger:meta.c500_challenger_receipt||null,jev_round_b:meta.c500_jev_round_b||[],tool_arbitration:meta.c500_tool_arbitration||null,cross_expert:meta.cross_expert_receipt||null,einstein_stages:meta.einstein_stage_receipts||[],scene_spec:meta.scene_spec||null,text_result:meta.text_result||null,final_stability:meta.final_stability_receipts||[],host_image_prompt:meta.host_image_prompt||null},200,hdr);
++  if(file==="experts.json"){
++    const roster=Array.isArray(meta.roster)?meta.roster:[],experts=[];
++    for(let i=0;i<roster.length;i+=50){const ids=roster.slice(i,i+50),rows=await Promise.all(ids.map(eid=>fpGet(env,c500ExpKey(id,eid))));rows.forEach((r,j)=>experts.push(r||{expert_id:ids[j],pending:true}));}
++    return json({request_id:id,completed:experts.filter(x=>!x.pending).length,experts},200,{...hdr,"content-disposition":'attachment; filename="'+id+'-experts.json"'});
++  }
++  if(file==="result.md")return new Response(fpArchiveResult(meta),{headers:{...BASE_HEADERS,...hdr,"content-type":"text/markdown; charset=utf-8"}});
++  const st=await fullProStatus(env,{request_id:id}).catch(()=>null);
++  const tr=meta.text_result,hp=meta.host_image_prompt;
++  const result=tr&&tr.answer?"<h2>الجواب</h2><div class=box>"+fpEsc(tr.answer)+"</div>":hp&&hp.render_prompt?"<h2>برومبت الصورة</h2><pre class=box dir=ltr>"+fpEsc(hp.render_prompt)+"</pre>":"<p>لا توجد نتيجة نهائية بعد.</p>";
++  const files=[["result.md","النتيجة (Markdown)"],["experts.json","مخرجات الخبراء الـ500"],["pipeline.json","المجموعات وJev وآينشتاين والاستقرار"],["status.json","الحالة الكاملة"],["request.json","سجل الطلب"]];
++  const page="<!doctype html><html lang=ar dir=rtl><head><meta charset=utf-8><meta name=viewport content='width=device-width,initial-scale=1'><meta name=robots content='noindex,nofollow'><title>KOSIF · "+fpEsc(id)+"</title><style>body{font:16px/1.7 system-ui,sans-serif;max-width:860px;margin:0 auto;padding:16px;background:#fafafa;color:#1b1b1b}.box{background:#fff;border:1px solid #ddd;border-radius:8px;padding:12px;white-space:pre-wrap;overflow-wrap:anywhere}code{background:#eee;padding:1px 4px;border-radius:4px}@media(prefers-color-scheme:dark){body{background:#151515;color:#eee}.box{background:#1f1f1f;border-color:#333}code{background:#2a2a2a}a{color:#8ab4ff}}</style></head><body>"
++    +"<h1>أرشيف طلب KOSIF Full Pro</h1><p><b>الطلب:</b> "+fpEsc(meta.subject)+"</p><p><b>المعرّف:</b> <code>"+fpEsc(id)+"</code> · <b>النوع:</b> "+fpEsc(meta.executor||"image")+" · <b>الحالة:</b> <code>"+fpEsc(st?.status||meta.status)+"</code>"+(meta.last_error?" · <b>الخطأ:</b> <code>"+fpEsc(meta.last_error)+"</code>":"")+"</p>"
++    +"<p>"+fpEsc(st?.progress?.text_ar||"")+"</p>"+result
++    +"<h2>الملفات</h2><ul>"+files.map(([f,l])=>"<li><a href='"+f+"'>"+l+"</a> <code>"+f+"</code></li>").join("")+"</ul>"
++    +"<p style='color:#888'>بدأ "+fpEsc(meta.started_at)+" · آخر تحديث "+fpEsc(meta.updated_at)+"</p></body></html>";
++  return new Response(page,{headers:{...BASE_HEADERS,...hdr,"content-type":"text/html; charset=utf-8"}});
++}
+ __name(fpArtifactKey, "fpArtifactKey");
+ async function fullProRunHarvestPair(env, args, existing, extraAvoid = {}) {
+   const shards = existing && typeof existing === "object" ? existing : {};
+@@ -7512,6 +7580,7 @@
+         bearer_methods_supported: ["header"]
+       });
+     }
++    if (url.pathname.startsWith("/requests/")) return fullProArchiveRoute(env, url, req);
+     const versionedMcp = url.pathname === VERSIONED_MCP_PATH || url.pathname === COMPAT_VERSIONED_MCP_PATH || url.pathname === SECONDARY_COMPAT_VERSIONED_MCP_PATH || url.pathname === TERTIARY_COMPAT_VERSIONED_MCP_PATH || url.pathname === LEGACY_VERSIONED_MCP_PATH;
+     const pathToken = !versionedMcp && PATH_TOKEN.test(url.pathname) && String(env.THINK_ALLOW_PATH_TOKEN || "").toLowerCase() === "true";
+     if (url.pathname !== "/mcp" && !versionedMcp && !pathToken) return json({ error: "not_found" }, 404);

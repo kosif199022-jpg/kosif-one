@@ -1,0 +1,53 @@
+{
+  "duration": 48.0,
+  "size_bytes": 4717264,
+  "width": 540,
+  "height": 960,
+  "video_codec": "h264",
+  "audio_codec": "aac",
+  "sha256": "458b98fcdc1bca19c7dc8ce20a300cc98820ecc84d9980cbfe2b6314896bbd5d",
+  "project": "الغربة",
+  "preview": true,
+  "sources_count": 7,
+  "audio_original": "ghorba_song.mp3",
+  "source_licensing": "Not verified. Private creative preview; check reuse rights before publication.",
+  "scenes": [
+    {
+      "filename": "plane_window_592082682294635799.mp4",
+      "seconds": 6.8,
+      "title": "الغُربة"
+    },
+    {
+      "filename": "airport_pov_228346643601270594.mp4",
+      "seconds": 5.2,
+      "title": "لحظة الوداع"
+    },
+    {
+      "filename": "night_drive_974044225659519047.mp4",
+      "seconds": 7.0,
+      "title": "شوارع بعيدة"
+    },
+    {
+      "filename": "rain_window_47780446041246596.mp4",
+      "seconds": 5.0,
+      "title": "وراء المطر"
+    },
+    {
+      "filename": "walking_rain_394557617374323837.mp4",
+      "seconds": 7.6,
+      "title": "الوحدة"
+    },
+    {
+      "filename": "rain_cinema_1125688869367996082.mp4",
+      "seconds": 6.8,
+      "title": "الأهل"
+    },
+    {
+      "filename": "plane_sunrise_983051425071690194.mp4",
+      "seconds": 9.6,
+      "title": "وفي آخر الليل"
+    }
+  ],
+  "created": "2026-10-09T19:48:35",
+  "opened_on_pc": true
+}

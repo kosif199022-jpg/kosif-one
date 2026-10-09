@@ -1,0 +1,16 @@
+{
+  "name": "kosif-think-live",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "node --test test/gateway-text.test.mjs test/archive.test.mjs test/scene-grounding.test.mjs test/scene-quality.test.mjs test/stability-criteria.test.mjs"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "devDependencies": {
+    "wrangler": "^4.147.0"
+  }
+}
